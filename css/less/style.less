@@ -1,0 +1,166 @@
+/*
+
+--------------------------------------------------
+MAIN CONFIGURATION
+Variables and Imports
+
+Website: Hellomoon
+Authors: Tom Benbow
+--------------------------------------------------
+
+*/
+
+
+// BASELINE GRID SIZE
+//----------------------------------------------------
+@desktop-grid-size: 	10px;
+@mobile-grid-size: 		9px;
+
+
+// BREAKPOINTS
+//----------------------------------------------------
+@mobile:    		 	~"only screen and (max-width: 768px)"; // All Mobile Sizes
+@desktop:   			~"only screen and (min-width: 769px)"; // All Desktop Sizes
+@mobile-small:      	~"only screen and (min-width: 320px) and (max-width: 420px)";
+@mobile-large:	 		~"only screen and (min-width: 421px) and (max-width: 768px)";
+@desktop-small:	 		~"only screen and (min-width: 769px) and (max-width: 1200px)";
+@desktop-medium:		~"only screen and (min-width: 1200px) and (max-width: 1400px)";
+@desktop-large:			~"only screen and (min-width: 1550px)";
+
+
+// MAX/MIN WIDTHS
+//----------------------------------------------------
+@max-width-desktop:		980px;
+@min-width-desktop:		980px;
+@max-width-mobile:		100%;
+@min-width-mobile:		100%;
+
+
+// COLORS
+//----------------------------------------------------
+
+// DEFAULT COLORS
+@primary:         		#149dee;
+@secondary:				black;
+
+// GRAYS
+@black:					#000000;
+@gray-dark:				#18181b;
+@gray:					#242427;
+@gray-light:			#636367;
+@white:					#ffffff;
+
+// CUSTOM COLORS
+
+
+
+// FONTS
+//----------------------------------------------------
+@font-face {
+	font-family: biome;
+	src: url("fonts/BiomePro-Narrow.eot") format("eot"),
+		 url("fonts/BiomePro-Narrow.woff") format("woff"),
+		 url("fonts/BiomePro-Narrow.ttf") format("truetype");
+	font-weight: normal;
+}
+@font-face {
+	font-family: biome;
+	src: url("fonts/BiomePro-BoldNarrow.eot") format("eot"),
+	     url("fonts/BiomePro-BoldNarrow.woff") format("woff"),
+		 url("fonts/BiomePro-BoldNarrow.ttf") format("truetype");
+	font-weight: bold;
+}
+@font-face {
+	font-family: biome-light;
+	src: url("fonts/BiomePro-LightNarrow.eot") format("eot"),
+		 url("fonts/BiomePro-LightNarrow.woff") format("woff"),
+		 url("fonts/BiomePro-LightNarrow.ttf") format("truetype");
+	font-weight: normal;
+}
+
+@font-family-sans:			"biome", Helvetica, Arial, sans-serif;
+@font-family-sans-light:	"biome-light", Helvetica, Arial, sans-serif;
+@font-family-sans-bold:		"biome-bold", Helvetica, Arial, sans-serif;
+@font-family-serif:			Georgia, "Times New Roman", Times, serif;
+@font-family-mono:			Menlo, Monaco, Consolas, "Courier New", monospace;
+
+
+// TYPOGRAPHY
+//----------------------------------------------------
+
+// FONT FAMILY
+@font-family-base:			@font-family-sans;
+@font-family-h1:			@font-family-sans-bold;
+@font-family-h2:			@font-family-sans-bold;
+@font-family-h3:			@font-family-sans-bold;
+@font-family-h4:			@font-family-sans-bold;
+@font-family-h5:			@font-family-sans-bold;
+@font-family-h6:			@font-family-sans-bold;
+@font-family-subhead: 		@font-family-sans;
+@font-family-body: 			@font-family-sans;
+@font-family-lead: 			@font-family-sans-light;
+@font-family-small:			@font-family-sans;
+@font-family-nav: 			@font-family-sans;
+
+// COLOR
+@body-text-color:		@white;
+@body-bg:               @gray-dark;
+@header-bg:				transparent;
+@footer-bg:				transparent;
+@subhead-color:         @gray-light;
+@link-color:            @primary;
+@link-hover-color:      darken(@link-color, 15%);
+
+// SIZE
+@font-size-h1:			2.4rem;
+@font-size-h2:			1.6rem;
+@font-size-h3:			1rem;
+@font-size-h4:			1rem;
+@font-size-h5:			1rem;
+@font-size-h6:			1rem;
+@font-size-subhead: 	1.5rem;
+@font-size-subhead-big: 1rem;
+@font-size-lead: 		1.2rem;
+@font-size-body: 		1.5rem;
+@font-size-small:		.8rem;
+
+// BASELINE SHIFT
+@baseline-shift-h1:		-.5rem;
+@baseline-shift-h2:		.2rem;
+@baseline-shift-h3:		.5rem;
+@baseline-shift-h4:		-.5rem;
+@baseline-shift-h5:		-.4rem;
+@baseline-shift-h6:		-.3rem;
+@baseline-shift-subhead: .3rem;
+@baseline-shift-p:		-.3rem;
+@baseline-shift-li:		.5rem;
+@baseline-shift-sup:	.2rem;
+
+
+// IMPORT CORE
+//----------------------------------------------------
+@import "core/defaults.less";
+@import "core/type.less";
+
+
+// IMPORT MIXINS
+//----------------------------------------------------
+@import "mixins/checkerboard.less";
+@import "mixins/grid.less";
+
+
+// IMPORT COMPONENTS
+//----------------------------------------------------
+@import "components/pagelogo.less";
+@import "components/pagedots.less";
+@import "components/pagearrows.less";
+@import "components/pagesections.less";
+@import "components/projects.less";
+@import "components/modal.less";
+
+
+// IMPORT EXTEND
+//----------------------------------------------------
+@import "extend.less";
+
+

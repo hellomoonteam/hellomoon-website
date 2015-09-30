@@ -1,0 +1,128 @@
+
+// MODAL
+//----------------------------------------------------
+
+.modal {
+	background: white;
+	position: fixed;
+	z-index: 1;
+	top: 100%;
+	padding: 8rem 8rem 0 8rem;
+	width: 100%;
+	overflow: auto;
+
+	.modal-close {
+		position: fixed;
+		top: 100%;
+		right: 3rem;
+		z-index: 2;
+		display: block;
+		background: black;
+		width: 4rem;
+		height: 4rem;
+		cursor: pointer;
+
+		&:hover {
+			background: red;
+		}
+	}
+
+
+
+	// MODAL HEADLINE
+	//----------------------------------------------------
+	
+	.headline {
+		text-align: center;
+		margin-top: 8rem;
+		margin-bottom: 16rem;
+
+		h1 {
+			color: @primary;
+			margin: 0;
+			font-size: 5rem;
+			font-family: @font-family-sans-bold;
+		}
+		h3.-subtitle {
+			color: @gray-light;
+			margin: 1rem 0 0 0;
+			font-size: 2rem;
+			font-family: @font-family-sans-light;
+		}
+	}
+
+
+	// MODAL DESCRIPTION
+	//----------------------------------------------------
+	.description {
+		.grid;
+		margin: 0 -2rem 8rem -2rem; // Gutter Adjustment
+
+		.text {
+			.grid-col;
+			.-width-1-4;
+			padding: 0 2rem; // Gutter Adjustment
+		}
+		.photo {
+			.grid-col;
+			.-width-3-4;
+			padding: 0 2rem; // Gutter Adjustment
+		}
+
+	}
+	.description.-flipped {
+		.text {
+			float: right;
+		}
+		.photo {
+			float: left;
+		}
+	}
+
+	// MODAL FULL IMAGE
+	//----------------------------------------------------
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	& > img {
+		margin-bottom: 8rem;
+	}
+
+	h2 {
+		color: @primary;
+		margin: 4rem 0 2rem 0;
+		line-height: 4rem;
+		font-size: 1.8em;
+		font-family: @font-family-sans-bold;
+	}
+	p {
+		color: @gray-light;
+		margin: 0 0 2rem 0;
+		font-size: 1.6rem;
+		line-height: 4rem;
+	}
+	p.-lead {
+		width: 75%;
+		margin: 0 auto 8rem auto;
+		text-align: center;
+		font-size: 2rem;
+		font-family: @font-family-sans-light;
+	}
+}
+
+// STATES
+.modal.is-active {
+	position: relative;
+	top: 0;
+
+	.modal-close {
+		top: 3rem;
+	}
+}
+
+// ANIMATION
+.modal {
+	transition: top .6s;
+}

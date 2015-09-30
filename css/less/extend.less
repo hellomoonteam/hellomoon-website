@@ -1,0 +1,147 @@
+/*
+
+EXTEND
+--------------------------------------------------
+Customizations to components and temporary storage
+for new components.
+--------------------------------------------------
+
+*/
+
+html,
+body {
+	height: 100%;
+	background: black;
+}
+
+.subhead {
+	line-height: 2rem;
+	margin-bottom: 1rem;
+}
+
+
+// NAV
+//----------------------------------------------------
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	pointer-events: none;
+}
+
+// STATES
+nav.is-behind {
+	transform: scale(.85) translatey(-0%);
+	opacity: .4;
+}
+
+// ANIMATION
+nav {
+	transition: transform .6s, opacity .6s;
+}
+
+
+// LOGO
+//----------------------------------------------------
+.logo {
+	position: fixed;
+	top: 3rem;
+	left: 3rem;
+	z-index: 1;
+	display: block;
+	width: 3rem;
+	height: 4rem;
+	background: url(img/hellomoon_h.svg) no-repeat top left;
+	background-size: contain;
+}
+
+// STATES
+body.is-menu-active .logo {
+	top: -6rem;
+}
+.logo.is-hidden {
+	top: -6rem;
+}
+
+// ANIMATION
+.logo {
+	transition: top .4s;
+}
+
+// WORK PAGE
+//----------------------------------------------------
+#work {
+	.main {
+		position: relative;
+		float: left;
+		padding-left: 1rem;
+		width: 80%;
+		height: 100%;
+	}
+	.sidebar {
+		float: left;
+		padding-top: 6rem;
+		padding-right: 1rem;
+		width: 20%;
+		height: 100%;
+	}
+}
+
+// HELLO PAGE
+//----------------------------------------------------
+#hello {
+	.big-logo {
+		height: 100%;
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 25%;
+			width: 50%;
+			transform: translatey(-50%);
+			height: auto;
+		}
+	}
+}
+
+
+// ABOUT PAGE
+//----------------------------------------------------
+#about {
+	.tagline {
+		height: 100%;
+		img {
+			position: absolute;
+			top: 50%;
+			left: 25%;
+			width: 50%;
+			transform: translatey(-50%);
+			height: auto;
+		}
+	}
+}
+
+
+// CONTACT PAGE
+//----------------------------------------------------
+#contact {
+	.contact-wrap { // used for vertical centering
+		.main {
+		float: left;
+		padding-right: 1rem;
+		width: 80%;
+		}
+		.form {
+			float: right;
+			padding-left: 1rem;
+			width: 20%;
+		}
+	}
+}
+
+
+
+
