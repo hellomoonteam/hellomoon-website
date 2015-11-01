@@ -1,0 +1,59 @@
+
+// DETAIL
+// Used for project details in modal
+//----------------------------------------------------
+.detail {
+	.grid;
+	margin: 0 -2rem 8rem -2rem; // Gutter Adjustment
+}
+.detail_text {
+	.grid-col;
+	.-width-1-4;
+	padding: 0 2rem; // Gutter Adjustment
+
+	h2 {
+		color: @primary;
+		margin: 4rem 0 2rem 0;
+		line-height: 4rem;
+		font-size: 1.8em;
+		font-family: @font-family-sans-bold;
+	}
+	p {
+		color: @gray-light;
+		margin: 0 0 2rem 0;
+		line-height: 4rem;
+	}
+}
+.detail_photo {
+	.grid-col;
+	.-width-3-4;
+	padding: 0 2rem; // Gutter Adjustment
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+
+// MODIFIERS
+.detail.-flipped {
+	.detail_text {
+		float: left;
+	}
+	.detail_photo {
+		float: right;
+	}
+}
+.detail.-small {
+	.detail_text {
+		.-width-3-4;
+		
+		h2 {
+			margin: 0rem 0 1rem 0;
+		}
+	}
+	.detail_photo {
+		.-width-1-4;
+	}
+}
