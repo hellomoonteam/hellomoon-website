@@ -3,7 +3,7 @@
 //----------------------------------------------------
 
 .modal {
-	background: white;
+	background: @gray-lightest;
 	position: relative;
 	// position: fixed;
 	z-index: 1;
@@ -13,22 +13,20 @@
 
 	.modal_content {
 		margin: 0 auto;
+		max-width: 1000px;
 	}
 	.modal_close {
 		position: absolute;
-		// position: fixed;
+		position: fixed;
 		top: 3rem;
 		right: 3rem;
 		z-index: 3;
 		display: block;
-		background: black;
+		background: url(img/close.svg) no-repeat center center;
 		width: 4rem;
 		height: 4rem;
 		cursor: pointer;
-
-		&:hover {
-			background: red;
-		}
+		text-indent: -999rem;
 	}
 	
 }

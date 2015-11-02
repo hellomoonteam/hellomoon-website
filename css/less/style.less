@@ -21,11 +21,12 @@ Authors: Tom Benbow
 //----------------------------------------------------
 @mobile:    		 	~"only screen and (max-width: 768px)"; // All Mobile Sizes
 @desktop:   			~"only screen and (min-width: 769px)"; // All Desktop Sizes
-@mobile-small:      	~"only screen and (min-width: 320px) and (max-width: 420px)";
-@mobile-large:	 		~"only screen and (min-width: 421px) and (max-width: 768px)";
-@desktop-small:	 		~"only screen and (min-width: 769px) and (max-width: 1200px)";
-@desktop-medium:		~"only screen and (min-width: 1200px) and (max-width: 1400px)";
-@desktop-large:			~"only screen and (min-width: 1550px)";
+
+@mobile-small:      	~"only screen and (min-width: 320px) and (max-width: 550px)";
+@mobile-large:	 		~"only screen and (min-width: 551px) and (max-width: 768px)";
+@desktop-small:	 		~"only screen and (min-width: 769px) and (max-width: 1050px)";
+@desktop-medium:		~"only screen and (min-width: 1051px) and (max-width: 1400px)";
+@desktop-large:			~"only screen and (min-width: 1401px)";
 
 
 // MAX/MIN WIDTHS
@@ -48,6 +49,7 @@ Authors: Tom Benbow
 @gray-dark:				#18181b;
 @gray:					#242427;
 @gray-light:			#636367;
+@gray-lightest:			#e5e5eb;
 @white:					#ffffff;
 
 // CUSTOM COLORS
@@ -90,12 +92,12 @@ Authors: Tom Benbow
 
 // FONT FAMILY
 @font-family-base:			@font-family-sans;
-@font-family-h1:			@font-family-sans-bold;
-@font-family-h2:			@font-family-sans-bold;
-@font-family-h3:			@font-family-sans-bold;
-@font-family-h4:			@font-family-sans-bold;
-@font-family-h5:			@font-family-sans-bold;
-@font-family-h6:			@font-family-sans-bold;
+@font-family-h1:			@font-family-sans-light;
+@font-family-h2:			@font-family-sans-light;
+@font-family-h3:			@font-family-sans-light;
+@font-family-h4:			@font-family-sans-light;
+@font-family-h5:			@font-family-sans-light;
+@font-family-h6:			@font-family-sans-light;
 @font-family-subhead: 		@font-family-sans;
 @font-family-body: 			@font-family-sans;
 @font-family-lead: 			@font-family-sans-light;
@@ -121,7 +123,7 @@ Authors: Tom Benbow
 @font-size-subhead: 	1.5rem;
 @font-size-subhead-big: 1rem;
 @font-size-lead: 		1.2rem;
-@font-size-body: 		1.6rem;
+@font-size-body: 		1.8rem;
 @font-size-small:		.8rem;
 
 // BASELINE SHIFT
@@ -159,6 +161,14 @@ Authors: Tom Benbow
 @import "components/modal.less";
 @import "components/detail.less";
 @import "components/feature.less";
+@import "components/intro.less";
+@import "components/image-full.less";
+@import "components/image-grid.less";
+@import "components/image-slider.less";
+@import "components/image-shuffle.less";
+@import "components/image-overlay.less";
+@import "components/image-layers.less";
+@import "components/text-block.less";
 
 
 // IMPORT EXTEND
