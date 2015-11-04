@@ -129,15 +129,73 @@ body.is-menu-active .logo {
 //----------------------------------------------------
 #contact {
 	.contact-wrap { // used for vertical centering
+		padding-top:15rem;
 		.main {
 		float: left;
 		padding-right: 1rem;
-		width: 80%;
+		width: 70%;
+		article {
+			padding: 4rem 0;
+		}
+		.contact {
+			&:not(:last-child){
+				margin-right:4rem;
+			}
+			max-width:20rem;
+			display: inline-block;
+			h3 {
+				font-size: 1.8rem;
+			}
+			a[href*="tel"] {
+				color:@white;
+			}
+			.icon {
+				&:not(:last-child){
+					margin-right:1rem;
+				}
+				display:inline-block;
+				font-size: 0;
+				width:45px;
+				height:45px;
+				background: #2E2E2E;
+			}
+		}
 		}
 		.form {
 			float: right;
 			padding-left: 1rem;
-			width: 20%;
+			width: 30%;
+			background:#2E2E2E;
+			padding:3rem;
+			fieldset {
+				//override previous styles: not sure if we need other base styles
+				border:0;
+				margin:0;
+				padding:0;
+				color:#2E2E2E;
+			}
+			input, textarea, button {
+				background: #232323;
+				border:0;
+				padding:1.15rem;
+				color:inherit;
+				&::placeholder {
+					color:#2E2E2E;
+				}
+			}
+			input, textarea {
+				width: 100%;
+				margin-bottom:1.5rem;
+			}
+			textarea {
+				height:12vh; 
+			}
+			button {
+				width:17rem;
+				margin:1rem auto 0 auto;
+				display: block;
+				text-transform: uppercase;
+			}
 		}
 	}
 }
