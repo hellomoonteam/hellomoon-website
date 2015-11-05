@@ -1,0 +1,5 @@
+# Name of your blog (this will show up at the top of your page and in the RSS feed)
+name: Hellomoon
+
+# Exclude metadata and development time dependencies
+exclude: [README.markdown, package.json, gulpfile.js, node_modules]
