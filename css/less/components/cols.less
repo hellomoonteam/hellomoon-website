@@ -19,10 +19,24 @@
 		transform: translate(-50%,-50%);
 		height: 1px; // 1px height so children center from the middle
 	}
-	.col {
-		transform: translateY(-50%);
+	&.is-centered {
+		margin: 0 auto;
+		text-align: center;
+	}
+	&.is-full {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		height: 100%;
+		padding-top: 11rem; 
+		padding-bottom: 5rem;
+	}
+	&.is-gutters {
+		width: 102rem;
 	}
 }
+
 
 // COL
 //----------------------------------------------------
@@ -53,4 +67,19 @@
 	&.is-padded-right {
 		padding-right: 10%;
 	}
+	&.is-1-5 {
+		width: 20%;
+	}
+}
+.cols.is-middle .col {
+	transform: translateY(-50%);
+}
+.cols.is-centered .col {
+	float: none;
+}
+.cols.is-2-row .col {
+	height: 50%;
+}
+.cols.is-gutters .col {
+	padding: 1rem;
 }

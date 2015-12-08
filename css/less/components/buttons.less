@@ -2,6 +2,7 @@
 //----------------------------------------------------
 
 .button {
+	position: relative;
 	display: inline-block;
 	color: white;
 	background: @primary;
@@ -13,6 +14,13 @@
 	height: 4rem;
 	line-height: 4.2rem;
 	font-size: @font-size-small;
+}
+.button_icon {
+	position: absolute;
+	top: .5rem;
+	left: .5rem;
+	width: 3rem;
+	height: 3rem;
 }
 
 .button-group {
@@ -31,3 +39,4 @@
 		margin-left: 5rem;
 	}
 }
+

@@ -11,10 +11,14 @@
 		font-size: 3rem;
 		width: 100%;
 	}
+
 	.input-group {
+		clear: left;
+		position: relative;
 		width: 100%;
 
 		&.is-half {
+			clear: none;
 			float: left;
 			padding-right: .25rem;
 			width: 50%;
@@ -24,21 +28,36 @@
 			padding-left: .25rem;
 		}
 	}
+
+	label {
+		position: absolute;
+		color: @gray-lightest;
+		top: 1rem;
+		left: 1rem;
+		font-size: @font-size-x-small;
+	}
+
 	input[type="text"] {
 		color: white;
 		background: rgba(255,255,255,.1);
 		border: 0;
+		padding: 2rem 1rem 0 1rem;
 		width: 100%;
 		height: 6rem;
 		margin-bottom: .5rem;
+		font-size: @font-size-small;
 	}
+
 	textarea {
 		color: white;
 		background: rgba(255,255,255,.1);
 		border: 0;
+		padding: 3rem 1rem 1rem 1rem;
 		width: 100%;
 		height: 17rem;
+		font-size: @font-size-small;
 	}
+
 	fieldset {
 		padding: 2rem 0;
 		border: none;

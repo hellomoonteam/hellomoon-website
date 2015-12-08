@@ -26,7 +26,7 @@ $.fn.dotGrid = function(options) {
 	}, options);
 
 
-	// Main Function
+	// For Each Element
 	//--------------------------------------------
 	this.each(function() {
         var gridElement = $(this),
@@ -57,7 +57,6 @@ $.fn.dotGrid = function(options) {
 			var width = columns * size,
 				height = rows * size;
 			gridElement.css({
-				'background':'#0d0d0d',
 				'position': 'absolute',
 				'top': '50%',
 				'left': '50%',
@@ -87,7 +86,8 @@ $.fn.dotGrid = function(options) {
 				'top': (y * size) + 'px',
 				'left': (x * size) + 'px',
 				'width': size + 'px',
-				'height': size + 'px'
+				'height': size + 'px',
+				'transition': 'top .5s, left .5s'
 			});
 		}
 

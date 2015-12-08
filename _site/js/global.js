@@ -38,7 +38,7 @@ $(document).ready(function() {
 		if ( $('.modal.is-active').length || $('body.is-menu-active').length || scrollTravel < 20 ) {
 			return false;
 		} else {
-			scrollStop();	
+			//scrollStop();	
 		}
 	}));
 })();

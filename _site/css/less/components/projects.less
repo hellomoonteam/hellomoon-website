@@ -5,21 +5,6 @@ PROJECTS
 
 */
 
-
-.projects {
-	.grid(2rem);
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: -2rem;
-	left: 1rem;
-}
-.projects-col {
-	.grid-col(2rem);
-	.-width-1-4;
-	height: 50%;
-}
-
 .project {
 	position: relative;
 	display: block;
@@ -34,8 +19,6 @@ PROJECTS
 	bottom: 8rem;
 	right: 0;
 	left: 0;
-
-	background: @gray-light;
 	overflow: hidden;
 
 	.project-thumb-wrap { // Extra wrap needed for vertical centering
@@ -58,7 +41,7 @@ PROJECTS
 	right: 0;
 	left: 0;
 	padding: 2rem;
-	background: @gray;
+	background: rgba(37,44,48,.7);
 	text-align: center;
 
 	&:before { // Blue Line
@@ -75,9 +58,11 @@ PROJECTS
 		margin: 0;
 		line-height: 2rem;
 		letter-spacing: 1px;
+		font-size: @font-size-body;
 	}
 	.subhead {
 		margin-bottom: 0;
+		font-size: @font-size-small;
 	}
 
 }
@@ -85,18 +70,14 @@ PROJECTS
 
 // STATES
 .project:hover {
-	.project-thumb img {
-		margin-top: -10%;
-		height: 120%;
-	}
+	//transform: scale(.97) rotateY(20deg) rotateX(10deg);
+	transform: scale(.97);
 }
 
 
 // ANIMATION
 .project {
-	.project-thumb img {
-		transition: margin .2s, height .2s;
-	}
+	transition: transform .3s;
 }
 
 
