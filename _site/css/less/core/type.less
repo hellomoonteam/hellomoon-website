@@ -29,16 +29,17 @@ must happen everytime font or font-size changes.
 
 // HEADINGS
 //----------------------------------------------------
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4 {
 	position: relative;
 	color: @body-text-color;
 }
 h1 {
-	margin: 0 0 2rem 0;
+	margin: 0 0 3rem 0;
 	line-height: 2rem;
 	font-size: @font-size-h1;
 	font-family: @font-family-h1;
 	top: @baseline-shift-h1;
+	font-weight: normal;
 }
 h2 {
 	margin: 0 0 2rem 0;
@@ -46,6 +47,7 @@ h2 {
 	font-size: @font-size-h2;
 	font-family: @font-family-h2;
 	top: @baseline-shift-h2;
+	font-weight: normal;
 }
 h3 {
 	margin: 0 0 2rem 0;
@@ -53,6 +55,7 @@ h3 {
 	font-size: @font-size-h3;
 	font-family: @font-family-h3;
 	top: @baseline-shift-h3;
+	font-weight: normal;
 }
 h4 {
 	margin: 0 0 1rem 0;
@@ -60,20 +63,7 @@ h4 {
 	font-size: @font-size-h4;
 	font-family: @font-family-h4;
 	top: @baseline-shift-h4;
-}
-h5 {
-	margin: 0 0 1rem 0;
-	line-height: 2rem;
-	font-size: @font-size-h5;
-	font-family: @font-family-h5;
-	top: @baseline-shift-h5;
-}
-h6 {
-	margin: 0;
-	line-height: 2rem;
-	font-size: @font-size-h6;
-	font-family: @font-family-h6;
-	top: @baseline-shift-h6;
+	font-weight: normal;
 }
 .subhead {
 	display: block;
@@ -91,17 +81,24 @@ h6 {
 p {
 	color: @body-text-color;
 	position: relative;
-	margin: 0 0 1rem 0;
-	line-height: 3rem;
+	margin: 0 0 2rem 0;
+	line-height: 4rem;
 	font-size: @font-size-body;
 	font-family: @font-family-body;
 	top: @baseline-shift-p;
+	font-weight: normal;
 
 	// STATES
+	&:last-child {
+		margin-bottom: 0;
+	}
 	&.is-lead {
 		font-weight: bold;
 		font-size: @font-size-lead;
 		font-family: @font-family-lead;
+	}
+	&.is-small {
+		font-size: @font-size-small;
 	}
 }
 
@@ -197,6 +194,9 @@ blockquote {
 
 // MISC
 //----------------------------------------------------
+.seperator {
+	padding: 0 1rem;
+}
 sup {
 	position: relative;
 	font-size: @font-size-small;

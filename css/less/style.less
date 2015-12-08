@@ -80,9 +80,9 @@ Authors: Tom Benbow
 	font-weight: normal;
 }
 
-@font-family-sans:			"biome", Helvetica, Arial, sans-serif;
+@font-family-sans:			"biome-light", Helvetica, Arial, sans-serif;
 @font-family-sans-light:	"biome-light", Helvetica, Arial, sans-serif;
-@font-family-sans-bold:		"biome", Helvetica, Arial, sans-serif;
+@font-family-sans-bold:		"biome-light", Helvetica, Arial, sans-serif;
 @font-family-serif:			Georgia, "Times New Roman", Times, serif;
 @font-family-mono:			Menlo, Monaco, Consolas, "Courier New", monospace;
 
@@ -114,7 +114,7 @@ Authors: Tom Benbow
 @link-hover-color:      darken(@link-color, 15%);
 
 // SIZE
-@font-size-h1:			2.4rem;
+@font-size-h1:			4rem;
 @font-size-h2:			1.8rem;
 @font-size-h3:			1rem;
 @font-size-h4:			1rem;
@@ -122,9 +122,9 @@ Authors: Tom Benbow
 @font-size-h6:			1rem;
 @font-size-subhead: 	1.5rem;
 @font-size-subhead-big: 1rem;
-@font-size-lead: 		1.2rem;
-@font-size-body: 		1.8rem;
-@font-size-small:		.8rem;
+@font-size-lead: 		3rem;
+@font-size-body: 		2rem;
+@font-size-small:		1.7rem;
 
 // BASELINE SHIFT
 @baseline-shift-h1:		-.5rem;
@@ -148,29 +148,29 @@ Authors: Tom Benbow
 // IMPORT MIXINS
 //----------------------------------------------------
 @import "mixins/checkerboard.less";
-@import "mixins/helpers.less";
 @import "mixins/grid.less";
 
 
 // IMPORT COMPONENTS
 //----------------------------------------------------
-@import "components/pagelogo.less";
-@import "components/pagedots.less";
-@import "components/pagearrows.less";
-@import "components/pagesections.less";
-@import "components/projects.less";
+
+@import "components/sections.less";
+@import "components/cols.less";
 @import "components/modal.less";
-@import "components/detail.less";
-@import "components/feature.less";
-@import "components/intro.less";
-@import "components/image-full.less";
-@import "components/image-grid.less";
-@import "components/image-slider.less";
-@import "components/image-shuffle.less";
-@import "components/image-overlay.less";
-@import "components/image-layers.less";
-@import "components/text-block.less";
-@import "components/wrap.less";
+@import "components/buttons.less";
+@import "components/form.less";
+
+@import "components/projects.less";
+
+// @import "components/detail.less";
+// @import "components/feature.less";
+// @import "components/image-full.less";
+// @import "components/image-grid.less";
+// @import "components/image-slider.less";
+// @import "components/image-shuffle.less";
+// @import "components/image-overlay.less";
+// @import "components/image-layers.less";
+// @import "components/text-block.less";
 
 
 // IMPORT EXTEND

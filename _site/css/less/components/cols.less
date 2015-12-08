@@ -1,0 +1,56 @@
+// COLS
+//----------------------------------------------------
+.cols {
+	width: 100rem;
+
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+// STATES
+.cols {
+	&.is-middle {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		height: 1px; // 1px height so children center from the middle
+	}
+	.col {
+		transform: translateY(-50%);
+	}
+}
+
+// COL
+//----------------------------------------------------
+.col {
+	position: relative;
+	float: left;
+	min-height: 10px;
+}
+
+// STATES
+.col {
+	&.is-left {
+		float: left;
+		width: 50%;
+	}
+	&.is-right {
+		float: right;
+		width: 50%;
+	}
+	&.is-centered {
+		margin: 0 10%;
+		width: 80%;
+		text-align: center;
+	}
+	&.is-padded-left {
+		padding-left: 10%;
+	}
+	&.is-padded-right {
+		padding-right: 10%;
+	}
+}

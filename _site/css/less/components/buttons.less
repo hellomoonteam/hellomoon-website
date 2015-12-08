@@ -1,0 +1,33 @@
+// BUTTONS
+//----------------------------------------------------
+
+.button {
+	display: inline-block;
+	color: white;
+	background: @primary;
+	margin: 0 0 0 1rem;
+	border: none;
+	border-radius: 3px;
+	padding: 0 2rem;
+	min-width: 4rem;
+	height: 4rem;
+	line-height: 4.2rem;
+	font-size: @font-size-small;
+}
+
+.button-group {
+	display: inline-block;
+	margin: 1rem 0 3rem;
+
+	.button {
+		float: left;
+		margin-left: 1rem;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	.button.is-left-space {
+		margin-left: 5rem;
+	}
+}
