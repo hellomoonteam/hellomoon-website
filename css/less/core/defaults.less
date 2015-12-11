@@ -14,7 +14,6 @@ DEFAULTS
 html {
 	position: relative;
 	min-height: 100%;
-	font-size: @desktop-grid-size;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
@@ -29,20 +28,31 @@ a img {
 	border: 0;
 }
 
-@media @mobile {
-	html {
-		font-size: @mobile-grid-size;
-	}
+@media @mobile-small {
+  html {
+    font-size: @mobile-small-grid-size;
+  }
+}
+@media @mobile-large {
+  html {
+    font-size: @mobile-large-grid-size;
+  }
 }
 @media @desktop-small {
   html {
-    //font-size: @mobile-grid-size;
+    font-size: @desktop-small-grid-size;
   }
 }
-
-
-
-
+@media @desktop-medium {
+  html {
+    font-size: @desktop-medium-grid-size;
+  }
+}
+@media @desktop-large {
+  html {
+    font-size: @desktop-large-grid-size;
+  }
+}
 
 
 // NORMALIE.CSS

@@ -13,8 +13,11 @@ Authors: Tom Benbow
 
 // BASELINE GRID SIZE
 //----------------------------------------------------
-@desktop-grid-size: 	10px;
-@mobile-grid-size: 		9px;
+@mobile-small-grid-size: 	7px;
+@mobile-large-grid-size: 	7px;
+@desktop-small-grid-size: 	9px;
+@desktop-medium-grid-size: 	10px;
+@desktop-large-grid-size: 	11px;
 
 
 // BREAKPOINTS
@@ -153,17 +156,17 @@ Authors: Tom Benbow
 
 // IMPORT COMPONENTS
 //----------------------------------------------------
+@import "components/background.less";
 @import "components/sections.less";
 @import "components/cols.less";
+
 @import "components/buttons.less";
 @import "components/form.less";
 @import "components/modal.less";
 
-@import "components/constellation.less";
-@import "components/gradients.less";
-@import "components/glitch.less";
-
 @import "components/projects.less";
+@import "components/constellation.less";
+
 
 // @import "components/detail.less";
 // @import "components/feature.less";

@@ -1,7 +1,10 @@
 // COLS
 //----------------------------------------------------
 .cols {
-	width: 100rem;
+	padding: 0 5rem;
+	width: 100%;
+	max-width: 100rem;
+	z-index: 1;
 
 	&:after {
 		content: '';
@@ -20,20 +23,20 @@
 		height: 1px; // 1px height so children center from the middle
 	}
 	&.is-centered {
+		padding: 5rem;
 		margin: 0 auto;
 		text-align: center;
 	}
-	&.is-full {
+	&.is-portfolio {
 		position: absolute;
 		top: 0;
 		left: 50%;
 		transform: translateX(-50%);
-		height: 100%;
 		padding-top: 11rem; 
 		padding-bottom: 5rem;
-	}
-	&.is-gutters {
-		width: 102rem;
+		width: 100%;
+		max-width: 102rem;
+		height: 100%;
 	}
 }
 
@@ -67,9 +70,6 @@
 	&.is-padded-right {
 		padding-right: 10%;
 	}
-	&.is-1-5 {
-		width: 20%;
-	}
 }
 .cols.is-middle .col {
 	transform: translateY(-50%);
@@ -77,9 +77,86 @@
 .cols.is-centered .col {
 	float: none;
 }
-.cols.is-2-row .col {
+.cols.is-portfolio .col {
+	width: 20%;
 	height: 50%;
-}
-.cols.is-gutters .col {
 	padding: 1rem;
+}
+
+
+//----------------------------------------------------
+// MOBILE
+//----------------------------------------------------
+@media @mobile-large {
+	.cols {
+		width: 100%;
+		border: 1px solid red;
+	}
+	.col {
+		border: 1px solid green;
+	}
+}
+@media @mobile-small {
+	.cols {
+		width: 100%;
+	}
+	.cols.is-mobile-full-height {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translate(0%,0%);
+		height: 100%; // 1px height so children center from the middle
+	}
+	.cols.is-portfolio {
+		position: relative;
+		top: 0;
+		left: 0;
+		transform: translateX(0);
+		padding: 0 2rem 0 2rem;
+		width: 100%;
+		height: auto;
+
+		.col {
+			width: 50%;
+			height: 40rem;
+			padding: 2rem;
+		}
+	}
+
+
+	.col  {
+		position: relative;
+		width: 100%;
+		text-align: center;
+
+		&.is-centered {
+			padding: 0 4rem;
+			width: 100%;
+			margin: 0;
+		}
+		&.is-mobile-short {
+			float: none;
+			transform: translateY(0) !important;
+			padding: 0 4rem;
+			height: 30%;
+			width: 100%;
+		}
+		&.is-mobile-half-height {
+			float: none;
+			transform: translateY(0) !important;
+			margin: 0;
+			padding: 0 4rem;
+			height: 50%;
+			width: 100%;
+		}
+		&.is-mobile-tall {
+			float: none;
+			transform: translateY(0) !important;
+			padding: 0 4rem;
+			height: 70%;
+			width: 100%;
+		}
+		
+	}
+
 }
