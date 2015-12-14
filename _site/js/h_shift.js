@@ -32,7 +32,8 @@ $.fn.dotGrid = function(options) {
         var gridElement = $(this),
         	columns = settings.columns,
         	rows = settings.rows,
-        	size = settings.size,
+        	remSize = getRemSize(),
+        	size = settings.size * getRemSize(),
         	speed = settings.speed,
         	shapeSetup = settings.shapeSetup,
         	shape = [];
@@ -49,6 +50,8 @@ $.fn.dotGrid = function(options) {
 					name: 'square'+i
 				});
 			}
+
+			console.log(size);
 			createGrid();
 			drawShape();
         }
@@ -85,8 +88,8 @@ $.fn.dotGrid = function(options) {
 				'position': 'absolute',
 				'top': (y * size) + 'px',
 				'left': (x * size) + 'px',
-				'width': size + 'px',
-				'height': size + 'px',
+				'width': size + 1 + 'px', // plus 1 fixes gap on non-retina screens
+				'height': size + 1 + 'px',
 				'transition': 'top .5s, left .5s'
 			});
 		}
@@ -272,6 +275,20 @@ $.fn.dotGrid = function(options) {
 	// RETURN A RANDOM INTERGER
 	function randomInt(min,max) {
 		return Math.floor(Math.random()*(max-min+1)+min);
+	}
+
+	// RETURN CURRENT REM SIZE IN PIXELS
+	function getRemSize() {
+		remSize = 10; // sensible default
+
+		fontSize = $('html').css('font-size');
+		fontSize = parseInt(fontSize, 10);
+		if (fontSize) {
+			remSize = fontSize;
+		}
+
+		console.log('remsize: ' + remSize);
+		return remSize;
 	}
 
 

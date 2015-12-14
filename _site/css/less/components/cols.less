@@ -3,7 +3,7 @@
 .cols {
 	padding: 0 5rem;
 	width: 100%;
-	max-width: 100rem;
+	max-width: 110rem;
 	z-index: 1;
 
 	&:after {
@@ -35,7 +35,7 @@
 		padding-top: 11rem; 
 		padding-bottom: 5rem;
 		width: 100%;
-		max-width: 102rem;
+		max-width: 112rem;
 		height: 100%;
 	}
 }
@@ -85,20 +85,36 @@
 
 
 //----------------------------------------------------
-// MOBILE
+// BREAKPOINTS
 //----------------------------------------------------
+
+@media @desktop-small {
+	.cols {
+		max-width: 100rem;
+		&.is-portfolio {
+			max-width: 102rem;
+		}
+	}
+}
+@media @desktop-large {
+	.cols {
+		max-width: 120rem;
+		&.is-portfolio {
+			max-width: 122rem;
+		}
+	}
+}
+
 @media @mobile-large {
 	.cols {
 		width: 100%;
-		border: 1px solid red;
-	}
-	.col {
-		border: 1px solid green;
+		padding: 0 4rem;
 	}
 }
 @media @mobile-small {
 	.cols {
 		width: 100%;
+		padding: 0 4rem;
 	}
 	.cols.is-mobile-full-height {
 		position: absolute;
@@ -122,22 +138,20 @@
 			padding: 2rem;
 		}
 	}
-
-
 	.col  {
 		position: relative;
 		width: 100%;
 		text-align: center;
 
 		&.is-centered {
-			padding: 0 4rem;
+			padding: 0;
 			width: 100%;
 			margin: 0;
 		}
 		&.is-mobile-short {
 			float: none;
 			transform: translateY(0) !important;
-			padding: 0 4rem;
+			padding: 0;
 			height: 30%;
 			width: 100%;
 		}
@@ -145,7 +159,7 @@
 			float: none;
 			transform: translateY(0) !important;
 			margin: 0;
-			padding: 0 4rem;
+			padding: 0;
 			height: 50%;
 			width: 100%;
 		}
@@ -159,4 +173,15 @@
 		
 	}
 
+}
+@media @mobile-landscape {
+	.cols {
+		padding: 0 3rem;
+	}
+	.col.is-padded-left {
+		padding-left: 4rem;
+	}
+	&.is-padded-right {
+		padding-right: 4rem;
+	}
 }

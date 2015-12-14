@@ -15,8 +15,6 @@
 	min-height: 75rem;
 	max-height: 100rem;
 	height: 100%;
-
-	border-bottom: 1px solid rgba(255,255,255,.2);
 }
 
 // STATES
@@ -25,17 +23,38 @@
 	opacity: .4;
 }
 .section.is-short {
-	max-height: 87rem;
+	min-height: 75rem;
+	max-height: 83rem;
 }
 
 
 
 //----------------------------------------------------
-// MOBILE
+// BREAKPOINTS
 //----------------------------------------------------
+@media @desktop-small {
+	.section {
+		min-height: 60rem;
+		max-height: 90rem;
+	}
+	.section.is-short {
+		min-height: 60rem;
+		max-height: 80rem;
+	}
+}
 @media @mobile {
 	.section.is-mobile-auto-height {
 		height: auto;
 		max-height: none;
+	}
+}
+@media @mobile-landscape {
+	.section {
+		min-height: 44rem;
+		max-height: 100rem;
+	}
+	.section.is-short {
+		min-height: 75rem;
+		max-height: 83rem;
 	}
 }
