@@ -21,11 +21,10 @@
 		left: 50%;
 		transform: translate(-50%,-50%);
 		height: 1px; // 1px height so children center from the middle
-	}
-	&.is-centered {
-		padding: 5rem;
-		margin: 0 auto;
-		text-align: center;
+
+		.col {
+			transform: translateY(-50%);
+		}
 	}
 	&.is-portfolio {
 		position: absolute;
@@ -37,6 +36,12 @@
 		width: 100%;
 		max-width: 112rem;
 		height: 100%;
+
+		.col {
+			width: 20%;
+			height: 50%;
+			padding: 1rem;
+		}
 	}
 }
 
@@ -60,34 +65,28 @@
 		width: 50%;
 	}
 	&.is-centered {
+		float: none;
 		margin: 0 10%;
 		width: 80%;
 		text-align: center;
 	}
+
+	// ----
 	&.is-padded-left {
 		padding-left: 10%;
 	}
 	&.is-padded-right {
 		padding-right: 10%;
 	}
+	&.is-visible-mobile-portrait {
+		display: none;
+	}
+	// ----
 }
-.cols.is-middle .col {
-	transform: translateY(-50%);
-}
-.cols.is-centered .col {
-	float: none;
-}
-.cols.is-portfolio .col {
-	width: 20%;
-	height: 50%;
-	padding: 1rem;
-}
-
 
 //----------------------------------------------------
 // BREAKPOINTS
 //----------------------------------------------------
-
 @media @desktop-small {
 	.cols {
 		max-width: 100rem;
@@ -104,17 +103,26 @@
 		}
 	}
 }
+@media @mobile-portrait {
 
-@media @mobile-large {
-	.cols {
-		width: 100%;
-		padding: 0 4rem;
+	// UTILITIES
+	.is-hidden-mobile-portrait {
+		display: none !important;
 	}
-}
-@media @mobile-small {
+	.is-visible-mobile-portrait {
+		display: block !important;
+	}
+	.col.is-padded-v-mobile-portrait {
+		padding: 4rem 0 !important;
+	}
+
+	// COLS
 	.cols {
+		top: 0;
+		left: 0;
 		width: 100%;
 		padding: 0 4rem;
+		transform: translate(0%,0%);
 	}
 	.cols.is-mobile-full-height {
 		position: absolute;
@@ -123,6 +131,37 @@
 		transform: translate(0%,0%);
 		height: 100%; // 1px height so children center from the middle
 	}
+
+	// COL
+	.col  {
+		position: relative;
+		text-align: center;
+		transform: translateY(0%) !important;
+
+		&.is-mobile-auto-height,
+		&.is-mobile-short,
+		&.is-mobile-tall {
+			float: none;
+			transform: translateY(0) !important;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+		}
+		&.is-centered {
+			transform: translateY(-50%) !important;
+		}
+		&.is-mobile-short {
+			height: 40%;
+		}
+		&.is-mobile-tall {
+			height: 60%;
+		}
+		&.is-mobile-auto-height {
+			height: auto;
+		}
+	}
+
+	// PORTFOLIO
 	.cols.is-portfolio {
 		position: relative;
 		top: 0;
@@ -138,44 +177,10 @@
 			padding: 2rem;
 		}
 	}
-	.col  {
-		position: relative;
-		width: 100%;
-		text-align: center;
-
-		&.is-centered {
-			padding: 0;
-			width: 100%;
-			margin: 0;
-		}
-		&.is-mobile-short {
-			float: none;
-			transform: translateY(0) !important;
-			padding: 0;
-			height: 30%;
-			width: 100%;
-		}
-		&.is-mobile-half-height {
-			float: none;
-			transform: translateY(0) !important;
-			margin: 0;
-			padding: 0;
-			height: 50%;
-			width: 100%;
-		}
-		&.is-mobile-tall {
-			float: none;
-			transform: translateY(0) !important;
-			padding: 0 4rem;
-			height: 70%;
-			width: 100%;
-		}
-		
-	}
-
 }
 @media @mobile-landscape {
 	.cols {
+		width: 100%;
 		padding: 0 3rem;
 	}
 	.col.is-padded-left {

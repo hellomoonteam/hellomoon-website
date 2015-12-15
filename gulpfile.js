@@ -1,5 +1,7 @@
 var gulp = require('gulp'),
 	gutil = require('gulp-util'),
+    exec = require('child_process').exec,           // Run child processes with exec
+    browserSync = require('browser-sync').create(), // Live reload and more
 	less = require('gulp-less'), 					// Compile less files
 	autoprefixer = require('gulp-autoprefixer'),	// CSS browser prefixing
 	minifyCSS = require('gulp-minify-css'),			// Minify CSS files
@@ -7,9 +9,29 @@ var gulp = require('gulp'),
 	svgmin = require('gulp-svgmin'),				// Minify SVG with SVGO
 	path = require('path');							// Generates a path build based on the base paths setted
 
+
 gulp.task('default', function() {
 	return gutil.log('Gulp is running!')
 });
+
+
+// DEFAULT STATIC SERVER AND WATCHERS
+gulp.task('serve', ['svgstore','less','jekyll'], function() {
+    browserSync.init({
+        server: "./_site/",
+        ghostMode: {
+            clicks: true,
+            forms: true,
+            scroll: false
+        }
+    });
+
+    gulp.watch('./css/less/**/*.less', ['less']);
+    gulp.watch('./icons/*.svg', ['svgstore']);
+    gulp.watch(['./*.html','./_includes/**/*','./css/style.css'], ['jekyll']);
+    gulp.watch(['_site/css/style.css'], browserSync.reload); // Reload browser sync when the style sheet changes
+});
+
 
 // COMPILE LESS FILES, PREFIX AND MINIFY CSS
 gulp.task('less', function () {
@@ -22,7 +44,8 @@ gulp.task('less', function () {
 		.pipe(gulp.dest('./css'));
 });
 
-// GENERATE AN SVG FILE WITH SYMBOL ELEMENTS
+
+// GENERATE A SVG FILE WITH SYMBOL ELEMENTS
 // https://css-tricks.com/svg-symbol-good-choice-icons/
 gulp.task('svgstore', function () {
     return gulp
@@ -42,5 +65,13 @@ gulp.task('svgstore', function () {
         .pipe(gulp.dest('./_includes'));
 });
 
-gulp.watch('./icons/*.svg', ['svgstore']);
-gulp.watch('./css/less/**/*.less', ['less']);
+
+// JEKYLL BUILD
+gulp.task('jekyll', function (){
+    exec('jekyll build', function(err, stdout, stderr) {
+        console.log(stdout);
+    });
+});
+
+
+gulp.task('default', ['serve']);

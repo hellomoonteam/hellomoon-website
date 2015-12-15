@@ -1,60 +1,58 @@
-// SECTIONS
-//----------------------------------------------------
+/* SECTIONS
+
+STATES
+is-full: Section is 100% height
+is-limited: 
+
+
+
+
+----------------------------------------------------
+*/
+
 .sections {
 	height: 100%;
-
-	&:after {
-		content: '';
-		display: table;
-		clear: both;
-	}
 }
-
 .section {
 	position: relative;
-	min-height: 75rem;
-	max-height: 100rem;
-	height: 100%;
+	border-bottom: 1px solid rgba(255,255,255,.4);
 }
 
 // STATES
-.section.is-behind {
-	transform: scale(.85) translatey(-0%);
-	opacity: .4;
-}
-.section.is-short {
-	min-height: 75rem;
-	max-height: 83rem;
+
+// section height is 100% with default limits
+.section.is-full {
+	height: 100%;
+	min-height: 65rem;
+	max-height: 100rem;
 }
 
+// section height is limited more greatly
+.section.is-limited {
+	min-height: 75rem;
+	max-height: 85rem;
+}
 
 
 //----------------------------------------------------
 // BREAKPOINTS
 //----------------------------------------------------
-@media @desktop-small {
+@media @mobile-portrait {
+	/*
 	.section {
-		min-height: 60rem;
-		max-height: 90rem;
+		max-height: none;
 	}
-	.section.is-short {
-		min-height: 60rem;
-		max-height: 80rem;
-	}
-}
-@media @mobile {
 	.section.is-mobile-auto-height {
 		height: auto;
 		max-height: none;
 	}
+	*/
 }
 @media @mobile-landscape {
+	/*
 	.section {
 		min-height: 44rem;
 		max-height: 100rem;
 	}
-	.section.is-short {
-		min-height: 75rem;
-		max-height: 83rem;
-	}
+	*/
 }

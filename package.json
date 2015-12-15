@@ -2,6 +2,7 @@
   "name": "hellomoon",
   "version": "1.0.0",
   "devDependencies": {
+    "browser-sync": "^2.10.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-less": "^3.0.3",
