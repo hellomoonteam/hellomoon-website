@@ -13,35 +13,20 @@ Authors: Tom Benbow
 
 // BASELINE GRID SIZE
 //----------------------------------------------------
-@mobile-small-grid-size: 	7px;
-@mobile-large-grid-size: 	7px;
-@desktop-small-grid-size: 	8px;
-@desktop-medium-grid-size: 	10px;
-@desktop-large-grid-size: 	11px;
+@pm-grid-size: 	7px;
+@sm-grid-size: 	7px;
+@md-grid-size: 	8px;
+@lg-grid-size: 	9px;
+@xl-grid-size: 	11px;
 
 
 // BREAKPOINTS
 //----------------------------------------------------
-@mobile:    		 		~"only screen and (max-width: 769px)"; // All Mobile Sizes
-@desktop:   				~"only screen and (min-width: 770px)"; // All Desktop Sizes
-
-@desktop-large:				~"only screen and (min-width: 1451px)";
-@desktop-medium:			~"only screen and (min-width: 901px) and (max-width: 1450px)";
-@desktop-small:	 			~"only screen and (min-width: 770px) and (max-width: 900px)";
-
-@mobile-landscape:      	~"only screen and (max-width: 769px) and (max-height: 450px)";
-@mobile-portrait:			~"only screen and (max-width: 796px) and (min-height: 451px)";
-
-
-
-
-
-// MAX/MIN WIDTHS
-//----------------------------------------------------
-@max-width-desktop:		980px;
-@min-width-desktop:		980px;
-@max-width-mobile:		100%;
-@min-width-mobile:		100%;
+@pm: ~"only screen and (max-width: 770px) and (min-height: 450px)";
+@sm: ~"only screen and (min-width: 451px) and (max-width: 770px) and (max-height: 450px)";
+@md: ~"only screen and (min-width: 771px) and (max-width: 900px)";
+@lg: ~"only screen and (min-width: 901px) and (max-width: 1450px)";
+@xl: ~"only screen and (min-width: 1451px)";
 
 
 // COLORS
@@ -59,9 +44,6 @@ Authors: Tom Benbow
 @gray-lighter:			#e5e5eb;
 @gray-lightest: 		#a1a9ad;
 @white:					#ffffff;
-
-// CUSTOM COLORS
-
 
 
 // FONTS
@@ -160,27 +142,30 @@ Authors: Tom Benbow
 
 // IMPORT COMPONENTS
 //----------------------------------------------------
-@import "components/background.less";
-@import "components/sections.less";
-@import "components/cols.less";
 
-@import "components/buttons.less";
+@import "layout/main.less";
+@import "layout/section.less";
+@import "layout/container.less";
+@import "layout/grid.less";
+
+@import "components/background.less";
+@import "components/image.less";
+@import "components/button.less";
 @import "components/form.less";
 @import "components/modal.less";
-
-@import "components/projects.less";
+@import "components/project.less";
 @import "components/constellation.less";
 
 
-// @import "components/detail.less";
-// @import "components/feature.less";
-// @import "components/image-full.less";
-// @import "components/image-grid.less";
-// @import "components/image-slider.less";
-// @import "components/image-shuffle.less";
-// @import "components/image-overlay.less";
-// @import "components/image-layers.less";
-// @import "components/text-block.less";
+@import "components/portfolio/detail.less";
+@import "components/portfolio/feature.less";
+@import "components/portfolio/image-full.less";
+@import "components/portfolio/image-grid.less";
+@import "components/portfolio/image-slider.less";
+@import "components/portfolio/image-shuffle.less";
+@import "components/portfolio/image-overlay.less";
+@import "components/portfolio/image-layers.less";
+@import "components/portfolio/text-block.less";
 
 
 // IMPORT EXTEND

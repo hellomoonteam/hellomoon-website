@@ -152,18 +152,10 @@ function jumpToSection(id) {
 // MODAL
 //----------------------------------------------------
 function modalOpen(e){
-	var currentSection = getCurrentSection(),
-		url = $(this).attr('href');
+	var url = $(this).attr('href');
 
-	e.preventDefault();
-
-	// Lock Sections and move them back
-	lockSections();
-	$(currentSection.id).addClass('is-behind');
-	$('nav').addClass('is-behind');
-	window.scrollTo(0, 0);
-
-	// Inject Modal
+	e.preventDefault();   
+	$('.main').addClass('is-behind');
 	modalInject(url);
 }
 
@@ -184,7 +176,7 @@ function modalInject(url) {
 }
 
 function modalActive() {
-	$('#modal .modal').attr('style','position: relative;');
+	$('#modal .modal').attr('style','position: absolute;');
 	$('#modal .modal').addClass('is-active');
 }
 
@@ -194,7 +186,5 @@ function modalClose(e){
 	e.preventDefault();
 	$('#modal .modal').removeClass('is-active');
 	$('#modal .modal').attr('style','top: ' + windowHeight + 'px;');
-	unlockSections();
-	$('.pagesections > section.is-behind').removeClass('is-behind').addClass('is-active');
-	$('nav').removeClass('is-behind');
+	$('.main').removeClass('is-behind');
 }

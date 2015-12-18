@@ -18,17 +18,12 @@ gulp.task('default', function() {
 // DEFAULT STATIC SERVER AND WATCHERS
 gulp.task('serve', ['svgstore','less','jekyll'], function() {
     browserSync.init({
-        server: "./_site/",
-        ghostMode: {
-            clicks: true,
-            forms: true,
-            scroll: false
-        }
+        server: "./_site/"
     });
-
+    
     gulp.watch('./css/less/**/*.less', ['less']);
     gulp.watch('./icons/*.svg', ['svgstore']);
-    gulp.watch(['./*.html','./_includes/**/*','./css/style.css'], ['jekyll']);
+    gulp.watch(['./*.html','./portfolio/*.html','./_includes/**/*','./js/**/*','./css/style.css'], ['jekyll']);
     gulp.watch(['_site/css/style.css'], browserSync.reload); // Reload browser sync when the style sheet changes
 });
 

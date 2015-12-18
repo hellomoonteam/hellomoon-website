@@ -1,9 +1,11 @@
-
-// MODAL
-//----------------------------------------------------
+/*
+----------------------------------------------------
+MODAL
+----------------------------------------------------
+*/
 
 .modal {
-	background: @gray-lightest;
+	background: #ffffff;
 	position: fixed;
 	z-index: 1;
 	top: 0;
@@ -11,7 +13,20 @@
 	width: 100%;
 	overflow: auto;
 }
-.modal-close {
+.modal {
+	h2 {
+		color: @primary;
+		margin: 4rem 0 2rem 0;
+		line-height: 4rem;
+		font-size: 3rem;
+	}
+	p {
+		color: @gray-light;
+		margin: 0 0 2rem 0;
+		line-height: 4rem;
+	}
+}
+.modal_close {
 	position: fixed;
 	top: 3rem;
 	right: 3rem;
@@ -23,8 +38,7 @@
 	cursor: pointer;
 	text-indent: -999rem;
 }
-
-.modal-content {
+.modal_content {
 	margin: 0 auto;
 	max-width: 1000px;
 }
@@ -41,5 +55,11 @@
 	}
 	.modal-close {
 		display: none;
+	}
+}
+
+@media @sm {
+	.modal {
+		padding: 4rem 4rem 0 4rem;
 	}
 }

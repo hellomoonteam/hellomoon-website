@@ -1,0 +1,23 @@
+/*
+----------------------------------------------------
+MAIN
+----------------------------------------------------
+*/
+
+.main {
+	height: 100%;
+	overflow-y: scroll;	
+}
+
+// STATES
+.main {
+	&.is-behind {
+		transform: scale(.9);
+		opacity: .5;
+	}
+}
+
+// ANIMATE
+.main {
+	transition: transform .5s, opacity .5s; 
+}

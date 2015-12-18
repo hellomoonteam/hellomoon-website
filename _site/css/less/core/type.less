@@ -1,5 +1,5 @@
 /*
-
+--------------------------------------------------
 TYPOGRAPHY
 --------------------------------------------------
 Typography requires a baseline shift to align the
@@ -7,12 +7,11 @@ baseline with the grid. Using position relative
 and tweaking top makes this adjustment easy but it
 must happen everytime font or font-size changes.
 --------------------------------------------------
-
 */
 
 
 // ALIGNMENT STATES
-//----------------------------------------------------
+//------------------------------------------------
 .is-text-left           { text-align: left; }
 .is-text-right          { text-align: right; }
 .is-text-center         { text-align: center; }
@@ -21,14 +20,14 @@ must happen everytime font or font-size changes.
 
 
 // TRANSFORMATION STATES
-//----------------------------------------------------
+//------------------------------------------------
 .is-text-lowercase      { text-transform: lowercase; }
 .is-text-uppercase      { text-transform: uppercase; }
 .is-text-capitalize     { text-transform: capitalize; }
 
 
 // HEADINGS
-//----------------------------------------------------
+//------------------------------------------------
 h1,h2,h3,h4 {
 	position: relative;
 	color: @body-text-color;
@@ -77,7 +76,7 @@ h4 {
 }
 
 // PARAGRAPH
-//----------------------------------------------------
+//------------------------------------------------
 p {
 	color: @body-text-color;
 	position: relative;
@@ -104,7 +103,7 @@ p {
 
 
 // ANCHORS
-//----------------------------------------------------
+//------------------------------------------------
 a {
 	color: @link-color;
 	text-decoration: none;
@@ -120,7 +119,7 @@ a {
 
 
 // ORDERED & UNORDERED LISTS
-//----------------------------------------------------
+//------------------------------------------------
 ul, ol {
 	color: @body-text-color;
 	margin: 0 0 2rem 0;
@@ -152,7 +151,7 @@ li {
 
 
 // DEFINITION LISTS
-//----------------------------------------------------
+//------------------------------------------------
 dl {
 	color: @body-text-color;
 	position: relative;
@@ -174,7 +173,7 @@ dd {
 
 
 // UNSTYLE LISTS
-//----------------------------------------------------
+//------------------------------------------------
 .unstyle {
 	list-style: none;
 	margin: 0;
@@ -184,7 +183,7 @@ dd {
 
 
 // Blockquotes
-//----------------------------------------------------
+//------------------------------------------------
 blockquote {
 	color: @body-text-color;
 	margin: 0 0 2rem 0;
@@ -193,7 +192,7 @@ blockquote {
 
 
 // MISC
-//----------------------------------------------------
+//------------------------------------------------
 .seperator {
 	padding: 0 1rem;
 }

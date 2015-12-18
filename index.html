@@ -11,63 +11,73 @@
 	<meta name="detail" content="">	
 </head>
 <body>
-	<div class="sections">
+	<main class="main">
 
 		<!-- INTRO -->
-		<section class="section is-full" id="hello">
-			<div class="big-logo">
-				<img src="./img/hellomoon_logo.svg" />
+		<section class="section is-height-100 is-padded" id="explore">
+			<div class="section_middle">
+				<div class="container is-narrow is-text-center">
+					<img class="is-max-100" src="./img/hellomoon_logo.svg" />
+				</div>
 			</div>
 		</section>
 
 		<!-- EXPLORE -->
-		<section class="section is-full" id="explore">
+		<section class="section is-height-100 is-padded" id="explore">
 			<div class="background">
 				<div class="background_color is-1"></div> 
 				<div class="background_diagonal is-1"></div>
 				<div class="background_glitch is-1"><img src="./img/glitch_1.svg" /></div>
 				<div class="background_glitch is-2"><img src="./img/glitch_2.svg" /></div>
 			</div>
-			<div class="cols is-middle is-mobile-full-height">
-				<div class="col is-left is-mobile-tall">
-					<div id="grid-shift"></div>
-				</div>
-				<div class="col is-right is-mobile-short">
-					<h1>We Explore</h1>
-					<p>This simple system of 11 pixels contains 1.97 million possibilities. To us that’s clear evidence there are new horizons awaiting those willing to&nbsp;explore.</p>
+			<div class="section_middle">
+				<div class="container">
+					<div class="grid">
+						<div class="grid_col is-middle is-1of2 pm-1of1 is-height-min">
+							<div id="grid-shift"></div>
+						</div>
+						<div class="grid_col is-middle is-1of2 pm-1of1 pm-text-center">
+							<h1>We Explore</h1>
+							<p>This simple system of 11 pixels contains 1.97 million possibilities. To us that’s clear evidence there are new horizons awaiting those willing to&nbsp;explore.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- EVOLVE -->
-		<section class="section is-full" id="evolve">
+		<section class="section is-height-100 is-padded" id="evolve">
 			<div class="background">
 				<div class="background_color is-2"></div> 
 				<div class="background_diagonal is-2"></div>
 				<img class="background_glitch is-3" src="./img/glitch_3.svg" />
 				<img class="background_glitch is-4" src="./img/glitch_4.svg" />
 			</div>
-			<div class="cols is-middle is-mobile-full-height">
-				<div class="col is-right is-mobile-tall">
-					<div id="grid-evolve"></div>
-				</div>
-				<div class="col is-left is-text-right is-mobile-short">
-					<h1>We Evolve</h1>
-					<p>We've made a variety of projects by evolving our carefully selected set of techniques and technologies. Our diversity of experience provides unique creative and technical&nbsp;insights.</p>
+			<div class="section_middle">
+				<div class="container">
+					<div class="grid is-flipped">
+						<div class="grid_col is-middle is-height-min is-1of2 pm-1of1">
+							<div id="grid-evolve"></div>
+						</div>
+						<div class="grid_col is-middle is-1of2 pm-1of1 pm-text-center">
+							<h1>We Evolve</h1>
+							<p>We've made a variety of projects by evolving our carefully selected set of techniques and technologies. Our diversity of experience provides unique creative and technical&nbsp;insights.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- CREATE -->
-		<section class="section is-full" id="create">
+		<section class="section is-height-100 is-padded" id="evolve">
 			<div class="background">
 				<div class="background_color is-3"></div> 
 				<div class="background_diagonal is-3"></div>
 				<div class="background_angle is-1"></div>
 				<div class="background_angle is-2"></div>
 			</div>
-			<div class="cols is-middle">
-				<div class="col is-centered">
+			<div class="section_middle">
+				<div class="container is-narrow is-text-center">
 					<h1>We Create</h1>
 					<p>There's a satisfying harmony in a perfectly spaced layout, a subtle emotion in the ease of an animation and an unseen elegance behind complex interactions. These are the details that blah blah blah and blah blah&nbsp;blah.</p>
 				</div>
@@ -75,136 +85,133 @@
 		</section>
 
 		<!-- WORK -->
-		<section class="section is-full is-limited" id="work">
+		<section class="section is-padded is-height-100 is-height-min-max pm-height-auto" id="work">
 			<div class="background">
 				<img class="background_glitch is-5" src="./img/glitch_5.svg" />
 			</div>
-			<div class="cols">
-				<div class="col is-centered">
-					<h1>Recent Projects</h1>
-				</div>
+			<div class"container">
+				<h1 class="is-text-center">Recent Projects</h1>
 			</div>
-			<div class="cols is-portfolio">
-
-				<!-- WORK ROW 1 -->
-				<div class="col is-1-5">
-					<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
-						<div class="project-thumb">
-							<img src="img/thumb.png" />
+			<div class="section_absolute is-height-100-title pm-relative">
+				<div class="container is-height-100">
+					<div class="grid is-height-100 is-gutter-2">
+						<div class="grid_col is-height-50 is-1of5 pm-1of2">
+							<a class="project" data-action="modalOpen" href="portfolio/best_buy.html">
+								<div class="project-thumb">
+									<img src="img/thumb.png" />
+								</div>
+								<div class="project-info">
+									<h2>Best Buy</h2>
+									<span class="subhead">Tablet App</span>
+								</div>
+							</a>
 						</div>
-						<div class="project-info">
-							<h2>Levolor</h2>
-							<span class="subhead">Configuration</span>
+						<div class="grid_col is-height-50 is-1of5 pm-1of2">
+							<a class="project" data-action="modalOpen" href="portfolio/celadon.html">
+								<div class="project-thumb">
+									<img src="img/thumb.png" />
+								</div>
+								<div class="project-info">
+									<h2>Celadon</h2>
+									<span class="subhead">Website</span>
+								</div>
+							</a>
 						</div>
-					</a>
+						<div class="grid_col is-height-50 is-1of5 pm-1of2">
+							<a class="project" data-action="modalOpen" href="portfolio/commons.html">
+								<div class="project-thumb">
+									<img src="img/thumb.png" />
+								</div>
+								<div class="project-info">
+									<h2>Commons</h2>
+									<span class="subhead">Education</span>
+								</div>
+							</a>
+						</div>
+						<div class="grid_col is-height-50 is-1of5 pm-1of2">
+							<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
+								<div class="project-thumb">
+									<img src="img/thumb.png" />
+								</div>
+								<div class="project-info">
+									<h2>Levolor</h2>
+									<span class="subhead">Configuration</span>
+								</div>
+							</a>
+						</div>
+						<div class="grid_col is-height-50 is-1of5 pm-1of2">
+							<a class="project" data-action="modalOpen" href="portfolio/mission_imagine.html">
+								<div class="project-thumb">
+									<img src="img/thumb.png" />
+								</div>
+								<div class="project-info">
+									<h2>Mission Imagine</h2>
+									<span class="subhead">Game</span>
+								</div>
+							</a>
+						</div>
+						<div class="grid_col is-height-50 is-1of5 pm-1of2">
+							<a class="project" data-action="modalOpen" href="portfolio/pearson.html">
+								<div class="project-thumb">
+									<img src="img/thumb.png" />
+								</div>
+								<div class="project-info">
+									<h2>Pearson</h2>
+									<span class="subhead">Kiosk</span>
+								</div>
+							</a>
+						</div>
+						<div class="grid_col is-height-50 is-1of5 pm-1of2">
+							<a class="project" data-action="modalOpen" href="portfolio/rice_lake.html">
+								<div class="project-thumb">
+									<img src="img/thumb.png" />
+								</div>
+								<div class="project-info">
+									<h2>Rice Lake</h2>
+									<span class="subhead">Product UI</span>
+								</div>
+							</a>
+						</div>
+						<div class="grid_col is-height-50 is-1of5 pm-1of2">
+							<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
+								<div class="project-thumb">
+									<img src="img/thumb.png" />
+								</div>
+								<div class="project-info">
+									<h2>Live Near Work</h2>
+									<span class="subhead">Website</span>
+								</div>
+							</a>
+						</div>
+						<div class="grid_col is-height-50 is-1of5 pm-1of2">
+							<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
+								<div class="project-thumb">
+									<img src="img/thumb.png" />
+								</div>
+								<div class="project-info">
+									<h2>Entegris</h2>
+									<span class="subhead">Kiosk</span>
+								</div>
+							</a>
+						</div>
+						<div class="grid_col is-height-50 is-1of5 pm-1of2">
+							<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
+								<div class="project-thumb">
+									<img src="img/thumb.png" />
+								</div>
+								<div class="project-info">
+									<h2>Newell</h2>
+									<span class="subhead">Website</span>
+								</div>
+							</a>
+						</div>
+					</div>
 				</div>
-				<div class="col is-1-5">
-					<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
-						<div class="project-thumb">
-							<img src="img/thumb.png" />
-						</div>
-						<div class="project-info">
-							<h2>Levolor</h2>
-							<span class="subhead">Configuration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col is-1-5">
-					<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
-						<div class="project-thumb">
-							<img src="img/thumb.png" />
-						</div>
-						<div class="project-info">
-							<h2>Levolor</h2>
-							<span class="subhead">Configuration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col is-1-5">
-					<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
-						<div class="project-thumb">
-							<img src="img/thumb.png" />
-						</div>
-						<div class="project-info">
-							<h2>Levolor</h2>
-							<span class="subhead">Configuration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col is-1-5">
-					<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
-						<div class="project-thumb">
-							<img src="img/thumb.png" />
-						</div>
-						<div class="project-info">
-							<h2>Levolor</h2>
-							<span class="subhead">Configuration</span>
-						</div>
-					</a>
-				</div>
-
-				<!-- WORK ROW 2 -->
-				<div class="col is-1-5">
-					<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
-						<div class="project-thumb">
-							<img src="img/thumb.png" />
-						</div>
-						<div class="project-info">
-							<h2>Levolor</h2>
-							<span class="subhead">Configuration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col is-1-5">
-					<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
-						<div class="project-thumb">
-							<img src="img/thumb.png" />
-						</div>
-						<div class="project-info">
-							<h2>Levolor</h2>
-							<span class="subhead">Configuration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col is-1-5">
-					<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
-						<div class="project-thumb">
-							<img src="img/thumb.png" />
-						</div>
-						<div class="project-info">
-							<h2>Levolor</h2>
-							<span class="subhead">Configuration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col is-1-5">
-					<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
-						<div class="project-thumb">
-							<img src="img/thumb.png" />
-						</div>
-						<div class="project-info">
-							<h2>Levolor</h2>
-							<span class="subhead">Configuration</span>
-						</div>
-					</a>
-				</div>
-				<div class="col is-1-5">
-					<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
-						<div class="project-thumb">
-							<img src="img/thumb.png" />
-						</div>
-						<div class="project-info">
-							<h2>Levolor</h2>
-							<span class="subhead">Configuration</span>
-						</div>
-					</a>
-				</div>
-
 			</div>
 		</section>
 
 		<!-- SERVICES -->
-		<section class="section is-full" id="services">
+		<section class="section is-height-100 is-padded" id="services">
 			<div class="background"><!-- 4 -->
 				<div class="background_color is-4"></div> 
 				<div class="background_diagonal is-4"></div> 
@@ -212,90 +219,119 @@
 				<img class="background_glitch is-7" src="./img/glitch_7.svg" />
 				<img class="background_glitch is-8" src="./img/glitch_8.svg" />
 			</div>
+			<div class="section_middle">
+				<div class="container">
+					<div class="grid">
+						<div class="grid_col is-middle is-1of2 pm-1of1">
+							<div id="constellation">
+								<img src="./img/constellation.png" />
+							</div>
+						</div>
+						<div class="grid_col is-middle is-1of2 pm-1of1 pm-text-center">
+							<h1>Services</h1>
+							<p>Hellomoon is a full service design and development studio. We're a cross-disciplinary team of programmers and designers with a pragmatic approach to creating custom interactive experiences that are simple, beautiful and perfectly tailored to the task at&nbsp;hand.</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
 			<div class="cols is-middle is-mobile-full-height">
 				<div class="col is-left is-padded-right is-mobile-tall">
-					<div id="constellation">
-						<img src="./img/constellation.png" />
-					</div>
+					
 				</div>
 				<div class="col is-right is-mobile-short">
-					<h1>Services</h1>
-					<p>Hellomoon is a full service design and development studio. We're a cross-disciplinary team of programmers and designers with a pragmatic approach to creating custom interactive experiences that are simple, beautiful and perfectly tailored to the task at&nbsp;hand.</p>
+					
 				</div>
 			</div>
 		</section>
 
 		<!-- CONTACT -->
-		<section class="section is-full" id="contact">
+		<section class="section is-height-100 is-padded" id="contact">
 			<div class="background is-bottom"><!-- 5 -->
 				<div class="background_color is-5"></div>
 				<div class="background_diagonal is-5"></div> 
 			</div>
-			<div class="cols is-middle is-mobile-full-height">
-				<div class="col is-left is-mobile-auto-height is-visible-mobile-portrait ">
-					<h1>Hello World!</h1>
-					<p>Hellomoon is a full service interactive design and development studio located in Minneapolis, MN. We’re easy to work with and we care deeply about the work we&nbsp;do.</p>
-				</div>
-			
-				<div class="col is-right is-padded-left is-mobile-auto-height is-padded-v-mobile-portrait">
-					<form class="form">
-						<fieldset>
-							<legend>Say Hello</legend>
-							<div class="input-group is-half">
-								<input type="text" id="name">
-								<label for="name">Name</label>
+			<div class="section_middle">
+				<div class="container">
+					<div class="grid is-gutter-4">
+						<div class="grid_col is-middle is-1of2 pm-1of1 pm-text-center">
+							<h1>Hello World!</h1>
+							<p>Hellomoon is a full service interactive design and development studio located in Minneapolis, MN. We’re easy to work with and we care deeply about the work we&nbsp;do.</p>
+							<br />
+							<div class="contact-footer">
+								<button type="button" class="button">
+									<svg class="button_icon"><use xlink:href='#social_dribbble'></svg>
+								</button>
+								<button type="button" class="button">
+									<svg class="button_icon"><use xlink:href='#social_github'></svg>
+								</button>
+								<button type="button" class="button">
+									<svg class="button_icon"><use xlink:href='#social_twitter'></svg>
+								</button>
+								<button type="button" class="button">
+									<svg class="button_icon"><use xlink:href='#social_facebook'></svg>
+								</button>
+								<button type="button" class="button">
+									<svg class="button_icon"><use xlink:href='#social_linkedin'></svg>
+								</button>
+								<button type="button" class="button is-offset-left">Now Hiring!</button>
+								<p class="is-small"><a href="#">219 SE Main St. #501, Minneapolis, MN</a><span class="seperator">|</span><a href="#">(612) 481-8064</a></p>
 							</div>
-							<div class="input-group is-half">
-								<input type="text" id="company">
-								<label for="company">Company</label>
-							</div>
-							<div class="input-group">
-								<input type="text" id="email">
-								<label for="email">Email</label>
-							</div>
-							<div class="input-group">
-								<textarea id="message"></textarea>
-								<label for="message">Message</label>
-							</div>
-						</fieldset>
-						<button type="submit" class="button">Send Message</button>
-					</form>
-				</div>
-
-				<div class="col is-left is-mobile-auto-height">
-					<div class="is-hidden-mobile-portrait">
-						<h1>Hello World!</h1>
-						<p>Hellomoon is a full service interactive design and development studio located in Minneapolis, MN. We’re easy to work with and we care deeply about the work we&nbsp;do.</p>
-						<br />
+						</div>
+						<div class="grid_col is-middle is-1of2 pm-1of1">
+							<form class="form is-limit-width is-centered">
+								<fieldset>
+									<legend>Say Hello</legend>
+									<div class="input-group is-half">
+										<input type="text" id="name">
+										<label for="name">Name</label>
+									</div>
+									<div class="input-group is-half">
+										<input type="text" id="company">
+										<label for="company">Company</label>
+									</div>
+									<div class="input-group">
+										<input type="text" id="email">
+										<label for="email">Email</label>
+									</div>
+									<div class="input-group">
+										<textarea id="message"></textarea>
+										<label for="message">Message</label>
+									</div>
+								</fieldset>
+								<button type="submit" class="button">Send Message</button>
+							</form>
+						</div>
+						<div class="contact-footer pm-version">
+							<button type="button" class="button">
+								<svg class="button_icon"><use xlink:href='#social_dribbble'></svg>
+							</button>
+							<button type="button" class="button">
+								<svg class="button_icon"><use xlink:href='#social_github'></svg>
+							</button>
+							<button type="button" class="button">
+								<svg class="button_icon"><use xlink:href='#social_twitter'></svg>
+							</button>
+							<button type="button" class="button">
+								<svg class="button_icon"><use xlink:href='#social_facebook'></svg>
+							</button>
+							<button type="button" class="button">
+								<svg class="button_icon"><use xlink:href='#social_linkedin'></svg>
+							</button>
+							<button type="button" class="button">Now Hiring!</button>
+							<p class="is-small"><a href="#">219 SE Main St. #501, Minneapolis, MN</a><span class="seperator">|</span><a href="#">(612) 481-8064</a></p>
+						</div>
 					</div>
-					<div class="button-group">
-						<button type="button" class="button">
-							<svg class="button_icon"><use xlink:href='#social_dribbble'></svg>
-						</button>
-						<button type="button" class="button">
-							<svg class="button_icon"><use xlink:href='#social_github'></svg>
-						</button>
-						<button type="button" class="button">
-							<svg class="button_icon"><use xlink:href='#social_twitter'></svg>
-						</button>
-						<button type="button" class="button">
-							<svg class="button_icon"><use xlink:href='#social_facebook'></svg>
-						</button>
-						<button type="button" class="button">
-							<svg class="button_icon"><use xlink:href='#social_linkedin'></svg>
-						</button>
-						<button type="button" class="button">Now Hiring!</button>
-					</div>
-					<p class="is-small"><a href="#">219 SE Main St. #501, Minneapolis, MN</a><span class="seperator">|</span><a href="#">(612) 481-8064</a></p>
 				</div>
 			</div>
 		</section>
-	</div>
+	</main>
 
 	<div id="modal"></div>
 
 	<!-- SVG STORE -->
-	<div style="position: absolute; bottom: 0; height: 0; dispay: hidden">
+	<div style="position: fixed; bottom: 0; height: 0; dispay: hidden;">
 		{% include icons.svg %}
 	</div>
 

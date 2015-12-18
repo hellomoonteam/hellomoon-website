@@ -1,0 +1,28 @@
+/*
+----------------------------------------------------
+CONTAINER
+----------------------------------------------------
+*/
+
+.container {
+	position: relative;
+	margin: 0 auto;
+	max-width: 110rem;
+	z-index: 1; // Keep content above overlapping background elements
+
+	&.is-narrow {
+		max-width: 70rem;
+	}
+	&.is-height-100 {
+		height: 100%;
+	}
+}
+
+//----------------------------------------------------
+// BREAKPOINTS
+//----------------------------------------------------
+@media @pm {
+	.container {
+		max-width: 60rem;
+	}
+}

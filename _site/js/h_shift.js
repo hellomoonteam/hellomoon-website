@@ -51,7 +51,6 @@ $.fn.dotGrid = function(options) {
 				});
 			}
 
-			console.log(size);
 			createGrid();
 			drawShape();
         }
@@ -287,7 +286,6 @@ $.fn.dotGrid = function(options) {
 			remSize = fontSize;
 		}
 
-		console.log('remsize: ' + remSize);
 		return remSize;
 	}
 
