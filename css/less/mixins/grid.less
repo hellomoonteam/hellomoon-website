@@ -28,7 +28,7 @@ GRID
 .generate-widths (@i) when (@i > 0) {
 	@maxj: @i;
 	.inner-loop (@j) when (@j > 0) {
-		.-width-@{j}-@{i} {
+		.is-@{j}of@{i} {
 			width: (100% * (@j/@i));
 		}
 		.inner-loop(@j - 1);

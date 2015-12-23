@@ -11,6 +11,13 @@ Authors: Tom Benbow
 */
 
 
+
+// GRID SETUP
+//----------------------------------------------------
+@grid-columns: 12; // grid columns available
+@grid-gutters: 8; // gutter widths available
+
+
 // BASELINE GRID SIZE
 //----------------------------------------------------
 @pm-grid-size: 	7px;
@@ -116,14 +123,14 @@ Authors: Tom Benbow
 @font-size-x-small:		1.4rem;
 
 // BASELINE SHIFT
-@baseline-shift-h1:		-.5rem;
-@baseline-shift-h2:		.2rem;
+@baseline-shift-h1:		-.9rem;
+@baseline-shift-h2:		-.7rem;
 @baseline-shift-h3:		.5rem;
-@baseline-shift-h4:		-.5rem;
+@baseline-shift-h4:		.5rem;
 @baseline-shift-h5:		-.4rem;
 @baseline-shift-h6:		-.3rem;
 @baseline-shift-subhead: .3rem;
-@baseline-shift-p:		-.3rem;
+@baseline-shift-p:		-.4rem;
 @baseline-shift-li:		.5rem;
 @baseline-shift-sup:	.2rem;
 
@@ -132,17 +139,17 @@ Authors: Tom Benbow
 //----------------------------------------------------
 @import "core/defaults.less";
 @import "core/type.less";
+@import "core/utilities.less";
 
 
 // IMPORT MIXINS
 //----------------------------------------------------
 @import "mixins/checkerboard.less";
-@import "mixins/grid.less";
+//@import "mixins/grid.less";
 
 
 // IMPORT COMPONENTS
 //----------------------------------------------------
-
 @import "layout/main.less";
 @import "layout/section.less";
 @import "layout/container.less";
@@ -153,22 +160,25 @@ Authors: Tom Benbow
 @import "components/button.less";
 @import "components/form.less";
 @import "components/modal.less";
+
 @import "components/project.less";
 @import "components/constellation.less";
 
-
-@import "components/portfolio/detail.less";
 @import "components/portfolio/feature.less";
 @import "components/portfolio/image-full.less";
-@import "components/portfolio/image-grid.less";
+//@import "components/portfolio/image-grid.less";
 @import "components/portfolio/image-slider.less";
 @import "components/portfolio/image-shuffle.less";
 @import "components/portfolio/image-overlay.less";
 @import "components/portfolio/image-layers.less";
-@import "components/portfolio/text-block.less";
 
 
-// IMPORT EXTEND
+// UTILITIES
+//----------------------------------------------------
+@import "core/utilities.less";
+
+
+// EXTEND
 //----------------------------------------------------
 @import "extend.less";
 

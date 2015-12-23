@@ -7,10 +7,10 @@
 	.is-height-100
 	.is-gutter-1
 .grid_col
-	.is-height-min //.is-limited
+	.is-height-min
 	.is-height-50
 	.is-1of1
-	.sm-1of1 //for breakpoints
+	.sm-1of1
 	.pm-1of1
 .main
 	.is-behind
@@ -37,3 +37,23 @@ Main
 			Container
 				Grid
 					Grid_Col
+
+
+
+
+# Getting Started
+To get started install any node modules by running 'npm install' from the project root.
+That will install any needed dependencies. Then run 'gulp' which will compile less, jekyll
+and use browser sync for live reload.
+
+
+
+
+# Technologies
+Less
+Jekyll
+SVG
+Gulp
+Browsersync
+Greensock
+Scroll Magic

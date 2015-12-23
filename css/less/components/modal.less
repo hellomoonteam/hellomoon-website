@@ -13,19 +13,6 @@ MODAL
 	width: 100%;
 	overflow: auto;
 }
-.modal {
-	h2 {
-		color: @primary;
-		margin: 4rem 0 2rem 0;
-		line-height: 4rem;
-		font-size: 3rem;
-	}
-	p {
-		color: @gray-light;
-		margin: 0 0 2rem 0;
-		line-height: 4rem;
-	}
-}
 .modal_close {
 	position: fixed;
 	top: 3rem;
@@ -41,6 +28,14 @@ MODAL
 .modal_content {
 	margin: 0 auto;
 	max-width: 1000px;
+}
+.modal {
+	h2 {
+		color: @primary;
+	}
+	p {
+		color: @gray-light;
+	}
 }
 
 // ANIMATION
@@ -60,6 +55,12 @@ MODAL
 
 @media @sm {
 	.modal {
-		padding: 4rem 4rem 0 4rem;
+		padding: 3rem 3rem 0 3rem;
+	}
+}
+
+@media @pm {
+	.modal {
+		padding: 3rem 3rem 0 3rem;
 	}
 }
