@@ -1,7 +1,6 @@
 (function($){
 $.fn.dotGrid = function(options) {
 
-
 	// Default Settings
 	//--------------------------------------------
 	var settings = $.extend({
@@ -25,8 +24,8 @@ $.fn.dotGrid = function(options) {
 		]
 	}, options);
 
-
-	// For Each Element
+	//--------------------------------------------
+	// For Each Instance of Grid
 	//--------------------------------------------
 	this.each(function() {
         var gridElement = $(this),
@@ -36,7 +35,8 @@ $.fn.dotGrid = function(options) {
         	size = settings.size * getRemSize(),
         	speed = settings.speed,
         	shapeSetup = settings.shapeSetup,
-        	shape = [];
+        	shape = [],
+        	nextColor = null;
 
         init();
 
@@ -87,15 +87,13 @@ $.fn.dotGrid = function(options) {
 				'position': 'absolute',
 				'top': (y * size) + 'px',
 				'left': (x * size) + 'px',
-				'width': size + 1 + 'px', // plus 1 fixes gap on non-retina screens
-				'height': size + 1 + 'px',
-				'transition': 'top .5s, left .5s'
+				'width': size - 3 + 'px', // plus 1 fixes gap on non-retina screens
+				'height': size - 3 + 'px',
+				'transition': 'top .5s, left .5s, background .5s'
 			});
 		}
 
-
 		// LOOP
-		//--------------------------------------
 		(function loop() {
 			var random = Math.round(Math.random() * 400 + 300);
 			setTimeout(function() {
@@ -120,12 +118,14 @@ $.fn.dotGrid = function(options) {
 				futureCoordinates = null,
 				futureX = null,
 				futureY = null;
-			directions = shuffleArray(directions);    
+
+			directions = shuffleArray(directions);
 			for (var i = 0; i < shape.length; i++) {
 				for (var j = 0; j < directions.length; j++) {
 					futureCoordinates = getFutureCoordinates(shape[i].x, shape[i].y, directions[j]);
 					futureX = futureCoordinates[0];
 					futureY = futureCoordinates[1];
+
 					movePossible = testMove(futureX, futureY);
 					if (movePossible) {
 						shape[i].x = futureX;
@@ -150,25 +150,44 @@ $.fn.dotGrid = function(options) {
 				futureCoordinates = null,
 				futureX = null,
 				futureY = null;
-			directions = shuffleArray(directions);    
+
+			directions = shuffleArray(directions);
+
+			// Colorize white pixels from last loop
+			for (var i = 0; i < shape.length; i++) {
+				if (shape[i].color == '#ffffff') {
+					shape[i].color = nextColor;
+					colorSquare(i, nextColor);
+				}
+			}
+
+			// Set direction
 			for (var i = 0; i < shape.length; i++) {
 				for (var j = 0; j < directions.length; j++) {
 					futureCoordinates = getFutureCoordinates(shape[i].x, shape[i].y, directions[j]);
 					futureX = futureCoordinates[0];
 					futureY = futureCoordinates[1];
-
-
 					inBounds = testBoundaries(futureX, futureY);
-					if (inBounds) {
+					overlapped = testOverlap(futureX, futureY);
+
+					if (inBounds && overlapped) {
+						nextColor = shape[i].color;
+						shape[i].x = futureX;
+						shape[i].y = futureY;
+						shape[i].color = '#ffffff';
+						colorSquare(i, '#ffffff');
+						shape[overlapped].color = '#ffffff';
+						colorSquare(overlapped, '#ffffff');
+						moveSquare(i);
+						return false;
+					} else if (inBounds) {
 						shape[i].x = futureX;
 						shape[i].y = futureY;
 						moveSquare(i);
 						updateShapeArray(i);
-						
-						return false; 
+
+						return false;
 					}
-
-
 				}
 			}
 		}
@@ -223,15 +242,37 @@ $.fn.dotGrid = function(options) {
 			return true;
 		}
 	
+		// TEST IF SQUARE WILL OVERLAP
+		function testOverlap(futureX, futureY) {
+			for (var i = 0; i < shape.length; i++) {
+				xToTest = shape[i].x;
+				yToTest = shape[i].y;
+				if (futureX == xToTest && futureY == yToTest) {
+					return i;
+				}
+			}
+			return false;
+		}
+
 		// MOVE SQUARE
 		// Update the on screen location of square in i position of shape array
 		function moveSquare(i) {
-			var element = '.'+shape[i].name,
+			var elementClass = '.'+shape[i].name,
 				x = shape[i].x,
 				y = shape[i].y;
-			gridElement.find(element).css({
+			gridElement.find(elementClass).css({
 				'top': (y * size) + 'px',
 				'left': (x * size) + 'px',
+			});
+		}
+
+		// COLOR SQUARE
+		// Update the on screen color of square in i position of shape array
+		function colorSquare(i, color) {
+			var elementClass = '.'+shape[i].name;
+
+			gridElement.find(elementClass).css({
+				'background': color
 			});
 		}
 		
@@ -253,6 +294,8 @@ $.fn.dotGrid = function(options) {
     }); // END FOR EACH
 
 
+
+	//--------------------------------------------
 	// UTILITIES
 	//--------------------------------------------
 
