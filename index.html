@@ -14,10 +14,56 @@
 	<main class="main">
 
 		<!-- INTRO -->
-		<section class="section is-height-100 is-padded" id="explore">
+		<section class="section is-height-100 is-padded" id="intro">
+			<div class="background">
+				<div class="background_sphere is-1"></div>
+				<div class="background_sphere is-2"></div>
+
+				<svg id="arcs" width="930px" height="930px" viewBox="0 0 930 930" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<path id="arc1" class="arc" fill="none" stroke="#16192E" stroke-width="30" stroke-miterlimit="10" d="M232.787,79.415
+					c36.209-21.837,75.904-38.78,118.275-49.811"/>
+					<path id="arc2" class="arc" fill="none" stroke="#16192E" stroke-width="30" stroke-miterlimit="10" d="M61.237,266.192
+					c19.009-38.514,43.412-74.079,72.34-105.602"/>
+					<path id="arc3" class="arc" fill="none" stroke="#16192E" stroke-width="30" stroke-miterlimit="10" d="M17.913,516.118
+					c-5.022-43.925-3.541-87.095,3.679-128.547"/>
+					<path id="arc4" class="arc" fill="none" stroke="#16192E" stroke-width="30" stroke-miterlimit="10" d="M116.177,749.381
+					c-26.707-32.696-48.976-69.34-65.767-109.106"/>
+					<path id="arc5" class="arc" fill="none" stroke="#16192E" stroke-width="30" stroke-miterlimit="10" d="M324.981,892.777
+					c-40.93-13.425-79.475-32.611-114.556-56.7"/>
+					<!--<circle fill="none" stroke="#16192E" stroke-miterlimit="10" cx="465" cy="465" r="450"/>-->
+				</svg>
+
+				<svg id="dotted1" class="dotted" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<circle id="dotted1_circle" fill="transparent" stroke="rgba(56,28,108,1)" stroke-width="2" stroke-dasharray="2,30" cx="300" cy="300" r="285"></circle>
+				</svg>
+				<svg id="dotted2" class="dotted" width="650" height="650" viewBox="0 0 650 650" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<circle id="dotted2_circle" fill="transparent" stroke="rgba(184,48,173,.6)" stroke-width="2" stroke-dasharray="15,35" cx="325" cy="325" r="310"></circle>
+				</svg>
+				<svg id="dotted3" class="dotted" width="750" height="750" viewBox="0 0 750 750" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<circle id="dotted3_circle" fill="transparent" stroke="rgba(255,255,255,.4)" stroke-width="1" stroke-dasharray="2,40" cx="375" cy="375" r="360"></circle>
+				</svg>
+
+				<svg id="rays" width="2007px" height="2007px" viewBox="0 0 2007 2007" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			        <g transform="translate(1.000000, 1.000000)" stroke="rgba(255,255,255,.2)" stroke-linecap="square">
+			            <path id="ray12" class="ray" d="M648.446609,147.032396 L1355.55339,854.139177" transform="translate(1002.000000, 500.585786) rotate(-135.000000) translate(-1002.000000, -500.585786) "></path>
+			            <path id="ray11" class="ray" d="M397.739503,214.209163 L1104.84628,921.315944" transform="translate(751.292893, 567.762553) rotate(-165.000000) translate(-751.292893, -567.762553) "></path>
+			            <path id="ray10" class="ray" d="M214.209163,397.739503 L921.315944,1104.84628" transform="translate(567.762553, 751.292893) rotate(-195.000000) translate(-567.762553, -751.292893) "></path>
+			            <path id="ray9" class="ray" d="M147.032396,648.446609 L854.139177,1355.55339" transform="translate(500.585786, 1002.000000) rotate(-225.000000) translate(-500.585786, -1002.000000) "></path>
+			            <path id="ray8" class="ray" d="M214.209163,899.153716 L921.315944,1606.2605" transform="translate(567.762553, 1252.707107) rotate(-255.000000) translate(-567.762553, -1252.707107) "></path>
+			            <path id="ray7" class="ray" d="M397.739503,1082.68406 L1104.84628,1789.79084" transform="translate(751.292893, 1436.237447) rotate(-285.000000) translate(-751.292893, -1436.237447) "></path>
+			            <path id="ray6" class="ray" d="M648.446609,1151.12403 L1355.55339,1858.23081" transform="translate(1002.000000, 1504.677416) rotate(45.000000) translate(-1002.000000, -1504.677416) "></path>
+			            <path id="ray5" class="ray" d="M899.785317,1083.77802 L1606.8921,1790.8848" transform="translate(1253.338708, 1437.331412) rotate(15.000000) translate(-1253.338708, -1437.331412) "></path>
+			            <path id="ray4" class="ray" d="M1083.77802,899.785317 L1790.8848,1606.8921" transform="translate(1437.331412, 1253.338708) rotate(-15.000000) translate(-1437.331412, -1253.338708) "></path>
+			            <path id="ray3" class="ray" d="M1151.12403,648.446609 L1858.23081,1355.55339" transform="translate(1504.677416, 1002.000000) rotate(-45.000000) translate(-1504.677416, -1002.000000) "></path>
+			            <path id="ray2" class="ray" d="M1083.77802,397.107902 L1790.8848,1104.21468" transform="translate(1437.331412, 750.661292) rotate(-75.000000) translate(-1437.331412, -750.661292) "></path>
+			            <path id="ray1" class="ray" d="M899.785317,213.115197 L1606.8921,920.221979" transform="translate(1253.338708, 566.668588) rotate(-105.000000) translate(-1253.338708, -566.668588) "></path>
+			        </g>
+				</svg>
+
+			</div>
 			<div class="section_middle">
-				<div class="container is-narrow is-text-center">
-					<img class="is-max-100" src="./img/hellomoon_logo.svg" />
+				<div class="container is-text-center">
+					<img id="logo" class="is-max-100" src="./img/hellomoon_logo.svg" />
 				</div>
 			</div>
 		</section>
@@ -33,12 +79,12 @@
 			<div class="section_middle">
 				<div class="container">
 					<div class="grid is-middle is-1of2 pm-1of1">
-						<div class="grid_col is-height-min">
+						<div class="grid_col">
 							<div id="grid-shift"></div>
 						</div>
 						<div class="grid_col pm-text-center">
 							<h1>We Explore</h1>
-							<p>This simple system of 11 pixels contains 1.97 million possibilities. To us that’s clear evidence there are new horizons awaiting those willing to&nbsp;explore.</p>
+							<p>This simple system of 11 squares contains 1.97 million possibilities. To us that’s clear evidence there are new horizons awaiting those willing to&nbsp;explore.</p>
 						</div>
 					</div>
 				</div>
@@ -56,12 +102,12 @@
 			<div class="section_middle">
 				<div class="container">
 					<div class="grid is-flipped is-middle is-1of2 pm-1of1">
-						<div class="grid_col is-height-min">
+						<div class="grid_col">
 							<div id="grid-evolve"></div>
 						</div>
-						<div class="grid_col pm-text-center">
+						<div class="grid_col is-text-right pm-text-center">
 							<h1>We Evolve</h1>
-							<p>We've made a variety of projects by evolving our carefully selected set of techniques and technologies. Our diversity of experience provides unique creative and technical&nbsp;insights.</p>
+							<p>We create a wide range of digital experiences using a small carefully curated set of technologies. Our diversity of experience provides unique creative and technical&nbsp;insights.</p>
 						</div>
 					</div>
 				</div>
@@ -69,7 +115,7 @@
 		</section>
 
 		<!-- CREATE -->
-		<section class="section is-height-100 is-padded" id="evolve">
+		<section class="section is-height-100 is-padded" id="create">
 			<div class="background">
 				<div class="background_color is-3"></div> 
 				<div class="background_diagonal is-3"></div>
@@ -79,7 +125,7 @@
 			<div class="section_middle">
 				<div class="container is-narrow is-text-center">
 					<h1>We Create</h1>
-					<p>There's a satisfying harmony in a perfectly spaced layout, a subtle emotion in the ease of an animation and an unseen elegance behind complex interactions. These are the details that blah blah blah and blah blah&nbsp;blah.</p>
+					<p>There's a satisfying harmony in a perfectly spaced layout, a subtle emotion in the ease of an animation and an unseen elegance behind complex interactions. We bend chaos into pattern, pixels into stories and re-imagine the everyday.</p>
 				</div>
 			</div>
 		</section>
@@ -229,7 +275,7 @@
 						</div>
 						<div class="grid_col pm-text-center">
 							<h1>Services</h1>
-							<p>Hellomoon is a full service design and development studio. We're a cross-disciplinary team of programmers and designers with a pragmatic approach to creating custom interactive experiences that are simple, beautiful and perfectly tailored to the task at&nbsp;hand.</p>
+							<p>We're a passionate team of programmers and designers with a pragmatic approach to creating custom interactive experiences that are simple, beautiful and perfectly tailored to the task at&nbsp;hand.</p>
 						</div>
 					</div>
 
@@ -326,11 +372,22 @@
 		{% include icons.svg %}
 	</div>
 
-	<!-- SCRIPTS -->
-	<script src="js/lib/jquery/jquery-2.1.3.min.js"></script>
-	<script src="js/lib/jquery/jquery.ba-throttle-debounce.min.js"></script>
+	<!-- JS LIBRARIES -->
+	<script type="text/javascript" src="js/lib/jquery/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="js/lib/jquery/jquery.ba-throttle-debounce.min.js"></script>
+	<script type="text/javascript" src="js/lib/gsap/minified/TweenMax.min.js"></script>
+	<script type="text/javascript" src="js/lib/gsap/minified/TimelineMax.min.js"></script>
+	<script type="text/javascript" src="js/lib/gsap/minified/plugins/DrawSVGPlugin.min.js"></script>
+	<script type="text/javascript" src="js/lib/scrollmagic/minified/ScrollMagic.min.js"></script>
+	<script type="text/javascript" src="js/lib/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
+	<script type="text/javascript" src="js/lib/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+
+	<!-- CUSTOM JS -->
+	<script src="js/global.js"></script>
+	<script src="js/intro.js"></script>
+	<script src="js/animation.js"></script>
 	<script src="js/h_shift.js"></script>
-    <script src="js/global.js"></script>
+
     <script type="text/javascript">
     	$(document).ready(function() {
     		$('#grid-shift').dotGrid({
@@ -338,7 +395,6 @@
 				columns: 4,
 				rows: 5,
 				size: 5, // rems
-				speed: 200, // milleseconds
 				shapeSetup: [
 					[3,0,'#ffffff'],
 					[0,0,'#008ff1'],
@@ -358,7 +414,7 @@
 				columns: 6,
 				rows: 9,
 				size: 4, // rems
-				speed: 200, // milleseconds					
+				gutterSize: 3,
 				shapeSetup: [
 					[0,0,'#4b2ec7'],
 					[1,0,'#4b2ec7'],

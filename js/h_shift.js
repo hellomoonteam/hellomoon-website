@@ -4,11 +4,12 @@ $.fn.dotGrid = function(options) {
 	// Default Settings
 	//--------------------------------------------
 	var settings = $.extend({
+		play: false,
 		mode: 'shift',
 		columns: 4,				// columns in grid
 		rows: 5,				// rows in grid
-		size: 60, 				// pixel size of grid squares
-		speed: 200,				// length in milleseconds between loops
+		size: 5, 				// rem size of grid squares
+		gutterSize: 0, 			// pixel size of gutters
 		shapeSetup: [
 			[3,0,'#ffffff'],
 			[0,0,'#008ff1'],
@@ -32,13 +33,33 @@ $.fn.dotGrid = function(options) {
         	columns = settings.columns,
         	rows = settings.rows,
         	remSize = getRemSize(),
-        	size = settings.size * getRemSize(),
-        	speed = settings.speed,
+        	size = settings.size * remSize,
         	shapeSetup = settings.shapeSetup,
         	shape = [],
-        	nextColor = null;
+        	nextColor = null,
+        	playGrid = settings.play,
+        	mode = settings.mode;
+
+
+        // SETUP SCROLL EVENTS
+		var controller = new ScrollMagic.Controller();
+		var scene = new ScrollMagic.Scene({
+				triggerElement: this,
+				triggerHook: .8,
+				duration: 1000
+			})
+			.addTo(controller)
+			.on('enter leave', function (e) {
+				if (e.type == 'enter'){
+					setTimeout(function() { playGrid = true; }, 2000);
+				} else {
+					playGrid = false;
+				}
+			})
+
 
         init();
+
 
         function init() {
         	// make an array of objects out of shapeSetup array
@@ -59,10 +80,8 @@ $.fn.dotGrid = function(options) {
 			var width = columns * size,
 				height = rows * size;
 			gridElement.css({
-				'position': 'absolute',
-				'top': '50%',
-				'left': '50%',
-				'transform': 'translate(-50%,-50%)',
+				'position': 'relative',
+				'margin': '0 auto',
 				'width': width,
 				'height': height
 			});
@@ -87,26 +106,28 @@ $.fn.dotGrid = function(options) {
 				'position': 'absolute',
 				'top': (y * size) + 'px',
 				'left': (x * size) + 'px',
-				'width': size - 3 + 'px', // plus 1 fixes gap on non-retina screens
-				'height': size - 3 + 'px',
+				'width': size - settings.gutterSize + 'px',
+				'height': size - settings.gutterSize + 'px',
 				'transition': 'top .5s, left .5s, background .5s'
 			});
 		}
+
 
 		// LOOP
 		(function loop() {
 			var random = Math.round(Math.random() * 400 + 300);
 			setTimeout(function() {
-				if (settings.mode == 'shift'){
+				if (playGrid && mode == 'shift'){
 					shiftShape();
 				}
-				if (settings.mode == 'evolve'){
+				if (playGrid && mode == 'evolve'){
 					evolveShape();
 				}
-				loop();  
+				loop();
 			}, random);
 		}());
 
+		
         // SHUFFLE SHAPE
 		// 1. Shuffle directions to add randomness    
 		// 2. Select first item in shape array
@@ -138,6 +159,7 @@ $.fn.dotGrid = function(options) {
 				}
 			}
 		}
+		
 
 		// EVOLVE SHAPE
 		// 1. Shuffle directions to add randomness    
@@ -294,7 +316,6 @@ $.fn.dotGrid = function(options) {
     }); // END FOR EACH
 
 
-
 	//--------------------------------------------
 	// UTILITIES
 	//--------------------------------------------
@@ -332,7 +353,8 @@ $.fn.dotGrid = function(options) {
 		return remSize;
 	}
 
-
 	return this;
+
+
 };
 }(jQuery));

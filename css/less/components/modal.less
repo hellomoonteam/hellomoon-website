@@ -5,20 +5,22 @@ MODAL
 */
 
 .modal {
+	display: block;
 	background: #ffffff;
 	position: fixed;
 	z-index: 1;
 	top: 0;
 	padding: 9rem 9rem 0 9rem;
 	width: 100%;
+	height: 100%;
 	overflow: auto;
 }
 .modal_close {
+	opacity: 0;
 	position: fixed;
 	top: 3rem;
 	right: 3rem;
 	z-index: 2;
-	display: block;
 	background: url(img/close.svg) no-repeat center center;
 	width: 4rem;
 	height: 4rem;
@@ -41,6 +43,11 @@ MODAL
 // ANIMATION
 .modal {
 	transition: top .6s;
+}
+.modal.is-active .modal_close {
+	transition: opacity .6s;
+	transition-delay: .5s;
+	opacity: 1;
 }
 
 // STATES
