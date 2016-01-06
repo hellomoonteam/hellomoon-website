@@ -8,19 +8,16 @@ $(document).ready(function() {
 });
 
 
-// function init() {
-// 	render();
-// }
+function init() {
+	render();
+}
 
 
 
 // Update Layout On Resize
 //----------------------------------------------------
 // $(window).resize($.debounce( 20, true, function(){
-// 	var currentSection = getCurrentSection(),
-// 		currentId = currentSection.id;
 
-// 	jumpToSection(currentId);
 // }));
 
 
@@ -33,7 +30,8 @@ $(window).on('hashchange', function(){
 
 // Render page
 function render(hash) {
-	//console.log('rendering ' + hash)
+	// If there is a hash and it matches a portfolio modal
+	// than load page with that modal open.
 }
 
 // Update hash
@@ -48,7 +46,8 @@ function updateHash(hash) {
 function modalOpen(e){
 	var url = $(this).attr('href');
 
-	e.preventDefault();   
+	e.preventDefault();
+	// window.history.pushState({}, '', this.href); // Update Hash (not supported in ie8/9)
 	$('.main').addClass('is-behind');
 	modalInject(url);
 }
