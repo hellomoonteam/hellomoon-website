@@ -321,23 +321,23 @@
 								<fieldset>
 									<legend>Say Hello</legend>
 									<div class="input-group is-half">
-										<input type="text" id="name">
+										<input tabindex="1" type="text" id="name" maxlength="255" aria-label="name" aria-required="true" required>
 										<label for="name">Name</label>
 									</div>
 									<div class="input-group is-half">
-										<input type="text" id="company">
+										<input tabindex="2" type="text" id="company" maxlength="255" aria-label="company">
 										<label for="company">Company</label>
 									</div>
 									<div class="input-group">
-										<input type="text" id="email">
+										<input tabindex="3" type="email" id="email" maxlength="255"  aria-label="email" aria-required="true" required>
 										<label for="email">Email</label>
 									</div>
 									<div class="input-group">
-										<textarea id="message"></textarea>
+										<textarea tabindex="4" id="message"  aria-label="message"></textarea>
 										<label for="message">Message</label>
 									</div>
 								</fieldset>
-								<button type="submit" class="button">Send Message</button>
+								<button tabindex="5" type="submit" class="button">Send Message</button>
 							</form>
 						</div>
 						<div class="contact-footer pm-version">
