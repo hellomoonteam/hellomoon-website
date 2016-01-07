@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="./css/style.css">
 	<title>Hellomoon | A Creative Technology and Design Studio</title>
 	<meta name="detail" content="">	
+	<script src="js/lib/picturefill/picturefill.min.js"></script>
 </head>
 <body>
 	<main class="main">
@@ -295,27 +296,28 @@
 							</div>
 						</div>
 						<div class="grid_col">
-							<form class="form is-limit-width is-centered">
+							<form class="form is-limit-width is-centered" method="post">
 								<fieldset>
 									<legend>Say Hello</legend>
 									<div class="input-group is-half">
-										<input tabindex="1" type="text" id="name" maxlength="255" aria-label="name" aria-required="true" required>
+										<input tabindex="1" type="text" id="name"  name="name" maxlength="255" aria-label="name" aria-required="true" required>
 										<label for="name">Name</label>
 									</div>
 									<div class="input-group is-half">
-										<input tabindex="2" type="text" id="company" maxlength="255" aria-label="company">
+										<input tabindex="2" type="text" id="company"  name="company" maxlength="255" aria-label="company">
 										<label for="company">Company</label>
 									</div>
 									<div class="input-group">
-										<input tabindex="3" type="email" id="email" maxlength="255"  aria-label="email" aria-required="true" required>
+										<input tabindex="3" type="email" id="email"  name="email" maxlength="255"  aria-label="email" aria-required="true" required>
 										<label for="email">Email</label>
 									</div>
 									<div class="input-group">
-										<textarea tabindex="4" id="message"  aria-label="message"></textarea>
+										<textarea tabindex="4" id="message"  name="message" aria-label="message"></textarea>
 										<label for="message">Message</label>
 									</div>
+									<input type="hidden" name="cc_emails[]" value="cullan@hellomoon.net">
 								</fieldset>
-								<button tabindex="5" type="submit" class="button">Send Message</button>
+								<button tabindex="5" type="submit" class="button" value="Send Message">Send Message</button>
 							</form>
 						</div>
 						<div class="contact-footer pm-version">
