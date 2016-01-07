@@ -24,7 +24,7 @@ gulp.task('serve', ['svgstore','less','jekyll'], function() {
     gulp.watch('./css/less/**/*.less', ['less']);
     gulp.watch('./icons/*.svg', ['svgstore']);
     gulp.watch(['./*.html','./portfolio/*.html','./_includes/**/*','./js/**/*','./img/**/*','./css/style.css'], ['jekyll']);
-    gulp.watch(['_site/css/style.css'], browserSync.reload); // Reload browser sync when the style sheet changes
+    gulp.watch(['_site/css/style.css','_site/*.html','_site/portfolio/*.html'], browserSync.reload); // Reload browser sync when the style sheet changes
 });
 
 
