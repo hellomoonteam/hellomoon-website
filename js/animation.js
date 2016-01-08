@@ -132,6 +132,23 @@
 	})
 	.setTween(tweenLogo)
 	.addTo(controller);
+
+
+	// LOGO
+	var scrollIndicator = new TweenMax.fromTo('#scroll-indicator', 2, {
+		opacity: '1',
+		},{ // from/to
+		opacity: '0',
+		ease:Power0.easeInOut
+	});
+	var sceneScrollIndicator = new ScrollMagic.Scene({
+		triggerElement: '#logo',
+		triggerHook: .5,
+		duration: windowHeight/2
+	})
+	.setTween(scrollIndicator)
+	.addTo(controller);
+
 	
 	// EXPLORE
 	var timelineExplore = new TimelineLite();
