@@ -250,23 +250,5 @@
 	.addTo(controller);
 
 
-	// BACKGROUND OPACITY
-	//--------------------------------------------
-	for (var i=0; i < backgrounds.length; i++){
-		var tweenBackground = new TweenMax.fromTo(backgrounds[i], 2, {
-			opacity: .5
-			},{ // from/to
-			opacity: 1,
-			ease:Power1.easeOut
-		});
-		var sceneBackground = new ScrollMagic.Scene({
-			triggerElement: backgrounds[i],
-			triggerHook: 1,
-			duration: windowHeight * 3
-		})
-		.setTween(tweenBackground)
-		.addTo(controller);
-	}
-
 
 }(jQuery));
