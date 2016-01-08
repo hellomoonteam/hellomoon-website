@@ -60,6 +60,7 @@ function modalInject(url) {
 			var msg = "Sorry but there was an error: ";
 			$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
 		} else {
+			console.log('load complete');
 			// Set modal top to prep for animation
 			$('#modal .modal').attr('style','top: ' + windowHeight + 'px;');
 			// Delay activating modal to allow time for css animation to trigger

@@ -154,7 +154,7 @@
 	var timelineExplore = new TimelineLite();
 		timelineExplore
 			.from('#grid-shift', .7, {scale: .4, opacity: 0, ease: Power1.easeOut})
-			.from('#explore h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut})
+			.from('#explore h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
 			.from('#explore p', .7, {x: 70, opacity: 0, ease: Power1.easeOut}, '-=.5');
 	var sceneExplore = new ScrollMagic.Scene({
 		triggerElement: '#explore h1',
@@ -167,7 +167,7 @@
 	var timelineEvolve = new TimelineLite();
 		timelineEvolve
 			.from('#grid-evolve', .7, {scale: .4, opacity: 0, ease: Power1.easeOut})
-			.from('#evolve h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut})
+			.from('#evolve h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
 			.from('#evolve p', .7, {x: -70, opacity: 0, ease: Power1.easeOut}, '-=.5');
 	var sceneEvolve = new ScrollMagic.Scene({
 		triggerElement: '#evolve h1',
@@ -202,9 +202,10 @@
 	// SERVICES
 	var timelineServices = new TimelineLite();
 		timelineServices
-			.from('#services h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut})
-			.from('#services p', .7, {x: 70, opacity: 0, ease: Power1.easeOut}, '-=.5')
-			.from('#services #constellation', .7, {scale: .9, opacity: 0, ease: Power1.easeOut}, '-=1.2');
+			.from('#services #constellation', .7, {scale: .9, opacity: 0, ease: Power1.easeOut})
+			.from('#services h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
+			.from('#services p', .7, {x: 70, opacity: 0, ease: Power1.easeOut}, '-=.5');
+			
 	var sceneServices = new ScrollMagic.Scene({
 		triggerElement: '#services h1',
 		triggerHook: .8
