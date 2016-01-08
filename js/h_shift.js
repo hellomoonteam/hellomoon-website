@@ -51,7 +51,7 @@ $.fn.dotGrid = function(options) {
 			.addTo(controller)
 			.on('enter leave', function (e) {
 				if (e.type == 'enter'){
-					setTimeout(function() { playGrid = true; }, 2000);
+					setTimeout(function() { playGrid = true; }, 3000);
 				} else {
 					playGrid = false;
 				}

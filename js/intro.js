@@ -12,7 +12,16 @@
 		return false;
 	}
 
-	
+	// SCROLL INDICATOR
+	//--------------------------------------------
+	var $scrollIndicator = $('#scroll-indicator');
+	var scrollIndicatorTween = TweenMax.to($scrollIndicator, .7, {
+		marginTop: 150,
+		ease: Power1.easeInOut
+	});
+	scrollIndicatorTween.yoyo(true).repeat(-1).play();
+
+
 	// SPHERES
 	//--------------------------------------------
 	

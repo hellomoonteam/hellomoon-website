@@ -132,13 +132,30 @@
 	})
 	.setTween(tweenLogo)
 	.addTo(controller);
+
+
+	// LOGO
+	var scrollIndicator = new TweenMax.fromTo('#scroll-indicator', 2, {
+		opacity: '1',
+		},{ // from/to
+		opacity: '0',
+		ease:Power0.easeInOut
+	});
+	var sceneScrollIndicator = new ScrollMagic.Scene({
+		triggerElement: '#logo',
+		triggerHook: .5,
+		duration: windowHeight/2
+	})
+	.setTween(scrollIndicator)
+	.addTo(controller);
+
 	
 	// EXPLORE
 	var timelineExplore = new TimelineLite();
 		timelineExplore
 			.from('#grid-shift', .7, {scale: .4, opacity: 0, ease: Power1.easeOut})
-			.from('#explore h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut})
-			.from('#explore p', .7, {x: -70, opacity: 0, ease: Power1.easeOut}, '-=.5');
+			.from('#explore h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
+			.from('#explore p', .7, {x: 70, opacity: 0, ease: Power1.easeOut}, '-=.5');
 	var sceneExplore = new ScrollMagic.Scene({
 		triggerElement: '#explore h1',
 		triggerHook: .8
@@ -150,8 +167,8 @@
 	var timelineEvolve = new TimelineLite();
 		timelineEvolve
 			.from('#grid-evolve', .7, {scale: .4, opacity: 0, ease: Power1.easeOut})
-			.from('#evolve h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut})
-			.from('#evolve p', .7, {x: 70, opacity: 0, ease: Power1.easeOut}, '-=.5');
+			.from('#evolve h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
+			.from('#evolve p', .7, {x: -70, opacity: 0, ease: Power1.easeOut}, '-=.5');
 	var sceneEvolve = new ScrollMagic.Scene({
 		triggerElement: '#evolve h1',
 		triggerHook: .8
@@ -185,9 +202,10 @@
 	// SERVICES
 	var timelineServices = new TimelineLite();
 		timelineServices
-			.from('#services h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut})
-			.from('#services p', .7, {x: 70, opacity: 0, ease: Power1.easeOut}, '-=.5')
-			.from('#services #constellation', .7, {scale: .9, opacity: 0, ease: Power1.easeOut}, '-=1.2');
+			.from('#services #constellation', .7, {scale: .9, opacity: 0, ease: Power1.easeOut})
+			.from('#services h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
+			.from('#services p', .7, {x: 70, opacity: 0, ease: Power1.easeOut}, '-=.5');
+			
 	var sceneServices = new ScrollMagic.Scene({
 		triggerElement: '#services h1',
 		triggerHook: .8
@@ -232,24 +250,6 @@
 	.setTween(timelineWorkGrid)
 	.addTo(controller);
 
-
-	// BACKGROUND OPACITY
-	//--------------------------------------------
-	for (var i=0; i < backgrounds.length; i++){
-		var tweenBackground = new TweenMax.fromTo(backgrounds[i], 2, {
-			opacity: .5
-			},{ // from/to
-			opacity: 1,
-			ease:Power1.easeOut
-		});
-		var sceneBackground = new ScrollMagic.Scene({
-			triggerElement: backgrounds[i],
-			triggerHook: 1,
-			duration: windowHeight * 3
-		})
-		.setTween(tweenBackground)
-		.addTo(controller);
-	}
 
 
 }(jQuery));
