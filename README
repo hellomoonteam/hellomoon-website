@@ -1,12 +1,11 @@
 # Getting Started
-To get started install any node modules by running 'npm install' from the project root.
-That will install any needed dependencies. Then run 'gulp' which will compile less, jekyll
-and use browser sync for live reload.
+1. Install dependencies by running 'npm install' from project root
+2. Run 'gulp' to start watchers that compile less, jekyll and use browser sync as a server with livereload
 
 # Technologies
 Less
 Jekyll
-SVG
+SVG Store
 Gulp
 Browsersync
 Greensock
