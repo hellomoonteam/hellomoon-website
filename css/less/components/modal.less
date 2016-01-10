@@ -9,7 +9,7 @@ MODAL
 	background: #f6f6f6;
 	position: fixed;
 	z-index: 1;
-	top: 0;
+	top: 100%;
 	padding: 9rem 9rem 0 9rem;
 	width: 100%;
 	height: 100%;
@@ -44,6 +44,9 @@ MODAL
 .modal {
 	transition: top .6s;
 }
+.modal.is-active {
+	top: 0%;
+}
 .modal.is-active .modal_close {
 	transition: opacity .6s;
 	transition-delay: .5s;
@@ -53,6 +56,7 @@ MODAL
 // STATES
 .is-modal-page { // Modal when viewed in page not as a modal
 	.modal {
+		top: 0%;
 		position: relative;
 	}
 	.modal-close {

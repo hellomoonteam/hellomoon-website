@@ -8,36 +8,56 @@ $(document).ready(function() {
 });
 
 
+
+// SIMPLE SPA FRAMEWORK
+//----------------------------------------------------
+
+// Init Page
 function init() {
 	render();
 }
 
+// Render Page
+function render(hash) {
+	// If there is a hash and it matches a portfolio modal
+	// than load page with that modal open.
+}
+
+$(window).on('hashchange', function(){
+	//console.log('hash change');
+    //render();
+});
+
+// Update hash
+function updateHash(hash) {
+	//document.location.hash = hash;
+}
 
 
-// Update Layout On Resize
+
+
+
+// UPDATE ON RESIZE
 //----------------------------------------------------
 // $(window).resize($.debounce( 20, true, function(){
 
 // }));
 
 
-// SIMPLE SPA FRAMEWORK
+// PAGE LOADER
 //----------------------------------------------------
-$(window).on('hashchange', function(){
-	//console.log('hash change');
-    //render();
-});
-
-// Render page
-function render(hash) {
-	// If there is a hash and it matches a portfolio modal
-	// than load page with that modal open.
-}
-
-// Update hash
-function updateHash(hash) {
-	//document.location.hash = hash;
-}
+$(window).load(function () {
+	var pageLoaderTween = new TimelineMax()
+		.to($('#page-loader .loader_spinner'), .75, {
+			opacity: 0
+		})
+		.to($('#page-loader'), 1.5, {
+			opacity: 0,
+			onComplete: function() {
+				$('#page-loader').remove();
+			}
+		});
+})
 
 
 
@@ -47,43 +67,35 @@ function modalOpen(e){
 	var url = $(this).attr('href');
 
 	e.preventDefault();
-	// window.history.pushState({}, '', this.href); // Update Hash (not supported in ie8/9)
 	$('.main').addClass('is-behind');
+	$('#modal').addClass('is-active');
 	modalInject(url);
 }
 
-function modalInject(url) {
-	var windowHeight = $(window).height();
+function modalClose(e){
+	e.preventDefault();
+	window.stop(); // Stop Loading any content that didn't finish before we close (images)
+	$('.main').removeClass('is-behind');
+	$('#modal').removeClass('is-active');
+	setTimeout(modalEmpty, 600); // Don't empty until modal is hidden
+}
 
-	$('#modal').load(url + ' .modal', function( response, status, xhr ) {
-		if ( status == "error" ) {
-			var msg = "Sorry but there was an error: ";
-			$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
-		} else {
-			console.log('load complete');
-			// Set modal top to prep for animation
-			$('#modal .modal').attr('style','top: ' + windowHeight + 'px;');
-			// Delay activating modal to allow time for css animation to trigger
-			setTimeout(modalActive, 30);
+function modalInject(url) {
+	$.ajax({
+		url: url ,
+		success: function( result ) {
+			$('#modal .modal_content').html($(result).find('.modal_content'));
+		},
+		error: function( xhr, status, errorThrown ) {
+			console.log( "Error: " + errorThrown );
+			console.log( "Status: " + status );
+		},
+		complete: function( xhr, status ) {
+			console.log( 'the request is complete' );
 		}
 	});
 }
 
-function modalActive() {
-	$('#modal .modal').attr('style','position: absolute;');
-	$('#modal .modal').addClass('is-active');
-}
-
-function modalClose(e){
-	var windowHeight = $(window).height();
-
-	e.preventDefault();
-	$('#modal .modal').attr('style','top: ' + windowHeight + 'px;');
-	$('.main').removeClass('is-behind');
-	$('#modal .modal_close').attr('style','display: none;');
-	setTimeout(modalEmpty, 600); // Don't empty until modal is hidden
-}
-
 function modalEmpty() {
-	$('#modal').empty();
+	$('#modal .modal_content').empty();
 }

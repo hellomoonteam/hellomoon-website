@@ -13,6 +13,9 @@
 	<script src="js/lib/picturefill/picturefill.min.js"></script>
 </head>
 <body>
+	<div id="page-loader" class="loader">
+		<div class="loader_spinner"></div>
+	</div>
 	<main class="main">
 
 		<!-- INTRO -->
@@ -68,8 +71,8 @@
 				</div>
 
 				<svg id="scroll-indicator" width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-					<line fill="none" stroke="#313133" stroke-miterlimit="10" x1="20" y1="33" x2="20" y2="-15"/>
-					<polyline fill="none" stroke="#313133" stroke-miterlimit="10" points="3,16.5 20,33 37,16.7 "/>
+					<line fill="none" stroke="#4F4F53" stroke-miterlimit="10" stroke-width="2" x1="20" y1="33" x2="20" y2="-15"/>
+					<polyline fill="none" stroke="#4F4F53" stroke-miterlimit="10" stroke-width="2" points="7,17 20,33 33,17 "/>
 				</svg>
 
 				</div>
@@ -352,7 +355,11 @@
 		</section>
 	</main>
 
-	<div id="modal"></div>
+	<div id="modal" class="modal">
+		<a class="modal_close" data-action="modalClose">Close</a>
+		<div class="modal_content">
+		</div>
+	</div>
 
 	<!-- SVG STORE -->
 	<div style="position: fixed; bottom: 0; height: 0; dispay: hidden;">
