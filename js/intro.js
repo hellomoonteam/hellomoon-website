@@ -8,11 +8,12 @@
 
 	// NO ANIMATIONS ON MOBILE
 	//--------------------------------------------
-	if (isMobile) {
-		return false;
-	}
+	// if (isMobile) {
+	// 	return false;
+	// }
 
-	// SCROLL INDICATOR
+
+	// SCROLL INDICATOR ARROW
 	//--------------------------------------------
 	var $scrollIndicator = $('#scroll-indicator');
 	var scrollIndicatorTween = TweenMax.to($scrollIndicator, .7, {
@@ -114,8 +115,9 @@
 
 	// RAYS
 	//--------------------------------------------
-	var raySpin = TweenMax.to('#rays', 250, { rotation: 360, ease: Linear.easeNone })
-		.repeat(-1).play();
+	// Disabled Ray Spin for Better Performance
+	// var raySpin = TweenMax.to('#rays', 250, { rotation: 360, ease: Linear.easeNone })
+	// 	.repeat(-1).play();
 	var rayTrace = new TimelineMax()
 		.to('.ray', .001, {drawSVG: '0% 0%'})
 

@@ -10,3 +10,6 @@ Gulp
 Browsersync
 Greensock
 Scroll Magic
+
+# Performance Enhancements
+Pause intro when it's off screen

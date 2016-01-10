@@ -1,0 +1,63 @@
+// Intro
+//----------------------------------------------------
+
+.background_sphere {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	border-radius: 50%;
+
+	&.is-1 {
+		background: radial-gradient(circle farthest-side at 30% 50%, rgba(79,8,50,0) 60%, rgba(79,8,50,1) 100%);
+		width: 75rem;
+		height: 75rem;
+	}
+	&.is-2 {
+		background: radial-gradient(circle farthest-side at 30% 50%, rgba(30,35,64,0) 60%, rgba(30,35,64,1) 100%);
+		width: 85rem;
+		height: 85rem;
+	}
+}
+#arcs {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%) scale(1.1);
+}
+.dotted {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+#rays {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+
+// MOBILE 
+//----------------------------------------------------
+@media @pm {
+	#intro .background {
+		left: -11%;
+		transform: scale(.82);
+		width: 122%;
+	}
+	#rays, #arcs {
+		display: none;
+	}
+}
+@media @sm {
+	#intro .background {
+		left: -20%;
+		transform: scale(.7);
+		width: 140%;
+	}
+	#rays, #arcs {
+		display: none;
+	}
+}
