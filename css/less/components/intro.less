@@ -1,6 +1,37 @@
 // Intro
 //----------------------------------------------------
 
+.logo {
+	position: relative;
+	margin: 3rem auto 0 auto;
+	width: 52rem;
+	z-index: 2;
+
+	img {
+		width: 100%;
+	}
+	.logo_tagline {
+		display: block;
+		color: @gray-light;
+		border-top: 1px solid @gray;
+		padding-top: 1rem;
+		margin-top: .6rem;
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 1.6rem;
+		letter-spacing: .4rem;
+	}
+}
+
+#scroll-indicator {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: 130px;
+	transform: translateX(-50%);
+}
+
+
 .background_sphere {
 	position: absolute;
 	top: 50%;
@@ -19,18 +50,21 @@
 		height: 85rem;
 	}
 }
+
 #arcs {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%) scale(1.1);
 }
+
 .dotted {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 }
+
 #rays {
 	position: absolute;
 	top: 50%;
@@ -42,6 +76,14 @@
 // MOBILE 
 //----------------------------------------------------
 @media @pm {
+	.logo {
+		width: 38rem;
+
+		.logo_tagline {
+			font-size: 1.5rem;
+			letter-spacing: .1rem;
+		}
+	}
 	#intro .background {
 		left: -11%;
 		transform: scale(.82);
@@ -52,6 +94,13 @@
 	}
 }
 @media @sm {
+	#scroll-indicator {
+		position: absolute;
+		top: 35%;
+		left: 50%;
+		margin-top: 130px;
+		transform: translateX(-50%);
+	}
 	#intro .background {
 		left: -20%;
 		transform: scale(.7);
