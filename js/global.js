@@ -67,9 +67,9 @@ function modalOpen(e){
 	var url = $(this).attr('href');
 
 	e.preventDefault();
-	$('.main').addClass('is-behind');
-	$('#modal').addClass('is-active');
+	modalBuild();
 	modalInject(url);
+	setTimeout(modalShow, 30); // Delay show so css animation will trigger
 }
 
 function modalClose(e){
@@ -78,6 +78,14 @@ function modalClose(e){
 	$('.main').removeClass('is-behind');
 	$('#modal').removeClass('is-active');
 	setTimeout(modalEmpty, 600); // Don't empty until modal is hidden
+}
+
+function modalBuild(){
+	html =  '<div id="modal" class="modal">';
+	html += 	'<a class="modal_close" data-action="modalClose">Close</a>';
+	html += 	'<div class="modal_content is-hidden"></div>';
+	html += '</div>';
+	$('body').append(html);
 }
 
 function modalInject(url) {
@@ -92,10 +100,16 @@ function modalInject(url) {
 		},
 		complete: function( xhr, status ) {
 			console.log( 'the request is complete' );
+			$('#modal .modal_content').removeClass('is-hidden');
 		}
 	});
 }
 
+function modalShow(){
+	$('.main').addClass('is-behind');
+	$('#modal').addClass('is-active');
+}
+
 function modalEmpty() {
-	$('#modal .modal_content').empty();
+	$('#modal').remove();
 }

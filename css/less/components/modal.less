@@ -15,22 +15,29 @@ MODAL
 	height: 100%;
 	overflow: auto;
 }
+
 .modal_close {
 	opacity: 0;
 	position: fixed;
 	top: 3rem;
 	right: 3rem;
-	z-index: 2;
+	z-index: 3;
 	background: url(img/close.svg) no-repeat center center;
 	width: 4rem;
 	height: 4rem;
 	cursor: pointer;
 	text-indent: -999rem;
 }
+
 .modal_content {
 	margin: 0 auto;
 	max-width: 1000px;
+
+	&.is-hidden {
+		display: none;
+	}
 }
+
 .modal {
 	h2 {
 		color: @primary;
@@ -40,7 +47,9 @@ MODAL
 	}
 }
 
+
 // ANIMATION
+//--------------------------------------------------
 .modal {
 	transition: top .6s;
 }
@@ -53,7 +62,9 @@ MODAL
 	opacity: 1;
 }
 
-// STATES
+
+// MODAL PAGES
+//--------------------------------------------------
 .is-modal-page { // Modal when viewed in page not as a modal
 	.modal {
 		top: 0%;
@@ -64,6 +75,9 @@ MODAL
 	}
 }
 
+
+// BREAKPOINTS
+//--------------------------------------------------
 @media @sm {
 	.modal {
 		padding: 3rem 3rem 0 3rem;
