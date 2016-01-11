@@ -85,12 +85,22 @@
 		}
 	}
 	#intro .background {
-		left: -11%;
-		transform: scale(.82);
-		width: 122%;
+		left: -20%;
+		transform: scale(.71);
+		width: 140%;
 	}
 	#rays, #arcs {
 		display: none;
+	}
+	.background_sphere {
+		&.is-1 {
+			width: 100rem;
+			height: 100rem;
+		}
+		&.is-2 {
+			width: 110rem;
+			height: 110rem;
+		}
 	}
 }
 @media @sm {
@@ -108,5 +118,15 @@
 	}
 	#rays, #arcs {
 		display: none;
+	}
+	.background_sphere {
+		&.is-1 {
+			width: 100rem;
+			height: 100rem;
+		}
+		&.is-2 {
+			width: 110rem;
+			height: 110rem;
+		}
 	}
 }
