@@ -38,6 +38,17 @@
 	}
 
 
+	// DISBLE INTRO
+	//--------------------------------------------
+	new ScrollMagic.Scene({
+			triggerElement: '#intro',
+			triggerHook: 0,
+			offset: windowHeight
+		})
+		.setClassToggle('#intro', 'is-inactive') // add class toggle
+		.addTo(controller);
+
+
 	// GLITCHES
 	//--------------------------------------------
 	for (var i=0; i < glitches.length; i++){
@@ -155,7 +166,7 @@
 		timelineExplore
 			.from('#grid-shift', .7, {scale: .4, opacity: 0, ease: Power1.easeOut})
 			.from('#explore h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
-			.from('#explore p', .7, {x: 70, opacity: 0, ease: Power1.easeOut}, '-=.5');
+			.from('#explore p', .7, {x: 40, opacity: 0, ease: Power1.easeOut}, '-=.5');
 	var sceneExplore = new ScrollMagic.Scene({
 		triggerElement: '#explore h1',
 		triggerHook: .8
@@ -168,7 +179,7 @@
 		timelineEvolve
 			.from('#grid-evolve', .7, {scale: .4, opacity: 0, ease: Power1.easeOut})
 			.from('#evolve h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
-			.from('#evolve p', .7, {x: -70, opacity: 0, ease: Power1.easeOut}, '-=.5');
+			.from('#evolve p', .7, {x: -40, opacity: 0, ease: Power1.easeOut}, '-=.5');
 	var sceneEvolve = new ScrollMagic.Scene({
 		triggerElement: '#evolve h1',
 		triggerHook: .8
@@ -204,7 +215,7 @@
 		timelineServices
 			.from('#services #constellation', .7, {scale: .9, opacity: 0, ease: Power1.easeOut})
 			.from('#services h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
-			.from('#services p', .7, {x: 70, opacity: 0, ease: Power1.easeOut}, '-=.5');
+			.from('#services p', .7, {x: 40, opacity: 0, ease: Power1.easeOut}, '-=.5');
 			
 	var sceneServices = new ScrollMagic.Scene({
 		triggerElement: '#services h1',
