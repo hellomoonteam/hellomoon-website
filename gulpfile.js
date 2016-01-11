@@ -60,13 +60,17 @@ gulp.task('svgstore', function () {
         .pipe(gulp.dest('./_includes'));
 });
 
-
+// Compress images
+gulp.task('images', function(){
+    exec('./bash.sh', function (err, stdout, stderr) {
+        console.log(stdout);
+    });
+});
 // JEKYLL BUILD
 gulp.task('jekyll', function (){
     exec('jekyll build', function(err, stdout, stderr) {
         console.log(stdout);
     });
 });
-
 
 gulp.task('default', ['serve']);
