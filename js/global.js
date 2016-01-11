@@ -103,8 +103,9 @@ function modalInject(url) {
 			$('#modal .modal_content').removeClass('is-hidden');
 
 			// GOOGLE ANALYTICS - TRACK AJAX CALLS
-			var d = document.location.pathname + document.location.search + document.location.hash;
-  			_gaq.push(['_trackPageview', d]);
+			//var d = document.location.pathname + document.location.search + document.location.hash;
+  			//_gaq.push(['_trackPageview', d]);
+  			ga('send', 'pageview');
 		}
 	});
 }
