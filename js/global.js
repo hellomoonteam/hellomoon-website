@@ -101,6 +101,10 @@ function modalInject(url) {
 		complete: function( xhr, status ) {
 			console.log( 'the request is complete' );
 			$('#modal .modal_content').removeClass('is-hidden');
+
+			// GOOGLE ANALYTICS - TRACK AJAX CALLS
+			var d = document.location.pathname + document.location.search + document.location.hash;
+  			_gaq.push(['_trackPageview', d]);
 		}
 	});
 }
