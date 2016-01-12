@@ -24,10 +24,10 @@ function render(hash) {
 		modal = $('#modal'),
 		url = null;
 
-	// If there is a hash and it matches a an open modal
+	// If there is a hash and it matches a hash on the page
 	for (i=0; i < hashes.length; i++) {
 		if (hashes[i] == hash) {
-			url = $('#work').find('[data-hash="' + hash + '"]').attr('href');
+			url = $('body').find('[data-hash="' + hash + '"]').attr('href');
 			modalLaunch(url,hash);
 		}
 	}
@@ -101,15 +101,14 @@ function modalOpen(e){
 function modalLaunch(url,hash) {
 	modalBuild();
 	modalInject(url,hash);
-	setTimeout(modalShow, 30); // No timeout - modal builds instantly
+	setTimeout(modalShow, 30);
 }
 
 function modalClose(e){
 	e.preventDefault();
 	history.pushState("", document.title, window.location.pathname); // Remove Hash
 	window.stop(); // Stop Loading any content that didn't finish before we close (images)
-	$('.main').removeClass('is-behind');
-	$('#modal').removeClass('is-active');
+	modalHide();
 	setTimeout(modalEmpty, 600); // Don't empty until modal is hidden
 }
 
@@ -143,11 +142,16 @@ function modalInject(url,hash) {
 	});
 }
 
+function modalEmpty() {
+	$('#modal').remove();
+}
+
+function modalHide(){
+	$('.main').removeClass('is-behind');
+	$('#modal').removeClass('is-active');
+}
+
 function modalShow(){
 	$('.main').addClass('is-behind');
 	$('#modal').addClass('is-active');
-}
-
-function modalEmpty() {
-	$('#modal').remove();
 }
