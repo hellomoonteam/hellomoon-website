@@ -107,7 +107,14 @@ function modalLaunch(url,hash) {
 function modalClose(e){
 	e.preventDefault();
 	history.pushState("", document.title, window.location.pathname); // Remove Hash
-	window.stop(); // Stop Loading any content that didn't finish before we close (images)
+
+	// Stop Loading any content that didn't finish before we close (images)
+	try {
+		window.stop();
+	} catch(e) {
+		document.execCommand('Stop');
+	} 
+
 	modalHide();
 	setTimeout(modalEmpty, 600); // Don't empty until modal is hidden
 }
