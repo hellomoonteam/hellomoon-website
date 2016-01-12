@@ -5,11 +5,11 @@ mkdir .tmp     #making temp derectory
 
 #Thumbnails
 thumb=`ls | grep '_thumb[^_]'` && cp $thumb .tmp/ #grabs file by special filename info and moves them over to temp file
-mogrify -format jpg -filter Triangle -define filter:support=2 -thumbnail 185 -quality 95 -unsharp 0.25x0.08+8.3+0.045 -dither None -define jpeg:fancy-upsampling=off -interlace none -colorspace sRGB -path .tmp/ .tmp/*.*
+mogrify -format jpg -filter Triangle -define filter:support=2 -thumbnail 185 -quality 100 -unsharp 0.25x0.08+8.3+0.045 -dither None -define jpeg:fancy-upsampling=off -interlace none -colorspace sRGB -path .tmp/ .tmp/*.*
 mv .tmp/*.jpg .tmp/../../compressed/; rm -R .tmp/*; #moves converted files and then deletes the origingal
 
 thumb2x=`ls | grep '_thumb_2x'` && cp $thumb2x .tmp/
-mogrify -format jpg -filter Triangle -define filter:support=2 -thumbnail 370 -quality 95 -unsharp 0.25x0.08+8.3+0.045 -dither None -define jpeg:fancy-upsampling=off -interlace none -colorspace sRGB -path .tmp/ .tmp/*.*
+mogrify -format jpg -filter Triangle -define filter:support=2 -thumbnail 370 -quality 100 -unsharp 0.25x0.08+8.3+0.045 -dither None -define jpeg:fancy-upsampling=off -interlace none -colorspace sRGB -path .tmp/ .tmp/*.*
 mv .tmp/*.jpg .tmp/../../compressed/; rm -R .tmp/*;
 
 #Medium
