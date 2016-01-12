@@ -24,9 +24,16 @@
 	</script>
 </head>
 <body>
+
 	<div id="page-loader" class="loader">
 		<div class="loader_spinner"></div>
 	</div>
+
+	<!-- SVG STORE - safari needs this above svg use -->
+	<div style="position: fixed; bottom: 0; height: 0; dispay: hidden;">
+		{% include icons.svg %}
+	</div>
+
 	<main class="main">
 
 		<!-- INTRO -->
@@ -164,7 +171,7 @@
 				<div class="container is-height-100 is-narrow">
 					<div class="grid is-height-100 is-1of4 pm-1of2 is-gutter-2">
 						<div class="grid_col is-height-50">
-							<a class="project" data-action="modalOpen" href="portfolio/levolor.html">
+							<a data-hash="levolor" class="project" data-action="modalOpen" href="portfolio/levolor.html">
 								<div class="project-thumb">
 									<img src="img/portfolio/levolor_thumb.png" 
 									srcset="../img/portfolio/compressed/levolor_thumb_2x.jpg 2x,
@@ -178,7 +185,7 @@
 							</a>
 						</div>
 						<div class="grid_col is-height-50">
-							<a class="project" data-action="modalOpen" href="portfolio/celadon.html">
+							<a data-hash="celadon" class="project" data-action="modalOpen" href="portfolio/celadon.html">
 								<div class="project-thumb">
 									<img src="img/portfolio/celadon_thumb.png" 
 									srcset="../img/portfolio/compressed/celadon_thumb_2x.jpg 2x,
@@ -192,7 +199,7 @@
 							</a>
 						</div>
 						<div class="grid_col is-height-50">
-							<a class="project" data-action="modalOpen" href="portfolio/commons.html">
+							<a data-hash="commons" class="project" data-action="modalOpen" href="portfolio/commons.html">
 								<div class="project-thumb">
 									<img src="img/portfolio/commons_thumb.png" 
 									srcset="../img/portfolio/compressed/commons_thumb_2x.jpg 2x,
@@ -206,7 +213,7 @@
 							</a>
 						</div>
 						<div class="grid_col is-height-50">
-							<a class="project" data-action="modalOpen" href="portfolio/pearson.html">
+							<a data-hash="pearson" class="project" data-action="modalOpen" href="portfolio/pearson.html">
 								<div class="project-thumb">
 									<img src="img/portfolio/pearson_thumb.png" 
 									srcset="../img/portfolio/compressed/pearson_thumb_2x.jpg 2x,
@@ -220,7 +227,7 @@
 							</a>
 						</div>
 						<div class="grid_col is-height-50">
-							<a class="project" data-action="modalOpen" href="portfolio/capecci.html">
+							<a data-hash="capecci" class="project" data-action="modalOpen" href="portfolio/capecci.html">
 								<div class="project-thumb">
 									<img src="img/portfolio/capecci_thumb.png" 
 									srcset="../img/portfolio/compressed/capecci_thumb.jpg 1x,
@@ -234,7 +241,7 @@
 							</a>
 						</div>
 						<div class="grid_col is-height-50">
-							<a class="project" data-action="modalOpen" href="portfolio/live_near_work.html">
+							<a data-hash="lnyw" class="project" data-action="modalOpen" href="portfolio/live_near_work.html">
 								<div class="project-thumb">
 									<img src="img/portfolio/lnyw_thumb.png" 
 									srcset="../img/portfolio/compressed/lnyw_thumb_2x.jpg 2x,
@@ -248,7 +255,7 @@
 							</a>
 						</div>
 						<div class="grid_col is-height-50">
-							<a class="project" data-action="modalOpen" href="portfolio/rice_lake.html">
+							<a data-hash="ricelake" class="project" data-action="modalOpen" href="portfolio/rice_lake.html">
 								<div class="project-thumb">
 									<img src="img/portfolio/rlws_thumb.png" 
 									srcset="../img/portfolio/compressed/rlws_thumb_2x.jpg 2x,
@@ -262,7 +269,7 @@
 							</a>
 						</div>
 						<div class="grid_col is-height-50">
-							<a class="project" data-action="modalOpen" href="portfolio/patterson.html">
+							<a data-hash="patterson" class="project" data-action="modalOpen" href="portfolio/patterson.html">
 								<div class="project-thumb">
 									<img src="img/portfolio/patterson_thumb.png" 
 									srcset="../img/portfolio/compressed/patterson_thumb_2x.jpg 2x,
@@ -389,11 +396,6 @@
 			</div>
 		</section>
 	</main>
-
-	<!-- SVG STORE -->
-	<div style="position: fixed; bottom: 0; height: 0; dispay: hidden;">
-		{% include icons.svg %}
-	</div>
 
 	<!-- JS LIBRARIES -->
 	<script type="text/javascript" src="js/lib/jquery/jquery-2.1.3.min.js"></script>

@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
 	// Bindings
-	$('body').on( 'click','[data-action="modalOpen"]', modalOpen );
-	$('body').on( 'click','[data-action="modalClose"]', modalClose);
+	$('body').on('click','[data-action="modalOpen"]', modalOpen);
+	$('body').on('click','[data-action="modalClose"]', modalClose);
 
-	//init();
+	init();
 });
 
 
@@ -19,29 +19,57 @@ function init() {
 
 // Render Page
 function render(hash) {
-	// If there is a hash and it matches a portfolio modal
-	// than load page with that modal open.
+	var hashes = getHashes(),
+		hash = window.location.hash.substring(1),
+		modal = $('#modal'),
+		url = null;
+
+	// If there is a hash and it matches a an open modal
+	for (i=0; i < hashes.length; i++) {
+		if (hashes[i] == hash) {
+			url = $('#work').find('[data-hash="' + hash + '"]').attr('href');
+			modalLaunch(url,hash);
+		}
+	}
+	
+	// If we don't have a hash and a modal is open close it
+	if (modal && hash=='') {
+		$('.main').removeClass('is-behind');
+		$('#modal').removeClass('is-active');
+		setTimeout(modalEmpty, 600); // Don't empty until modal is hidden
+	}	
 }
 
+// Hash Change
 $(window).on('hashchange', function(){
-	//console.log('hash change');
-    //render();
+    render();
 });
 
-// Update hash
+// Update Hash
 function updateHash(hash) {
-	//document.location.hash = hash;
+	document.location.hash = hash;
 }
 
+// Get Hashes
+function getHashes(){
+	var hashes = [],
+		hash;
 
+	$('#work a').each(function( index ) {
+		hash = $(this).data('hash');
+		hashes.push(hash);
+	});
+	return hashes;
+}
 
-
+ 
 
 // UPDATE ON RESIZE
 //----------------------------------------------------
 // $(window).resize($.debounce( 20, true, function(){
 
 // }));
+
 
 
 // PAGE LOADER
@@ -64,16 +92,21 @@ $(window).load(function () {
 // MODAL
 //----------------------------------------------------
 function modalOpen(e){
-	var url = $(this).attr('href');
+	var hash = $(this).attr('data-hash');
 
 	e.preventDefault();
+	updateHash(hash);
+}
+
+function modalLaunch(url,hash) {
 	modalBuild();
-	modalInject(url);
-	setTimeout(modalShow, 30); // Delay show so css animation will trigger
+	modalInject(url,hash);
+	setTimeout(modalShow, 30); // No timeout - modal builds instantly
 }
 
 function modalClose(e){
 	e.preventDefault();
+	history.pushState("", document.title, window.location.pathname); // Remove Hash
 	window.stop(); // Stop Loading any content that didn't finish before we close (images)
 	$('.main').removeClass('is-behind');
 	$('#modal').removeClass('is-active');
@@ -88,7 +121,7 @@ function modalBuild(){
 	$('body').append(html);
 }
 
-function modalInject(url) {
+function modalInject(url,hash) {
 	$.ajax({
 		url: url ,
 		success: function( result ) {
@@ -102,7 +135,7 @@ function modalInject(url) {
 			console.log( 'the request is complete' );
 			$('#modal .modal_content').removeClass('is-hidden');
 
-			// GOOGLE ANALYTICS - TRACK AJAX CALLS
+			// Google Analytics
 			//var d = document.location.pathname + document.location.search + document.location.hash;
   			//_gaq.push(['_trackPageview', d]);
   			ga('send', 'pageview');
