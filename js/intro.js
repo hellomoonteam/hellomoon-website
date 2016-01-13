@@ -6,13 +6,6 @@
 	var isMobile = window.innerWidth < 769; // Flag for mobile browsers
 
 
-	// NO ANIMATIONS ON MOBILE
-	//--------------------------------------------
-	// if (isMobile) {
-	// 	return false;
-	// }
-
-
 	// MONITOR SCROLLING
 	//--------------------------------------------
 	var userIsScrolling = false;
@@ -21,8 +14,7 @@
 	});
 	(function loop() {
 		setTimeout(function() {
-			if (userIsScrolling) {
-				console.log('scrolling');
+			if (userIsScrolling && isMobile) {
 				userIsScrolling = false;
 
 				// Pause Stuff

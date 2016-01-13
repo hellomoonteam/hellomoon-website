@@ -104,7 +104,7 @@ function modalLaunch(url,hash) {
 
 function modalClose(e){
 	e.preventDefault();
-	history.pushState("", document.title, window.location.pathname); // Remove Hash
+	updateHash(''); // Remove Hash
 
 	// Stop Loading any content that didn't finish before we close (images)
 	try {
@@ -194,9 +194,7 @@ function dialogShow(){
 function dialogClose(e){
 	e.preventDefault();
 
-	console.log('dialog close');
-
-	history.pushState("", document.title, window.location.pathname); // Remove Hash
+	updateHash(''); // Remove Hash
 
 	// Remove bindings
 	$('body').off('click', dialogClose);
