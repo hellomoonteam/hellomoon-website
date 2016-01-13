@@ -356,11 +356,11 @@
 							</div>
 						</div>
 						<div class="grid_col">
-							<form class="form is-limit-width is-centered" method="post" action="/">
+							<form class="form is-limit-width is-centered" method="post" action="http://formspree.io/hello@hellomoon.net">
 								<fieldset>
 									<legend>Say Hello</legend>
 									<div class="input-group is-half">
-										<input tabindex="1" type="text" id="name"  name="name" maxlength="255" aria-label="name" aria-required="true" required>
+										<input tabindex="1" type="text" id="name"  name="_name" maxlength="255" aria-label="name" aria-required="true" required>
 										<label for="name">Name</label>
 									</div>
 									<div class="input-group is-half">
@@ -368,14 +368,16 @@
 										<label for="company">Company</label>
 									</div>
 									<div class="input-group">
-										<input tabindex="3" type="email" id="email"  name="email" maxlength="255"  aria-label="email" aria-required="true" required>
+										<input tabindex="3" type="email" id="email"  name="_replyto" maxlength="255"  aria-label="email" aria-required="true" required>
 										<label for="email">Email</label>
 									</div>
 									<div class="input-group">
 										<textarea tabindex="4" id="message"  name="message" aria-label="message"></textarea>
 										<label for="message">Message</label>
 									</div>
-									<input type="hidden" name="cc_emails[]" value="tom@hellomoon.net">
+									<input type="hidden" name="_subject" value="New submission! From our website" />
+									<input type="text" name="_gotcha" style="display:none" />
+									<input type="hidden" name="_next" value="/#thanks" />
 								</fieldset>
 								<button tabindex="5" type="submit" class="button" value="Send Message">Send Message</button>
 							</form>
