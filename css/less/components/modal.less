@@ -33,9 +33,10 @@ MODAL
 .modal_content {
 	margin: 0 auto;
 	max-width: 1000px;
+	transition: opacity 1s .5s;
 
 	&.is-hidden {
-		display: none;
+		opacity: 0;
 	}
 }
 
