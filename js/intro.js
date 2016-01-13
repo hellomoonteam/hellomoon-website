@@ -13,10 +13,64 @@
 	// }
 
 
+	// MONITOR SCROLLING
+	//--------------------------------------------
+	var userIsScrolling = false;
+	$('#main').scroll(function() {
+		userIsScrolling = true;
+	});
+	(function loop() {
+		setTimeout(function() {
+			if (userIsScrolling) {
+				console.log('scrolling');
+				userIsScrolling = false;
+
+				// Pause Stuff
+				scrollIndicatorTween.pause();
+				sphere1Spin.pause();
+				sphere1Scale.pause();
+				sphere2Spin.pause();
+				sphere2Scale.pause();
+				dotted1Spin.pause();
+				dotted2Spin.pause();
+				dotted3Spin.pause();
+				arcSpin.pause();
+				arc1Draw.pause();
+				arc2Draw.pause();
+				arc3Draw.pause();
+				arc4Draw.pause();
+				arc5Draw.pause();
+				rayTrace.pause();
+			} else {
+
+				// Play Stuff
+				scrollIndicatorTween.play();
+				sphere1Spin.play();
+				sphere1Scale.play();
+				sphere2Spin.play();
+				sphere2Scale.play();
+				dotted1Spin.play();
+				dotted2Spin.play();
+				dotted3Spin.play();
+				arcSpin.play();
+				arc1Draw.play();
+				arc2Draw.play();
+				arc3Draw.play();
+				arc4Draw.play();
+				arc5Draw.play();
+				rayTrace.play();
+			}
+			loop();
+		}, 250);
+	}());
+
+
+	// PAUSE ANIMATIONS
+	//--------------------------------------------
+
 	// SCROLL INDICATOR ARROW
 	//--------------------------------------------
-	var $scrollIndicator = $('#scroll-indicator');
-	var scrollIndicatorTween = TweenMax.to($scrollIndicator, .7, {
+	var scrollIndicatorTween = TweenMax.to('#scroll-indicator', .7, {
 		marginTop: 150,
 		ease: Power1.easeInOut
 	});
@@ -27,13 +81,12 @@
 	//--------------------------------------------
 	
 	// SPHERE 1
-	var $sphere1 = $('#intro .background_sphere.is-1');
-	var sphere1Spin = TweenMax.to($sphere1, 7, {
+	var sphere1Spin = TweenMax.to('#intro .background_sphere.is-1', 7, {
 		rotation: 360,
 		ease: Linear.easeNone
 	});
 	sphere1Spin.repeat(-1).play();
-	var sphere1Scale = TweenMax.to($sphere1, 10, {
+	var sphere1Scale = TweenMax.to('#intro .background_sphere.is-1', 10, {
 		scale: .9,
 		ease: Linear.easeNone
 	});
