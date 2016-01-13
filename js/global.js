@@ -20,16 +20,22 @@ function init() {
 // Render Page
 function render(hash) {
 	var hashes = getHashes(),
-		hash = window.location.hash.substring(1),
+		hash = window.location.hash.substring(1), 
+		hashParts = hash.split('/'), // Pass additional info split by a forward slash
 		modal = $('#modal'),
 		url = null;
 
-	// If there is a hash and it matches a hash on the page
+	// If there's a hash that matches a hash in the portfolio section
 	for (i=0; i < hashes.length; i++) {
 		if (hashes[i] == hash) {
-			url = $('body').find('[data-hash="' + hash + '"]').attr('href');
+			url = $('#work').find('[data-hash="' + hash + '"]').attr('href');
 			modalLaunch(url,hash);
 		}
+	}
+
+	// If there's a hash and it's a dialog
+	if (hash == 'thanks') {
+		dialogOpen('Thank You!', 'Your message has been sent.<br> We\'ll be in touch soon.');
 	}
 	
 	// If we don't have a hash and a modal is open close it
@@ -153,4 +159,57 @@ function modalHide(){
 function modalShow(){
 	$('.main').addClass('is-behind');
 	$('#modal').addClass('is-active');
+}
+
+
+
+// DIALOG
+// A simpler modal style component
+//----------------------------------------------------
+function dialogOpen(title,msg){
+	var html = null;
+	
+	// Build & Inject Dialog
+	html =  '<div id="dialog" class="dialog">';
+	html += 	'<a class="dialog_close" data-action="dialogClose">Close</a>';
+	html += 	'<div class="dialog_content">';
+	html += 		'<h2>' + title + '</h2>';
+	html += 		'<p>' + msg + '</p>';
+	html += 	'</div>';
+	html += '</div>';
+	$('body').append(html);
+
+	// Add bindings
+	$('body').on('click', dialogClose);
+
+	// Show Dialog
+	setTimeout(dialogShow, 30);
+}
+
+function dialogShow(){
+	$('.main').addClass('is-behind');
+	$('#dialog').addClass('is-active');
+}
+
+function dialogClose(e){
+	e.preventDefault();
+
+	console.log('dialog close');
+
+	history.pushState("", document.title, window.location.pathname); // Remove Hash
+
+	// Remove bindings
+	$('body').off('click', dialogClose);
+
+	// Hide Dialog
+	$('.main').removeClass('is-behind');
+	$('#dialog').removeClass('is-active');
+
+	// Remove Dialog
+	setTimeout(dialogRemove, 600); // Don't empty until modal is hidden
+}
+
+
+function dialogRemove() {
+	$('#modal').remove();
 }

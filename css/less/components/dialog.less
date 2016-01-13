@@ -1,0 +1,52 @@
+/*
+----------------------------------------------------
+DIALOG
+----------------------------------------------------
+*/
+
+.dialog {
+	display: block;
+	background: #f6f6f6;
+	position: absolute;
+	z-index: 2;
+	top: -30%;
+	left: 50%;
+	padding: 4rem 3rem 3rem 3rem;
+	width: 40rem;
+	border-radius: 4px;
+	transform: translate(-50%,-50%);
+	text-align: center;
+}
+
+.dialog_close {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	z-index: 3;
+	background: url(img/close.svg) no-repeat center center;
+	width: 3rem;
+	height: 3rem;
+	cursor: pointer;
+	text-indent: -999rem;
+}
+
+.dialog {
+	h2 {
+		color: @primary;
+		margin-bottom: 1rem;
+	}
+	p {
+		color: @gray-light;
+		line-height: 4rem;
+	}
+}
+
+
+// ANIMATION
+//--------------------------------------------------
+.dialog {
+	transition: top .6s;
+}
+.dialog.is-active {
+	top: 50%;
+}
