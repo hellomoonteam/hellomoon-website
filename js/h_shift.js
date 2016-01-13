@@ -25,6 +25,7 @@ $.fn.dotGrid = function(options) {
 		]
 	}, options);
 
+
 	//--------------------------------------------
 	// For Each Instance of Grid
 	//--------------------------------------------
@@ -40,6 +41,11 @@ $.fn.dotGrid = function(options) {
         	playGrid = settings.play,
         	mode = settings.mode;
 
+        // MONITOR SCROLLING
+        var userIsScrolling = false;
+		$('#main').scroll(function() {
+			userIsScrolling = true;
+		})
 
         // SETUP SCROLL EVENTS
 		var controller = new ScrollMagic.Controller();
@@ -57,9 +63,7 @@ $.fn.dotGrid = function(options) {
 				}
 			})
 
-
         init();
-
 
         function init() {
         	// make an array of objects out of shapeSetup array
@@ -117,12 +121,21 @@ $.fn.dotGrid = function(options) {
 		(function loop() {
 			var random = Math.round(Math.random() * 400 + 300);
 			setTimeout(function() {
-				if (playGrid && mode == 'shift'){
-					shiftShape();
+
+				// Update the scrolling event
+				if (userIsScrolling) {
+					userIsScrolling = false;
+
+				// Animate the grid if we aren't scrolling	
+				} else {
+					if (playGrid && mode == 'shift'){
+						shiftShape();
+					}
+					if (playGrid && mode == 'evolve'){
+						evolveShape();
+					}
 				}
-				if (playGrid && mode == 'evolve'){
-					evolveShape();
-				}
+
 				loop();
 			}, random);
 		}());
