@@ -62,14 +62,6 @@ function getHashes(){
 	return hashes;
 }
 
- 
-
-// UPDATE ON RESIZE
-//----------------------------------------------------
-// $(window).resize($.debounce( 20, true, function(){
-
-// }));
-
 
 
 // PAGE LOADER
