@@ -256,7 +256,7 @@
 			.from('#work .grid_col:nth-child(10) .project', .8, {rotationX:10, scale: .89, opacity: 0, ease: Power1.easeOut}, '.9');
 	var sceneWorkGrid = new ScrollMagic.Scene({
 		triggerElement: '#work h1',
-		triggerHook: .5
+		triggerHook: .8
 	})
 	.setTween(timelineWorkGrid)
 	.addTo(controller);
