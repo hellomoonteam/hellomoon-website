@@ -54,6 +54,7 @@ PROJECTS
 		font-size: @font-size-body;
 	}
 	.subhead {
+		color: @gray-light;
 		margin-top: 1rem;
 		margin-bottom: 0;
 		font-size: @font-size-small;
@@ -79,10 +80,16 @@ PROJECTS
 //----------------------------------------------------
 @media @pm {
 	.project {
-		height: 35rem;
+		//min-height: 43rem;
+		border:0;
 	}
-	.project-info h2 {
+	.project-info {
+		//bottom:-5px;
+		//min-height: 8rem;
+		h2 {
 		font-size: 1.9rem;
+		
+		}
 	}
 }
 
