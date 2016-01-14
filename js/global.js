@@ -90,9 +90,14 @@ $(window).load(function () {
 // MODAL
 //----------------------------------------------------
 function modalOpen(e){
-	var hash = $(this).attr('data-hash');
+	var hash = $(this).attr('data-hash'),
+		scrollPosition = $('body').scrollTop();
 
 	e.preventDefault();
+
+	// Remember Previous Scroll Position
+	$('body').data('scroll', scrollPosition);
+
 	updateHash(hash);
 }
 
@@ -103,17 +108,20 @@ function modalLaunch(url,hash) {
 }
 
 function modalClose(e){
+	var scrollPosition = $('body').data('scroll');
+
 	e.preventDefault();
-	updateHash(''); // Remove Hash
+	updateHash('');
 
 	// Stop Loading any content that didn't finish before we close (images)
 	try {
 		window.stop();
 	} catch(e) {
 		document.execCommand('Stop');
-	} 
+	}
 
-	modalHide();
+	$('body').scrollTop(scrollPosition);
+	modalHide();	
 	setTimeout(modalEmpty, 600); // Don't empty until modal is hidden
 }
 
