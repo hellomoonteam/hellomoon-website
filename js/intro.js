@@ -9,7 +9,7 @@
 	// MONITOR SCROLLING
 	//--------------------------------------------
 	var userIsScrolling = false;
-	$('#main').scroll(function() {
+	$('body').scroll(function() {
 		userIsScrolling = true;
 	});
 
