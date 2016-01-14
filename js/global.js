@@ -91,7 +91,7 @@ $(window).load(function () {
 //----------------------------------------------------
 function modalOpen(e){
 	var hash = $(this).attr('data-hash'),
-		scrollPosition = $('body').scrollTop();
+		scrollPosition = $(document).scrollTop(); //$('body').scrollTop();
 
 	e.preventDefault();
 
@@ -120,7 +120,7 @@ function modalClose(e){
 		document.execCommand('Stop');
 	}
 
-	$('body').scrollTop(scrollPosition);
+	$(document).scrollTop(scrollPosition);
 	modalHide();	
 	setTimeout(modalEmpty, 600); // Don't empty until modal is hidden
 }
@@ -148,8 +148,6 @@ function modalInject(url,hash) {
 			$('#modal .modal_content').removeClass('is-hidden');
 
 			// Google Analytics
-			//var d = document.location.pathname + document.location.search + document.location.hash;
-  			//_gaq.push(['_trackPageview', d]);
   			ga('send', 'pageview');
 		}
 	});
@@ -160,12 +158,18 @@ function modalEmpty() {
 }
 
 function modalHide(){
-	$('.main').removeClass('is-behind');
+	$('#main').attr('style','');
 	$('#modal').removeClass('is-active');
 }
 
 function modalShow(){
-	$('.main').addClass('is-behind');
+	var scrollPosition = $(document).scrollTop(),
+		centerOffset = (scrollPosition * .1) + 'px';
+
+	$('#main').css({
+		'transform': 'scale(.9) translateY(' + centerOffset + ')',
+		'opacity': '.5'
+	});
 	$('#modal').addClass('is-active');
 }
 
@@ -195,7 +199,13 @@ function dialogOpen(title,msg){
 }
 
 function dialogShow(){
-	$('.main').addClass('is-behind');
+	var scrollPosition = $(document).scrollTop(),
+		centerOffset = (scrollPosition * .1) + 'px';
+
+	$('#main').css({
+		'transform': 'scale(.9) translateY(' + centerOffset + ')',
+		'opacity': '.5'
+	});
 	$('#dialog').addClass('is-active');
 }
 
@@ -208,7 +218,7 @@ function dialogClose(e){
 	$('body').off('click', dialogClose);
 
 	// Hide Dialog
-	$('.main').removeClass('is-behind');
+	$('#main').attr('style','');
 	$('#dialog').removeClass('is-active');
 
 	// Remove Dialog
