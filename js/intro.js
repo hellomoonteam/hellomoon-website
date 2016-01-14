@@ -12,9 +12,16 @@
 	$('#main').scroll(function() {
 		userIsScrolling = true;
 	});
+
+
 	(function loop() {
+
+		if (!isMobile) {
+			return false;
+		}
+
 		setTimeout(function() {
-			if (userIsScrolling && isMobile) {
+			if (userIsScrolling) {
 				userIsScrolling = false;
 
 				// Pause Stuff
@@ -54,6 +61,8 @@
 			}
 			loop();
 		}, 250);
+
+
 	}());
 
 
@@ -163,58 +172,58 @@
 	// Disabled Ray Spin for Better Performance
 	// var raySpin = TweenMax.to('#rays', 250, { rotation: 360, ease: Linear.easeNone })
 	// 	.repeat(-1).play();
-	// var rayTrace = new TimelineMax()
-	// 	.to('.ray', .001, {drawSVG: '0% 0%'})
+	var rayTrace = new TimelineMax()
+		.to('.ray', .001, {drawSVG: '0% 0%'})
 
-	// 	.to('#ray8', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray8', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray8', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray8', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray8', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray8', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray2', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray2', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray2', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray2', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray2', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray2', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray11', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray11', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray11', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray11', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray11', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray11', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray4', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray4', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray4', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray4', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray4', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray4', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray10', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray10', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray10', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray10', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray10', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray10', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray6', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray6', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray6', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray6', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray6', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray6', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray1', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray1', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray1', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray1', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray1', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray1', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray7', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray7', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray7', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray7', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray7', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray7', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray3', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray3', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray3', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray3', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray3', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray3', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray5', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray5', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray5', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray5', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray5', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray5', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray9', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray9', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray9', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray9', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray9', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray9', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.to('#ray12', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
-	// 	.to('#ray12', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
-	// 	.to('#ray12', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
+		.to('#ray12', .3, { drawSVG: '70% 70%', ease: Power0.easeIn })
+		.to('#ray12', .4, { drawSVG: '30% 50%', ease: Power0.easeIn })
+		.to('#ray12', .6, { drawSVG: '10% 10%', opacity: .1, ease: Power1.easeOut })
 
-	// 	.repeat(-1);
+		.repeat(-1);
 
 
 }(jQuery));
