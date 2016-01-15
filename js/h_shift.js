@@ -43,7 +43,7 @@ $.fn.dotGrid = function(options) {
 
         // MONITOR SCROLLING
         var userIsScrolling = false;
-		$('#main').scroll(function() {
+		$(window).scroll(function() {
 			userIsScrolling = true;
 		})
 
@@ -64,6 +64,8 @@ $.fn.dotGrid = function(options) {
 			})
 
         init();
+
+
 
         function init() {
         	// make an array of objects out of shapeSetup array

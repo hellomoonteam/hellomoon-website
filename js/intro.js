@@ -3,16 +3,18 @@
 
 	// SETTINGS
 	//--------------------------------------------
-	var isMobile = window.innerWidth < 769; // Flag for mobile browsers
+	var isMobile = window.innerWidth < 769,
+		windowHeight = window.innerHeight; // Flag for mobile browsers
+
+
 
 
 	// MONITOR SCROLLING
 	//--------------------------------------------
 	var userIsScrolling = false;
-	$('body').scroll(function() {
+	$(window).scroll(function() {
 		userIsScrolling = true;
 	});
-
 
 	(function loop() {
 		if (!isMobile) {
@@ -21,45 +23,71 @@
 		setTimeout(function() {
 			if (userIsScrolling) {
 				userIsScrolling = false;
-
-				// Pause Stuff
-				scrollIndicatorTween.pause();
-				sphere1Spin.pause();
-				sphere1Scale.pause();
-				sphere2Spin.pause();
-				sphere2Scale.pause();
-				dotted1Spin.pause();
-				dotted2Spin.pause();
-				dotted3Spin.pause();
-				arcSpin.pause();
-				arc1Draw.pause();
-				arc2Draw.pause();
-				arc3Draw.pause();
-				arc4Draw.pause();
-				arc5Draw.pause();
-				rayTrace.pause();
+				introPause();
 			} else {
-
-				// Play Stuff
-				scrollIndicatorTween.play();
-				sphere1Spin.play();
-				sphere1Scale.play();
-				sphere2Spin.play();
-				sphere2Scale.play();
-				dotted1Spin.play();
-				dotted2Spin.play();
-				dotted3Spin.play();
-				arcSpin.play();
-				arc1Draw.play();
-				arc2Draw.play();
-				arc3Draw.play();
-				arc4Draw.play();
-				arc5Draw.play();
-				rayTrace.play();
+				introPlay();				
 			}
 			loop();
 		}, 250);
 	}());
+
+
+	// DISBLE INTRO
+	//--------------------------------------------
+	var controller = new ScrollMagic.Controller();
+	new ScrollMagic.Scene({
+			triggerElement: '#intro',
+			triggerHook: 0,
+			offset: windowHeight
+		})
+		.setClassToggle('#intro', 'is-inactive') // add class toggle
+		.on('enter', function (e) {
+			introPause();
+		})
+		.on('leave', function (e) {
+			introPlay();
+		})
+		.addTo(controller);
+
+
+	// PAUSE/PLAY INTRO
+	//--------------------------------------------
+	function introPause() {
+		scrollIndicatorTween.pause();
+		sphere1Spin.pause();
+		sphere1Scale.pause();
+		sphere2Spin.pause();
+		sphere2Scale.pause();
+		dotted1Spin.pause();
+		dotted2Spin.pause();
+		dotted3Spin.pause();
+		arcSpin.pause();
+		arc1Draw.pause();
+		arc2Draw.pause();
+		arc3Draw.pause();
+		arc4Draw.pause();
+		arc5Draw.pause();
+		rayTrace.pause();
+	}
+
+	function introPlay() {
+		scrollIndicatorTween.play();
+		sphere1Spin.play();
+		sphere1Scale.play();
+		sphere2Spin.play();
+		sphere2Scale.play();
+		dotted1Spin.play();
+		dotted2Spin.play();
+		dotted3Spin.play();
+		arcSpin.play();
+		arc1Draw.play();
+		arc2Draw.play();
+		arc3Draw.play();
+		arc4Draw.play();
+		arc5Draw.play();
+		rayTrace.play();
+	}
+
 
 	// SCROLL INDICATOR ARROW
 	//--------------------------------------------

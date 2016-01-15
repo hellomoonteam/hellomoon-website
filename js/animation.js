@@ -38,17 +38,6 @@
 	}
 
 
-	// DISBLE INTRO
-	//--------------------------------------------
-	new ScrollMagic.Scene({
-			triggerElement: '#intro',
-			triggerHook: 0,
-			offset: windowHeight
-		})
-		.setClassToggle('#intro', 'is-inactive') // add class toggle
-		.addTo(controller);
-
-
 	// GLITCHES
 	//--------------------------------------------
 	for (var i=0; i < glitches.length; i++){
