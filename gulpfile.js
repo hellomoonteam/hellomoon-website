@@ -23,7 +23,7 @@ gulp.task('serve', ['svgstore','less','jekyll'], function() {
     
     gulp.watch('./css/less/**/*.less', ['less']);
     gulp.watch('./icons/*.svg', ['svgstore']);
-    gulp.watch(['./*.html','./portfolio/*.html','./_includes/**/*','./js/**/*','./img/**/*','./css/style.css'], ['jekyll']);
+    gulp.watch(['./*.html','./portfolio/*.html','./_includes/**/*','./js/**/*','./img/**/*','./css/style.css'], ['jekyll'], browserSync.reload);
     gulp.watch(['_site/css/style.css','_site/*.html','_site/portfolio/*.html'], browserSync.reload); // Reload browser sync when the style sheet changes
 });
 
@@ -60,17 +60,21 @@ gulp.task('svgstore', function () {
         .pipe(gulp.dest('./_includes'));
 });
 
-// Compress images
+
+// COMPRESS IMAGES
 gulp.task('images', function(){
     exec('./bash.sh', function (err, stdout, stderr) {
         console.log(stdout);
     });
 });
+
+
 // JEKYLL BUILD
 gulp.task('jekyll', function (){
     exec('jekyll build', function(err, stdout, stderr) {
         console.log(stdout);
     });
 });
+
 
 gulp.task('default', ['serve']);

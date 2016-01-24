@@ -22,7 +22,7 @@ function render(hash) {
 	var hashes = getHashes(),
 		hash = window.location.hash.substring(1), 
 		hashParts = hash.split('/'), // Pass additional info split by a forward slash
-		modal = $('#modal'),
+		modal = $('#modal').length > 0,
 		url = null;
 
 	// If there's a hash that matches a hash in the portfolio section
@@ -40,9 +40,7 @@ function render(hash) {
 	
 	// If we don't have a hash and a modal is open close it
 	if (modal && hash=='') {
-		$('.main').removeClass('is-behind');
-		$('#modal').removeClass('is-active');
-		setTimeout(modalEmpty, 600); // Don't empty until modal is hidden
+		modalHide();
 	}	
 }
 
@@ -89,42 +87,29 @@ $(window).load(function () {
 
 // MODAL
 //----------------------------------------------------
+
+// Trigger Modal Open
 function modalOpen(e){
 	var hash = $(this).attr('data-hash'),
-		scrollPosition = $(document).scrollTop(); //$('body').scrollTop();
+		scrollPosition = $(document).scrollTop();
 
 	e.preventDefault();
-
-	// Remember Previous Scroll Position
-	$('body').data('scroll', scrollPosition);
-
+	$('body').data('scroll', scrollPosition); // Store Scroll Position
 	updateHash(hash);
 }
 
+// Trigger Modal Close
+function modalClose(e){
+	e.preventDefault();
+	updateHash(''); // Triggers modalHide from render function
+}
+
+// Modal Build/Show
 function modalLaunch(url,hash) {
 	modalBuild();
 	modalInject(url,hash);
 	setTimeout(modalShow, 30);
 }
-
-function modalClose(e){
-	var scrollPosition = $('body').data('scroll');
-
-	e.preventDefault();
-	updateHash('');
-
-	// Stop Loading any content that didn't finish before we close (images)
-	try {
-		window.stop();
-	} catch(e) {
-		document.execCommand('Stop');
-	}
-
-	$(document).scrollTop(scrollPosition);
-	modalHide();	
-	setTimeout(modalEmpty, 600); // Don't empty until modal is hidden
-}
-
 function modalBuild(){
 	html =  '<div id="modal" class="modal">';
 	html += 	'<a class="modal_close" data-action="modalClose">Close</a>';
@@ -132,7 +117,6 @@ function modalBuild(){
 	html += '</div>';
 	$('body').append(html);
 }
-
 function modalInject(url,hash) {
 	$.ajax({
 		url: url ,
@@ -145,34 +129,62 @@ function modalInject(url,hash) {
 		},
 		complete: function( xhr, status ) {
 			console.log( 'the request is complete' );
-			$('#modal .modal_content').removeClass('is-hidden');
+
+			// Wrap Images in Responsive Wrap
+			responsiveWrap();
+			
+			// Display Modal Content (but wait a bit to make sure it's done animating)
+			setTimeout(function(){
+				$('#modal .modal_content').removeClass('is-hidden');
+			}, 300);
 
 			// Google Analytics
   			ga('send', 'pageview');
 		}
 	});
 }
-
-function modalEmpty() {
-	$('#modal').remove();
-}
-
-function modalHide(){
-	$('#main').attr('style','');
-	$('#modal').removeClass('is-active');
-}
-
 function modalShow(){
-	var scrollPosition = $(document).scrollTop(),
+	var scrollPosition = $('body').data('scroll'),
 		centerOffset = (scrollPosition * .1) + 'px';
 
 	$('#main').css({
-		'transform': 'scale(.9) translateY(' + centerOffset + ')',
-		'opacity': '.5'
+		transform: 'scale(.9) translateY(' + centerOffset + ')',
+		opacity: '.5',
 	});
+	$('#modal').addClass('is-overflow-hidden')
 	$('#modal').addClass('is-active');
+	setTimeout(modalScrollHandoff, 600); // Lock main with fixed once it's hidden
+}
+function modalScrollHandoff(){
+	$('#main').css({
+		position: 'fixed',
+	});
+	$('#modal').removeClass('is-overflow-hidden')
 }
 
+// Modal Hide/Empty
+function modalHide(e) {
+	var scrollPosition = $('body').data('scroll');
+
+	$('#main').attr('style','');
+	$('#modal').removeClass('is-active');
+	$('#modal').addClass('is-overflow-hidden')
+	$(document).scrollTop(scrollPosition); // Restore previous scroll position
+	
+	setTimeout(modalEmpty, 600); // Remove modal once it's animated out of view
+}
+function modalEmpty() {
+	console.log('empty');
+
+	$('#modal').remove(); // Remove modal markup
+
+	// Stop currently running load events
+	try {
+	 	window.stop(); // Modern Browsers
+	} catch(e) {
+		document.execCommand('Stop'); // IE
+	}
+}
 
 
 // DIALOG
@@ -229,3 +241,34 @@ function dialogClose(e){
 function dialogRemove() {
 	$('#modal').remove();
 }
+
+
+// RESPONSIVE IMAGE WRAP
+// Wrap images in aspect ratio locked div to preserve
+// space in layout before they have loaded.
+//----------------------------------------------------
+function responsiveWrap(){
+	var $parent = $('#modal'),
+		images = $parent.find('img');
+
+	for (i=0; i<images.length; i++) {
+   		loadingWrap(images[i]);
+	}
+
+	console.log('responsive wrap');
+	console.log(images);
+
+	function loadingWrap(img) {
+        var imageWidth = img.getAttribute('width'),
+            imageHeight = img.getAttribute('height'),
+            percentRatio = imageHeight/imageWidth * 100,
+            wrapper = document.createElement('div');
+    
+        // Wrap Element
+        img.setAttribute('style', 'position: absolute; width: 100%; height: auto;');
+        wrapper.setAttribute('style', 'position: relative; padding-bottom: ' + percentRatio + '%;');
+        img.parentNode.insertBefore(wrapper, img);
+        wrapper.appendChild(img);
+    }
+}
+
