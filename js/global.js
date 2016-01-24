@@ -7,6 +7,9 @@ $(document).ready(function() {
 	init();
 });
 
+window.onresize = function() {
+	//setSectionHeights();
+}
 
 
 // SIMPLE SPA FRAMEWORK
@@ -15,6 +18,7 @@ $(document).ready(function() {
 // Init Page
 function init() {
 	render();
+	setSectionHeights();
 }
 
 // Render Page
@@ -174,8 +178,6 @@ function modalHide(e) {
 	setTimeout(modalEmpty, 600); // Remove modal once it's animated out of view
 }
 function modalEmpty() {
-	console.log('empty');
-
 	$('#modal').remove(); // Remove modal markup
 
 	// Stop currently running load events
@@ -255,9 +257,6 @@ function responsiveWrap(parent){
    		loadingWrap(images[i]);
 	}
 
-	console.log('responsive wrap');
-	console.log(images);
-
 	function loadingWrap(img) {
         var imageWidth = img.getAttribute('width'),
             imageHeight = img.getAttribute('height'),
@@ -272,3 +271,21 @@ function responsiveWrap(parent){
     }
 }
 
+
+// LOCK 100% SECTION HEIGHTS ON MOBILE
+// Sections that are 100% high on mobile should have
+// their section height locked to avoid glitches when
+// viewport height changes due to url bar hiding in 
+// android.
+//----------------------------------------------------
+function setSectionHeights(){
+	var viewportHeight = $(window).height(),
+		viewportWidth = $(window).width();
+
+	$('.section.is-height-100').css('height', viewportHeight);
+
+	// Only set size in pixels if we are portrait on mobile
+	if (viewportWidth < 770 && viewportHeight > 450) {
+		$('.section.is-height-100').css('height', viewportHeight);
+	}
+}

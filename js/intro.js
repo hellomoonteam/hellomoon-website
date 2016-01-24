@@ -7,8 +7,6 @@
 		windowHeight = window.innerHeight; // Flag for mobile browsers
 
 
-
-
 	// MONITOR SCROLLING
 	//--------------------------------------------
 	var userIsScrolling = false;
