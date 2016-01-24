@@ -121,7 +121,7 @@ function modalInject(url,hash) {
 	$.ajax({
 		url: url ,
 		success: function( result ) {
-			$('#modal .modal_content').html($(result).find('.modal_content'));
+			$('#modal .modal_content').html( $(result).find('.modal_content').html() );
 		},
 		error: function( xhr, status, errorThrown ) {
 			console.log( "Error: " + errorThrown );
@@ -131,7 +131,7 @@ function modalInject(url,hash) {
 			console.log( 'the request is complete' );
 
 			// Wrap Images in Responsive Wrap
-			responsiveWrap();
+			responsiveWrap('#modal');
 			
 			// Display Modal Content (but wait a bit to make sure it's done animating)
 			setTimeout(function(){
@@ -247,8 +247,8 @@ function dialogRemove() {
 // Wrap images in aspect ratio locked div to preserve
 // space in layout before they have loaded.
 //----------------------------------------------------
-function responsiveWrap(){
-	var $parent = $('#modal'),
+function responsiveWrap(parent){
+	var $parent = $(parent),
 		images = $parent.find('img');
 
 	for (i=0; i<images.length; i++) {
