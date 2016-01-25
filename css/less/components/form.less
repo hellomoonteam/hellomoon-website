@@ -76,3 +76,22 @@ form.is-limit-width {
 form.is-centered {
 	margin: 0 auto;
 }
+
+@media @ps {
+	form.is-limit-width {
+		max-width: 100%;
+	}
+	.form textarea {
+		height: 18rem;
+	}
+}
+
+@media @sm {
+	form.is-limit-width {
+		max-width: 100%;
+		width: 100%;
+	}
+	.form textarea {
+		height: 16rem;
+	}
+}
