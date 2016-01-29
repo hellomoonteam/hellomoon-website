@@ -62,16 +62,19 @@ PROJECTS
 
 }
 
-
-// STATES
-.project:hover {
-	//transform: scale(.97);
+.project-grid {
+	height: 100%;
 }
 
-
-// ANIMATION
-.project {
-	//transition: transform .3s;
+.project-wrap {
+	position: relative;
+	float: left;
+	padding: 1rem;
+	width: 25%;
+	height: 50%;
+	vertical-align: top;
+	min-height: 1px;
+	perspective: 400px;
 }
 
 
@@ -79,15 +82,22 @@ PROJECTS
 // BREAKPOINTS
 //----------------------------------------------------
 @media @pm {
-	.project {
-		min-height: 35rem;
-		border:0;
-	}
 	.project-info {
 		h2 {
-		font-size: 1.9rem;
-		
+			font-size: 1.9rem;
 		}
+	}
+}
+@media @ps {
+	.project-wrap {
+		width: 50%;
+		height: 35rem;
+	}
+}
+@media @pl {
+	.project-wrap {
+		width: 33.333%;
+		height: 35rem;
 	}
 }
 
