@@ -86,7 +86,7 @@
 	}
 	&.is-2 {
 		z-index: -2;
-		top: -50%;
+		top: -70%;
 		transform: skew(-45deg) translateX(-80%);
 		background: rgba(0,0,0,.3);
 		width: 80rem;
@@ -215,5 +215,100 @@
 		margin-top: 5rem;
 		margin-left: 23rem;
 		background: rgba(75,46,199,.1);
+	}
+}
+
+
+// MOBILE
+//----------------------------------------------------
+@media @pm {
+	.background_color {
+		transform: translateX(-50%) !important;
+		&.is-1 {
+			top: 10%;
+			background: radial-gradient(200% 50% at right,rgba(79,8,50,1),rgba(34,3,13,1),rgba(0,0,0,0));
+		}
+		&.is-2 {
+			top: 15%;
+			background: radial-gradient(180% 70% at left,rgba(71,14,73,1),rgba(20,10,30,1),rgba(0,0,0,0));
+		}
+		&.is-3 {
+			top: 15%;
+			background: radial-gradient(180% 70% at right,rgba(22,13,81,1),rgba(20,7,43,1),rgba(0,0,0,0));
+		}
+		&.is-4 {
+			top: 0%;
+			background: radial-gradient(160% 60% at left,rgba(71,14,73,1),rgba(20,10,30,1),rgba(0,0,0,0));
+		}
+		&.is-5 {
+			top: 20%;
+			background: radial-gradient(160% 60% at right,rgba(79,8,50,1),rgba(34,3,13,1),rgba(0,0,0,0));
+		}
+	}
+	.background_diagonal {
+		&.is-1 {
+			top: 20%;
+		}
+		&.is-2 {
+			display: none;
+		}
+		&.is-3 {
+			top: -20%;
+		}
+		&.is-4 {
+			top: -45%;
+		}
+		&.is-5 {
+			top: 45%;
+		}
+	}
+	.background_glitch {
+		&.is-1 {
+			margin-left: -2rem; // Use margin to offset from centered position
+		}
+		&.is-2 {
+			margin-top: 37rem;
+			margin-left: 10rem;
+		}
+		&.is-3 {
+			margin-top: 42rem;
+			margin-left: 15rem;
+		}
+		&.is-4 {
+			margin-top: 15rem;
+			margin-left: -10rem;
+		}
+		&.is-5 {
+			margin-top: -10rem;
+			margin-left: 0rem;
+		}
+		&.is-6 {
+			display: none;
+			margin-top: -56rem;
+			margin-left: 5rem;
+		}
+		&.is-7 {
+			margin-top: -40rem;
+			margin-left: -10rem;
+		}
+		&.is-8 {
+			margin-top: 40rem;
+			margin-left: 18rem;
+		}
+	}
+	.background_angle {
+		top: 50;
+		left: 50%;
+		width: 60rem;
+		height: 13rem;
+
+		&.is-1 {
+			margin-top: 16rem;
+			margin-left: -25rem;
+		}
+		&.is-2 {
+			margin-top: 19rem;
+			margin-left: 0rem;
+		}
 	}
 }
