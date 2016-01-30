@@ -233,16 +233,16 @@
 	//--------------------------------------------
 	var timelineWorkGrid = new TimelineLite();
 		timelineWorkGrid
-			.from('#work .grid_col:nth-child(1) .project', .8, {rotationX:100, scale: .8, opacity: 0, ease: Power1.easeOut}, '0')
-			.from('#work .grid_col:nth-child(2) .project', .8, {rotationX:90, scale: .81, opacity: 0, ease: Power1.easeOut}, '.1')
-			.from('#work .grid_col:nth-child(3) .project', .8, {rotationX:80, scale: .82, opacity: 0, ease: Power1.easeOut}, '.2')
-			.from('#work .grid_col:nth-child(4) .project', .8, {rotationX:70, scale: .83, opacity: 0, ease: Power1.easeOut}, '.3')
-			.from('#work .grid_col:nth-child(5) .project', .8, {rotationX:60, scale: .84, opacity: 0, ease: Power1.easeOut}, '.4')
-			.from('#work .grid_col:nth-child(6) .project', .8, {rotationX:50, scale: .85, opacity: 0, ease: Power1.easeOut}, '.5')
-			.from('#work .grid_col:nth-child(7) .project', .8, {rotationX:40, scale: .86, opacity: 0, ease: Power1.easeOut}, '.6')
-			.from('#work .grid_col:nth-child(8) .project', .8, {rotationX:30, scale: .87, opacity: 0, ease: Power1.easeOut}, '.7')
-			.from('#work .grid_col:nth-child(9) .project', .8, {rotationX:20, scale: .88, opacity: 0, ease: Power1.easeOut}, '.8')
-			.from('#work .grid_col:nth-child(10) .project', .8, {rotationX:10, scale: .89, opacity: 0, ease: Power1.easeOut}, '.9');
+			.from('#work .project-wrap:nth-child(1) ', .8, {rotationX:100, scale: .8, opacity: 0, ease: Power1.easeOut}, '0')
+			.from('#work .project-wrap:nth-child(2) ', .8, {rotationX:90, scale: .81, opacity: 0, ease: Power1.easeOut}, '.1')
+			.from('#work .project-wrap:nth-child(3) ', .8, {rotationX:80, scale: .82, opacity: 0, ease: Power1.easeOut}, '.2')
+			.from('#work .project-wrap:nth-child(4) ', .8, {rotationX:70, scale: .83, opacity: 0, ease: Power1.easeOut}, '.3')
+			.from('#work .project-wrap:nth-child(5) ', .8, {rotationX:60, scale: .84, opacity: 0, ease: Power1.easeOut}, '.4')
+			.from('#work .project-wrap:nth-child(6) ', .8, {rotationX:50, scale: .85, opacity: 0, ease: Power1.easeOut}, '.5')
+			.from('#work .project-wrap:nth-child(7) ', .8, {rotationX:40, scale: .86, opacity: 0, ease: Power1.easeOut}, '.6')
+			.from('#work .project-wrap:nth-child(8) ', .8, {rotationX:30, scale: .87, opacity: 0, ease: Power1.easeOut}, '.7')
+			.from('#work .project-wrap:nth-child(9) ', .8, {rotationX:20, scale: .88, opacity: 0, ease: Power1.easeOut}, '.8')
+			.from('#work .project-wrap:nth-child(10) ', .8, {rotationX:10, scale: .89, opacity: 0, ease: Power1.easeOut}, '.9');
 	var sceneWorkGrid = new ScrollMagic.Scene({
 		triggerElement: '#work h1',
 		triggerHook: .8
