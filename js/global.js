@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+//global.js
 	// Bindings
 	$('body').on('click','[data-action="modalOpen"]', modalOpen);
 	$('body').on('click','[data-action="modalClose"]', modalClose);
@@ -160,9 +160,9 @@ function modalShow(){
 	setTimeout(modalScrollHandoff, 600); // Lock main with fixed once it's hidden
 }
 function modalScrollHandoff(){
-	$('#main').css({
-		position: 'fixed',
-	});
+	// $('#main').css({
+	// 	position: 'fixed',
+	// });
 	$('#modal').removeClass('is-overflow-hidden')
 }
 
