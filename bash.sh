@@ -3,7 +3,8 @@
 BGCOLOR="#f6f6f6" #Background color to use when flattening transparent areas of png
 
 cd img/portfolio  #change directory to exicute script in uncompressed folder
-mkdir .tmp     #making temp derectory
+mkdir .tmp;     #making temp derectory
+mkdir compressed;
 
 #Thumbnails
 thumb=`ls | grep '_thumb'` && cp $thumb .tmp/; #grabs file by special filename info and moves them over to temp file
