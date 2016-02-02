@@ -10,7 +10,6 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),                // Concat specified files
     uglify = require('gulp-uglify'),                // Uglify specified files
     size = require('gulp-size'),                    // displays size of files
-    shell = require('gulp-shell'),                  // inline shell commands
 	path = require('path');							// Generates a path build based on the base paths setted
 
 
@@ -42,24 +41,25 @@ gulp.task('less', function () {
             browsers: ['last 2 versions', 'Explorer >= 9']
         }))
 		.pipe(minifyCSS())
+        .pipe(size())
 		.pipe(gulp.dest('./css'));
 });
 
 // COMPILE JAVASCRIPT AND CONCAT NON VENDOR FILES
 gulp.task('javascript', function () {
     return gulp.src(['./js/global.js', './js/intro.js', './js/animation.js', './js/h_shift.js', './js/grid_tilt.js'])
-        .pipe(size())
         .pipe(concat({ path: 'main.min.js' }))
         .pipe(uglify())
+        .pipe(size())
         .pipe(gulp.dest('./js'));
 });
 
 // COMPILE LIBRARY FOLDER AND CONCAT VENDOR FILES
 gulp.task('vendor', function () {
     return gulp.src(['./js/lib/jquery/jquery-2.1.3.min.js', './js/lib/jquery/jquery.ba-throttle-debounce.min.js', './js/lib/gsap/minified/TweenMax.min.js', './js/lib/gsap/minified/TimelineMax.min.js', './js/lib/gsap/minified/plugins/DrawSVGPlugin.min.js', './js/lib/scrollmagic/minified/ScrollMagic.min.js', './js/lib/scrollmagic/minified/plugins/animation.gsap.min.js', './js/lib/scrollmagic/minified/plugins/debug.addIndicators.min.js'])
-    .pipe(size())
     .pipe(concat({ path: 'vendor.min.js' }))
     .pipe(uglify())
+    .pipe(size())
     .pipe(gulp.dest('./js/lib/'));
 });
 // GENERATE A SVG FILE WITH SYMBOL ELEMENTS

@@ -10,7 +10,6 @@
     "gulp-less": "^3.0.3",
     "gulp-load-plugins": "^1.2.0",
     "gulp-minify-css": "^1.2.0",
-    "gulp-shell": "^0.5.2",
     "gulp-size": "^2.0.0",
     "gulp-svgmin": "^1.2.0",
     "gulp-svgstore": "^5.0.5",
