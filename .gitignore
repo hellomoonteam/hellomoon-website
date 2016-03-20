@@ -5,5 +5,4 @@
 node_modules
 
 # JEKYLL
-_site/
 .jekyll-metadata

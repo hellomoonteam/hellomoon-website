@@ -1,0 +1,415 @@
+/*
+----------------------------------------------------
+GRID
+A responsive grid based on inline-block.
+----------------------------------------------------
+
+MARKUP
+<div class="grid">
+	<div class="grid_col"></div>
+	<div class="grid_col"></div>
+</div>
+
+GRID MODIFIERS
+.grid.is-height-100			Stretch grid to 100% height
+.grid.is-flipped 			Flip grid column order
+.grid.is-gutterX			Width of all gutters  (i.e. is-gutter1)
+.grid.is-gutterXh			Width of horizontal gutters (i.e. is-gutter1h)
+.grid.is-gutterXv			Width of vertical gutters (i.e. is-gutter1v)
+.grid.is-XofX				Width of contained columns (i.e. is-1of2)
+.grid.is-top				Align contained columns to top
+.grid.is-middle				Align contained columns to middle
+.grid.is-bottom				Align contained columns to bottom
+
+GRID COLUMN MODIFIERS
+.grid_col.is-XofX			Width of column (i.e. is-1of2)
+.grid_col.is-height-50
+.grid_col.is-top			Align child grid columns to top
+.grid_col.is-middle			Align child grid columns to middle
+.grid_col.is-bottom			Align child grid columns to bottom
+
+RESPONSIVE MODIFIERS
+Use two letter breakpoint codes (pm,sm,md and lg) instead of "is"
+for responsive versions of the following classes.
+
+.grid.XX-gutterX			Width of all gutters (i.e. pm-gutter1)
+.grid.XX-gutterXh			Width of horizontal gutters (i.e. pm-gutter1h)
+.grid.XX-gutterXv			Width of vertical gutters (i.e. pm-gutter1v)
+.grid.XX-XofX				Width of contained columns (i.e. pm-1of2)
+.grid_col.XX-XofX			Width of column (i.e. pm-1of2)
+
+----------------------------------------------------
+
+FUTURE FEATURES
+.grid.Number of rows
+.grid.Center columns
+.grid.Justify
+- Column Offset
+
+*/
+
+
+// GRID
+//--------------------------------------------------
+.grid {
+	font-size: 0; // remove whitespace
+
+	// STATES
+	&.is-height-100 {
+		height: 100%;
+	}
+	&.is-flipped {
+		direction: rtl;
+		.grid_col {
+			direction: ltr;
+		}
+	}
+	&.is-top .grid_col {
+		vertical-align: top;
+	}
+	&.is-middle .grid_col {
+		vertical-align: middle;
+	}
+	&.is-bottom .grid_col {
+		vertical-align: bottom;
+	}
+
+	// GUTTERS
+	.generate-gutters(@n, @i: 1) when (@i =< @n) {
+		&.is-gutter-@{i} {
+			margin-left: -@i*.5rem;
+			margin-right: -@i*.5rem;
+			.grid_col { padding: 0 @i*.5rem @i*1rem @i*.5rem; }
+		}
+		&.is-gutter-h@{i} {
+			margin-left: -@i*.5rem;
+			margin-right: -@i*.5rem;
+			.grid_col {
+				padding-left: @i*.5rem;
+				padding-right: @i*.5rem;
+			}
+		}
+		&.is-gutter-v@{i} {
+			.grid_col {
+				padding-bottom: @i*1rem;
+			}
+		}
+		.generate-gutters(@n, (@i + 1));
+	}
+	.generate-gutters(@grid-gutters);
+
+	// CHILD WIDTHS
+	.generate-widths (@i) when (@i > 0) {
+		@maxj: @i;
+		.inner-loop (@j) when (@j > 0) {
+			&.is-@{j}of@{i} .grid_col {
+				width: (100% * (@j/@i));
+			}
+			.inner-loop(@j - 1);
+		}
+		.inner-loop(@maxj);
+		.generate-widths(@i - 1);
+	}
+	.generate-widths(@grid-columns); // Generate all variations
+}
+
+
+// GRID COLUMN
+//--------------------------------------------------
+.grid_col {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	min-height: 1px;
+
+	// STATES
+	&.is-height-50 {
+		height: 50%;
+	}
+	&.is-top {
+		vertical-align: top;
+	}
+	&.is-middle {
+		vertical-align: middle;
+	}
+	&.is-bottom {
+		vertical-align: bottom;
+	}
+
+	// WIDTHS
+	.generate-widths (@i) when (@i > 0) {
+		@maxj: @i;
+		.inner-loop (@j) when (@j > 0) {
+			&.is-@{j}of@{i} {
+				width: (100% * (@j/@i));
+			}
+			.inner-loop(@j - 1);
+		}
+		.inner-loop(@maxj);
+		.generate-widths(@i - 1);
+	}
+	.generate-widths(@grid-columns); // Generate all variations
+}
+
+
+
+//--------------------------------------------------
+// BREAKPOINTS
+//--------------------------------------------------
+
+
+// PORTRAIT MODE
+//--------------------------------------------------
+@media @pm {
+
+	// GUTTERS
+	.grid {
+		.generate-gutters(@n, @i: 1) when (@i =< @n) {
+			&.pm-gutter-@{i} {
+				margin-left: -@i*.5rem;
+				margin-right: -@i*.5rem;
+				.grid_col { padding: 0 @i*.5rem @i*1rem @i*.5rem; }
+			}
+			&.pm-gutter-h@{i} {
+				margin-left: -@i*.5rem;
+				margin-right: -@i*.5rem;
+				.grid_col {
+					padding-left: @i*.5rem;
+					padding-right: @i*.5rem;
+				}
+			}
+			&.pm-gutter-v@{i} {
+				.grid_col {
+					padding-bottom: @i*1rem;
+				}
+			}
+			.generate-gutters(@n, (@i + 1));
+		}
+		.generate-gutters(@grid-gutters);
+	}
+
+	// CHILD COLUMN WIDTHS (APPLIED TO GRID)
+	.grid {
+		.generate-widths (@i) when (@i > 0) {
+			@maxj: @i;
+			.inner-loop (@j) when (@j > 0) {
+				&.pm-@{j}of@{i} .grid_col {
+					width: (100% * (@j/@i));
+				}
+				.inner-loop(@j - 1);
+			}
+			.inner-loop(@maxj);
+			.generate-widths(@i - 1);
+		}
+		.generate-widths(@grid-columns); // Generate all variations
+	}
+
+	// COLUMN WIDTHS
+	.grid_col {
+		.generate-widths (@i) when (@i > 0) {
+			@maxj: @i;
+			.inner-loop (@j) when (@j > 0) {
+				&.pm-@{j}of@{i} {
+					width: (100% * (@j/@i));
+				}
+				.inner-loop(@j - 1);
+			}
+			.inner-loop(@maxj);
+			.generate-widths(@i - 1);
+		}
+		.generate-widths(@grid-columns); // Generate all variations
+	}
+}
+
+
+// SMALL MODE
+//--------------------------------------------------
+@media @sm {
+
+	// GUTTERS
+	.grid {
+		.generate-gutters(@n, @i: 1) when (@i =< @n) {
+			&.sm-gutter-@{i} {
+				margin-left: -@i*.5rem;
+				margin-right: -@i*.5rem;
+				.grid_col { padding: 0 @i*.5rem @i*1rem @i*.5rem; }
+			}
+			&.sm-gutter-h@{i} {
+				margin-left: -@i*.5rem;
+				margin-right: -@i*.5rem;
+				.grid_col {
+					padding-left: @i*.5rem;
+					padding-right: @i*.5rem;
+				}
+			}
+			&.sm-gutter-v@{i} {
+				.grid_col {
+					padding-bottom: @i*1rem;
+				}
+			}
+			.generate-gutters(@n, (@i + 1));
+		}
+		.generate-gutters(@grid-gutters);
+	}
+
+	// CHILD COLUMN WIDTHS (APPLIED TO GRID)
+	.grid {
+		.generate-widths (@i) when (@i > 0) {
+			@maxj: @i;
+			.inner-loop (@j) when (@j > 0) {
+				&.sm-@{j}of@{i} .grid_col {
+					width: (100% * (@j/@i));
+				}
+				.inner-loop(@j - 1);
+			}
+			.inner-loop(@maxj);
+			.generate-widths(@i - 1);
+		}
+		.generate-widths(@grid-columns); // Generate all variations
+	}
+
+	// COLUMN WIDTHS
+	.grid_col {
+		.generate-widths (@i) when (@i > 0) {
+			@maxj: @i;
+			.inner-loop (@j) when (@j > 0) {
+				&.sm-@{j}of@{i} {
+					width: (100% * (@j/@i));
+				}
+				.inner-loop(@j - 1);
+			}
+			.inner-loop(@maxj);
+			.generate-widths(@i - 1);
+		}
+		.generate-widths(@grid-columns); // Generate all variations
+	}
+}
+
+
+// MEDIUM MODE
+//--------------------------------------------------
+@media @md {
+
+	// GUTTERS
+	.grid {
+		.generate-gutters(@n, @i: 1) when (@i =< @n) {
+			&.md-gutter-@{i} {
+				margin-left: -@i*.5rem;
+				margin-right: -@i*.5rem;
+				.grid_col { padding: 0 @i*.5rem @i*1rem @i*.5rem; }
+			}
+			&.md-gutter-h@{i} {
+				margin-left: -@i*.5rem;
+				margin-right: -@i*.5rem;
+				.grid_col {
+					padding-left: @i*.5rem;
+					padding-right: @i*.5rem;
+				}
+			}
+			&.md-gutter-v@{i} {
+				.grid_col {
+					padding-bottom: @i*1rem;
+				}
+			}
+			.generate-gutters(@n, (@i + 1));
+		}
+		.generate-gutters(@grid-gutters);
+	}
+
+	// CHILD COLUMN WIDTHS (APPLIED TO GRID)
+	.grid {
+		.generate-widths (@i) when (@i > 0) {
+			@maxj: @i;
+			.inner-loop (@j) when (@j > 0) {
+				&.md-@{j}of@{i} .grid_col {
+					width: (100% * (@j/@i));
+				}
+				.inner-loop(@j - 1);
+			}
+			.inner-loop(@maxj);
+			.generate-widths(@i - 1);
+		}
+		.generate-widths(@grid-columns); // Generate all variations
+	}
+
+	// COLUMN WIDTHS
+	.grid_col {
+		.generate-widths (@i) when (@i > 0) {
+			@maxj: @i;
+			.inner-loop (@j) when (@j > 0) {
+				&.md-@{j}of@{i} {
+					width: (100% * (@j/@i));
+				}
+				.inner-loop(@j - 1);
+			}
+			.inner-loop(@maxj);
+			.generate-widths(@i - 1);
+		}
+		.generate-widths(@grid-columns); // Generate all variations
+	}
+}
+
+
+// LARGE MODE
+//--------------------------------------------------
+@media @lg {
+
+	// GUTTERS
+	.grid {
+		.generate-gutters(@n, @i: 1) when (@i =< @n) {
+			&.lg-gutter-@{i} {
+				margin-left: -@i*.5rem;
+				margin-right: -@i*.5rem;
+				.grid_col { padding: 0 @i*.5rem @i*1rem @i*.5rem; }
+			}
+			&.lg-gutter-h@{i} {
+				margin-left: -@i*.5rem;
+				margin-right: -@i*.5rem;
+				.grid_col {
+					padding-left: @i*.5rem;
+					padding-right: @i*.5rem;
+				}
+			}
+			&.lg-gutter-v@{i} {
+				.grid_col {
+					padding-bottom: @i*1rem;
+				}
+			}
+			.generate-gutters(@n, (@i + 1));
+		}
+		.generate-gutters(@grid-gutters);
+	}
+
+	// CHILD COLUMN WIDTHS (APPLIED TO GRID)
+	.grid {
+		.generate-widths (@i) when (@i > 0) {
+			@maxj: @i;
+			.inner-loop (@j) when (@j > 0) {
+				&.lg-@{j}of@{i} .grid_col {
+					width: (100% * (@j/@i));
+				}
+				.inner-loop(@j - 1);
+			}
+			.inner-loop(@maxj);
+			.generate-widths(@i - 1);
+		}
+		.generate-widths(@grid-columns); // Generate all variations
+	}
+
+	// COLUMN WIDTHS
+	.grid_col {
+		.generate-widths (@i) when (@i > 0) {
+			@maxj: @i;
+			.inner-loop (@j) when (@j > 0) {
+				&.lg-@{j}of@{i} {
+					width: (100% * (@j/@i));
+				}
+				.inner-loop(@j - 1);
+			}
+			.inner-loop(@maxj);
+			.generate-widths(@i - 1);
+		}
+		.generate-widths(@grid-columns); // Generate all variations
+	}
+}
+	
