@@ -72,9 +72,7 @@ gulp.task('less', function () {
         .pipe(less())
 
         // Add browser specific css prefixes
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'Explorer >= 9']
-        }))
+        .pipe(autoprefixer({ browsers: ['last 2 versions', 'Explorer >= 9'] }))
 
         // Save CSS file to source folder
         .pipe(gulp.dest('./source/css'))
