@@ -6,3 +6,6 @@ node_modules
 
 # JEKYLL
 .jekyll-metadata
+
+# COMPILES SITE
+_site

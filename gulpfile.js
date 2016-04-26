@@ -16,22 +16,22 @@ var gulp = require('gulp'),
 // JAVASCRIPT INCLUDES
 //--------------------------------------------
 var js_lib_files = [
-    './source/js/_lib/jquery/jquery-2.1.3.min.js',
-    './source/js/_lib/jquery/jquery.ba-throttle-debounce.min.js',
-    './source/js/_lib/gsap/minified/TweenMax.min.js',
-    './source/js/_lib/gsap/minified/TimelineMax.min.js',
-    './source/js/_lib/gsap/minified/plugins/DrawSVGPlugin.min.js',
-    './source/js/_lib/scrollmagic/minified/ScrollMagic.min.js',
-    './source/js/_lib/scrollmagic/minified/plugins/animation.gsap.min.js',
-    './source/js/_lib/scrollmagic/minified/plugins/debug.addIndicators.min.js'
+    './js/_lib/jquery/jquery-2.1.3.min.js',
+    './js/_lib/jquery/jquery.ba-throttle-debounce.min.js',
+    './js/_lib/gsap/minified/TweenMax.min.js',
+    './js/_lib/gsap/minified/TimelineMax.min.js',
+    './js/_lib/gsap/minified/plugins/DrawSVGPlugin.min.js',
+    './js/_lib/scrollmagic/minified/ScrollMagic.min.js',
+    './js/_lib/scrollmagic/minified/plugins/animation.gsap.min.js',
+    './js/_lib/scrollmagic/minified/plugins/debug.addIndicators.min.js'
 ];
 var js_custom_files = [
-    './source/js/_custom/global.js',
-    './source/js/_custom/intro.js',
-    './source/js/_custom/animation.js',
-    './source/js/_custom/glitch_animation.js',
-    './source/js/_custom/h_shift.js',
-    './source/js/_custom/grid_tilt.js'
+    './js/_custom/global.js',
+    './js/_custom/intro.js',
+    './js/_custom/animation.js',
+    './js/_custom/glitch_animation.js',
+    './js/_custom/h_shift.js',
+    './js/_custom/grid_tilt.js'
 ];
 
 
@@ -41,24 +41,24 @@ var js_custom_files = [
 gulp.task('default', function() {
 
     // BROWSER SYNC INIT
-    browserSync.init({server: "./site/"});
+    browserSync.init({server: "./_site/"});
 
     // BROWSER SYNC JEKYLL WATCHER
     // Only watches index.html to avoid repeatedly reloading browser
     gulp.watch(['site/index.html'], browserSync.reload);
 
     // LESS/CSS WATCHERS
-    gulp.watch('./source/css/_less/**/*.less', ['less']);
+    gulp.watch('./css/_less/**/*.less', ['less']);
 
     // JS WATCHERS
-    gulp.watch(['./source/js/_lib/**/*.js'], ['js-lib']);
-    gulp.watch(['./source/js/_custom/**/*.js'], ['js-custom']);
+    gulp.watch(['./js/_lib/**/*.js'], ['js-lib']);
+    gulp.watch(['./js/_custom/**/*.js'], ['js-custom']);
 
     // SVG SPRITE WATCHER (this will trigger jekyll watcher)
-    gulp.watch('./source/_svg_sprites/**/*.svg', ['svgstore']);
+    gulp.watch('./_svg_sprites/**/*.svg', ['svgstore']);
 
     // JEKYLL WATCHER
-    gulp.watch(['./source/**/*.html','./source/*.ico','./source/_includes/**/*','./source/img/**/*'],['jekyll']);
+    gulp.watch(['./**/*.html','./*.ico','./_includes/**/*','./img/**/*'],['jekyll']);
 });
 
 
@@ -66,7 +66,7 @@ gulp.task('default', function() {
 //--------------------------------------------
 // Compile less, autoprefix and minify css
 gulp.task('less', function () {
-    return gulp.src('./source/css/_less/style.less')
+    return gulp.src('./css/_less/style.less')
         
         // Compile LESS
         .pipe(less())
@@ -75,13 +75,13 @@ gulp.task('less', function () {
         .pipe(autoprefixer({ browsers: ['last 2 versions', 'Explorer >= 9'] }))
 
         // Save CSS file to source folder
-        .pipe(gulp.dest('./source/css'))
+        .pipe(gulp.dest('./css'))
 
         // Minify CSS
         .pipe(minifyCSS())
 
         // Save minified CSS file to site folder 
-        .pipe(gulp.dest('./site/css'))
+        .pipe(gulp.dest('./_site/css'))
 
         // Update BrowserSync
         .pipe(browserSync.stream());
@@ -98,13 +98,13 @@ gulp.task('js-lib', function () {
         .pipe(concat('lib.js'))
 
         // Save concated file to source
-        .pipe(gulp.dest('./source/js'))
+        .pipe(gulp.dest('./js'))
 
         // Minify concated file
         .pipe(uglify())
 
         // Save minified file to site
-        .pipe(gulp.dest('./site/js'))
+        .pipe(gulp.dest('./_site/js'))
 
         // Update BrowserSync
         .pipe(browserSync.stream());
@@ -116,13 +116,13 @@ gulp.task('js-custom', function () {
         .pipe(concat('custom.js'))
 
         // Save concated file to source
-        .pipe(gulp.dest('./source/js'))
+        .pipe(gulp.dest('./js'))
 
         // Minify concated file
         .pipe(uglify())
 
         // Save minified file to site
-        .pipe(gulp.dest('./site/js'))
+        .pipe(gulp.dest('./_site/js'))
 
         // Update BrowserSync
         .pipe(browserSync.stream());
@@ -133,7 +133,7 @@ gulp.task('js-custom', function () {
 //--------------------------------------------
 // https://css-tricks.com/svg-symbol-good-choice-icons/
 gulp.task('svgstore', function () {
-    return gulp.src('./source/_svg_sprites/*.svg')
+    return gulp.src('./_svg_sprites/*.svg')
 
         // Minify SVG FILES
         .pipe(svgmin(function (file) {
@@ -155,7 +155,7 @@ gulp.task('svgstore', function () {
         .pipe(rename('svg_sprites.svg'))
     
         // Save file into source _includes
-        .pipe(gulp.dest('./source/_includes/'));
+        .pipe(gulp.dest('./_includes/'));
 
         // Jekyll will run when the file is save to source/_includes
 });
