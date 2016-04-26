@@ -29,7 +29,6 @@ var js_custom_files = [
     './js/_custom/global.js',
     './js/_custom/intro.js',
     './js/_custom/animation.js',
-    './js/_custom/glitch_animation.js',
     './js/_custom/h_shift.js',
     './js/_custom/grid_tilt.js'
 ];
@@ -45,7 +44,7 @@ gulp.task('default', function() {
 
     // BROWSER SYNC JEKYLL WATCHER
     // Only watches index.html to avoid repeatedly reloading browser
-    gulp.watch(['site/index.html'], browserSync.reload);
+    gulp.watch(['./_site/index.html'], browserSync.reload);
 
     // LESS/CSS WATCHERS
     gulp.watch('./css/_less/**/*.less', ['less']);
@@ -58,7 +57,7 @@ gulp.task('default', function() {
     gulp.watch('./_svg_sprites/**/*.svg', ['svgstore']);
 
     // JEKYLL WATCHER
-    gulp.watch(['./**/*.html','./*.ico','./_includes/**/*','./img/**/*'],['jekyll']);
+    gulp.watch(['./*.html','./*.ico','./_includes/**/*','./img/**/*'],['jekyll']);
 });
 
 
