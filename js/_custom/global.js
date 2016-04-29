@@ -134,9 +134,16 @@ function modalInject(url,hash) {
 		complete: function( xhr, status ) {
 			console.log( 'the request is complete' );
 
+			// Apply Imgix fluid to loaded content
+			imgix.fluid({
+				updateOnResizeDown: true,
+				pixelStep: 5,
+				autoInsertCSSBestPractices: false
+			});
+
 			// Wrap Images in Responsive Wrap
 			responsiveWrap('#modal');
-			
+
 			// Display Modal Content (but wait a bit to make sure it's done animating)
 			setTimeout(function(){
 				$('#modal .modal_content').removeClass('is-hidden');

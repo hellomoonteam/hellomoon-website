@@ -35,7 +35,6 @@
     <meta property="og:description"                       content="Hellomoon is a full service interactive design and development studio located in Minneapolis, MN. We’re easy to work with and we care deeply about the work we do.">
     <meta property="og:url"                               content="http://hellomoon.net">
     <meta property="og:image"                             content="http://hellomoon.net/img/hellomoon_social_facebook.png">
-	<script src="js/lib/picturefill/picturefill.min.js"></script>
 
 	<!-- GOOGLE ANALYTICS -->
 	<script>
@@ -47,6 +46,18 @@
 		ga('create', 'UA-72275509-1', 'auto');
 		ga('send', 'pageview');
 	</script>
+
+	<!-- IMIGIX -->
+	<script src="https://www.imgix.com/libraries/imgix.js" type="text/javascript"></script>
+    <script>
+		imgix.onready(function() {
+			imgix.fluid({
+				updateOnResizeDown: true,
+				pixelStep: 5,
+				autoInsertCSSBestPractices: false
+			});
+		});
+    </script>
 </head>
 <body>
 
@@ -198,11 +209,10 @@
 						<div class="project-wrap">
 							<a class="project" data-action="modalOpen" data-hash="levolor" href="portfolio/levolor.html">
 								<div class="project-thumb">
-									<img src="../img/portfolio/compressed/levolor_thumb.jpg" 
-									sizes="(max-width: 500px) 100vw"
-									srcset="../img/portfolio/compressed/levolor_thumb_2x.jpg 370w,
-									../img/portfolio/compressed/levolor_thumb.jpg 185w"
-									alt="Levolor product configuration configurator"/>
+									<img src="https://hellomoon.imgix.net/levolor_thumb.png"
+										 alt="Levolor product configuration configurator"
+										 class="imgix-fluid"
+									/>
 								</div>
 								<div class="project-info">
 									<h2>Levolor</h2>
@@ -213,11 +223,10 @@
 						<div class="project-wrap">
 							<a class="project" data-hash="celadon" data-action="modalOpen" href="portfolio/celadon.html">
 								<div class="project-thumb">
-									<img src="../img/portfolio/compressed/celadon_thumb.jpg" 
-									sizes="(max-width: 500px) 100vw"
-									srcset="../img/portfolio/compressed/celadon_thumb_2x.jpg 370w,
-									../img/portfolio/compressed/celadon_thumb.jpg 185w"
-									alt="Celadon Wealth management responsive website"/>
+									<img src="https://hellomoon.imgix.net/celadon_thumb.png" 
+										 alt="Celadon Wealth management responsive website"
+										 class="imgix-fluid"
+									/>
 								</div>
 								<div class="project-info">
 									<h2>Celadon</h2>
@@ -228,11 +237,10 @@
 						<div class="project-wrap">
 							<a class="project" data-hash="commons" data-action="modalOpen" href="portfolio/commons.html">
 								<div class="project-thumb">
-									<img src="../img/portfolio/compressed/commons_thumb.jpg" 
-									sizes="(max-width: 500px) 100vw"
-									srcset="../img/portfolio/compressed/commons_thumb_2x.jpg 370w,
-									../img/portfolio/compressed/commons_thumb.jpg 185w"
-									alt="The Commons e-learning app for kids design and development"/>
+									<img src="https://hellomoon.imgix.net/commons_thumb.png" 
+										 alt="The Commons e-learning app for kids design and development"
+										 class="imgix-fluid"
+									/>
 								</div>
 								<div class="project-info">
 									<h2>The Commons</h2>
@@ -243,11 +251,10 @@
 						<div class="project-wrap">
 							<a class="project" data-hash="pearson" data-action="modalOpen" href="portfolio/pearson.html">
 								<div class="project-thumb">
-									<img src="../img/portfolio/compressed/pearson_thumb.jpg" 
-									sizes="(max-width: 500px) 100vw"
-									srcset="../img/portfolio/compressed/pearson_thumb_2x.jpg 370w,
-									../img/portfolio/compressed/pearson_thumb.jpg 185w"
-									alt="Pearson interactive brochure kiosk for tradeshows"/>
+									<img src="https://hellomoon.imgix.net/pearson_thumb.png" 
+										 alt="Pearson interactive brochure kiosk for tradeshows"
+										 class="imgix-fluid"
+									/>
 								</div>
 								<div class="project-info">
 									<h2>Pearson</h2>
@@ -258,11 +265,10 @@
 						<div class="project-wrap">
 							<a class="project" data-hash="capecci" data-action="modalOpen" href="portfolio/capecci.html">
 								<div class="project-thumb">
-									<img src="../img/portfolio/compressed/capecci_thumb.jpg" 
-									sizes="(max-width: 500px) 100vw"
-									srcset="../img/portfolio/compressed/capecci_thumb_2x.jpg 370w,
-									../img/portfolio/compressed/capecci_thumb.jpg 185w"
-									alt="Capecci modern responsive website with interactive illustration"/>
+									<img src="https://hellomoon.imgix.net/capecci_thumb.png" 
+										 alt="Capecci modern responsive website with interactive illustration"
+										 class="imgix-fluid"
+									/>
 								</div>
 								<div class="project-info">
 									<h2>Capecci</h2>
@@ -273,11 +279,10 @@
 						<div class="project-wrap">
 							<a class="project" data-hash="lnyw" data-action="modalOpen" href="portfolio/live_near_work.html">
 								<div class="project-thumb">
-									<img src="../img/portfolio/compressed/lnyw_thumb.jpg" 
-									sizes="(max-width: 500px) 100vw"
-									srcset="../img/portfolio/compressed/lnyw_thumb_2x.jpg 370w,
-									../img/portfolio/compressed/lnyw_thumb.jpg 185w"
-									alt="Live Near Your Work website promoting healthy walkable lifestyle"/>
+									<img src="https://hellomoon.imgix.net/lnyw_thumb.png" 
+										 alt="Live Near Your Work website promoting healthy walkable lifestyl
+										 class="imgix-fluid"
+									e"/>
 								</div>
 								<div class="project-info">
 									<h2>Live Near Work</h2>
@@ -288,11 +293,10 @@
 						<div class="project-wrap">
 							<a class="project" data-hash="ricelake" data-action="modalOpen" href="portfolio/rice_lake.html">
 								<div class="project-thumb">
-									<img src="../img/portfolio/compressed/rlws_thumb.jpg" 
-									sizes="(max-width: 500px) 100vw"
-									srcset="../img/portfolio/compressed/rlws_thumb_2x.jpg 370w,
-									../img/portfolio/compressed/rlws_thumb.jpg 185w"
-									alt="Rice Lake Product UI design"/>
+									<img src="https://hellomoon.imgix.net/rlws_thumb.png" 
+										 alt="Rice Lake Product UI design"
+										 class="imgix-fluid"
+									/>
 								</div>
 								<div class="project-info">
 									<h2>Rice Lake</h2>
@@ -303,11 +307,10 @@
 						<div class="project-wrap">
 							<a class="project" data-hash="patterson" data-action="modalOpen" href="portfolio/patterson.html">
 								<div class="project-thumb">
-									<img src="../img/portfolio/compressed/patterson_thumb.jpg" 
-									sizes="(max-width: 500px) 100vw"
-									srcset="../img/portfolio/compressed/patterson_thumb_2x.jpg 370w,
-									../img/portfolio/compressed/patterson_thumb.jpg 185w"
-									alt="Patterson space themed trivia game"/>
+									<img src="https://hellomoon.imgix.net/patterson_thumb.png" 
+										 alt="Patterson space themed trivia game"
+										 class="imgix-fluid"
+									/>
 								</div>
 								<div class="project-info">
 									<h2>Patterson</h2>
