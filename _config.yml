@@ -1,3 +1,10 @@
 # Set source and destination folders
 source: ./
 destination: ./_site
+
+# Environment specific variables
+development:
+  asset_url: "https://hellomoon-dev.imgix.net/"
+
+production:
+  asset_url: "https://hellomoon.imgix.net/"
