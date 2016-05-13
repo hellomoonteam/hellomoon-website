@@ -57,7 +57,7 @@ gulp.task('default', function() {
     gulp.watch('./_svg_sprites/**/*.svg', ['svgstore']);
 
     // JEKYLL WATCHER
-    gulp.watch(['./*.html','./*.ico','./_includes/**/*','./img/**/*'],['jekyll']);
+    gulp.watch(['./*.html','./portfolio/*.html','./*.ico','./_includes/**/*','./img/**/*'],['jekyll']);
 });
 
 
@@ -165,15 +165,6 @@ gulp.task('svgstore', function () {
 // Run Jekyll build through command line
 gulp.task('jekyll', function (){
     exec('jekyll build', function(err, stdout, stderr) {
-        console.log(stdout);
-    });
-});
-
-
-// COMPRESS IMAGES
-//--------------------------------------------
-gulp.task('images', function(){
-    exec('./bash.sh', function (err, stdout, stderr) {
         console.log(stdout);
     });
 });

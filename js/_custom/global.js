@@ -167,9 +167,12 @@ function modalShow(){
 	setTimeout(modalScrollHandoff, 600); // Lock main with fixed once it's hidden
 }
 function modalScrollHandoff(){
-	// $('#main').css({
-	// 	position: 'fixed',
-	// });
+	// Using position fixed to avoid double scrollbars on main
+	// causes a crash on ipad and isn't really necessary anyway.
+	var is_iPad = navigator.userAgent.match(/iPad/i) != null;
+	if (! is_iPad) {
+		$('#main').css({ position: 'fixed', });
+	}
 	$('#modal').removeClass('is-overflow-hidden')
 }
 
