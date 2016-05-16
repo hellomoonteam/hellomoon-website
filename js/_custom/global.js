@@ -8,7 +8,7 @@ $(document).ready(function() {
 });
 
 window.onresize = function() {
-	//setSectionHeights();
+	setSectionHeights();
 }
 
 
@@ -289,10 +289,18 @@ function responsiveWrap(parent){
 // android.
 //----------------------------------------------------
 function setSectionHeights(){
-	var viewportHeight = $(window).height(),
-		viewportWidth = $(window).width();
+	var maxHeight = 1000,
+		windowHeight =  $(window).height(),
+		windowWidth = $(window).width(),
+		viewportHeight = windowHeight > maxHeight ? maxHeight : windowHeight,
+		viewportWidth = windowWidth;
+		
 
 	$('.section.is-height-100').css('height', viewportHeight);
+	
+	console.log('-----');
+	console.log(windowHeight);
+	console.log(viewportHeight);
 
 	// Only set size in pixels if we are portrait on mobile
 	if (viewportWidth < 770 && viewportHeight > 450) {

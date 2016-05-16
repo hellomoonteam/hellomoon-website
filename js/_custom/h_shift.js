@@ -121,7 +121,7 @@ $.fn.dotGrid = function(options) {
 
 		// LOOP
 		(function loop() {
-			var random = Math.round(Math.random() * 400 + 300);
+			var random = Math.round(Math.random() * 400 + 1100);
 			setTimeout(function() {
 
 				// Update the scrolling event
