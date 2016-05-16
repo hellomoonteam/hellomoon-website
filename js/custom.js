@@ -1,9 +1,9 @@
 $(document).ready(function() {
-//global.js
 	// Bindings
 	$('body').on('click','[data-action="modalOpen"]', modalOpen);
 	$('body').on('click','[data-action="modalClose"]', modalClose);
-
+	$('body').on('click','[data-action="scrollSome"]', scrollSome);
+	
 	init();
 });
 
@@ -300,6 +300,24 @@ function setSectionHeights(){
 	}
 }
 
+// SCROLL SOME
+// Used to communicate page can be scrolled
+//----------------------------------------------------
+function scrollSome(e) {
+	e.preventDefault();
+	
+	var scrollPosition = $('body').scrollTop(),
+		windowHeight = window.innerHeight,
+		newScrollPosition = scrollPosition + windowHeight;		
+	
+	//jQuery Animation Method
+	//$('body').animate({ scrollTop: newScrollPosition });
+	
+	// GSAP Animation Method
+	TweenMax.to(window, .8, {
+		scrollTo: {y:newScrollPosition}, ease: Power2.easeInOut
+	});
+}
 (function($){
 
 	// SETTINGS
@@ -329,8 +347,8 @@ function setSectionHeights(){
 			loop();
 		}, 250);
 	}());
-
-
+	
+	
 	// DISABLE INTRO
 	//--------------------------------------------
 	var controller = new ScrollMagic.Controller();
@@ -352,7 +370,6 @@ function setSectionHeights(){
 	// PAUSE/PLAY INTRO
 	//--------------------------------------------
 	function introPause() {
-		scrollIndicatorTween.pause();
 		sphere1Spin.pause();
 		sphere1Scale.pause();
 		sphere2Spin.pause();
@@ -370,7 +387,6 @@ function setSectionHeights(){
 	}
 
 	function introPlay() {
-		scrollIndicatorTween.play();
 		sphere1Spin.play();
 		sphere1Scale.play();
 		sphere2Spin.play();
@@ -387,14 +403,6 @@ function setSectionHeights(){
 		rayTrace.play();
 	}
 
-
-	// SCROLL INDICATOR ARROW
-	//--------------------------------------------
-	var scrollIndicatorTween = TweenMax.to('#scroll-indicator', .7, {
-		marginTop: 150,
-		ease: Power1.easeInOut
-	});
-	scrollIndicatorTween.yoyo(true).repeat(-1).play();
 
 
 	// SPHERES

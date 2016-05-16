@@ -4174,7 +4174,7 @@ FUTURE FEATURES
 }
 .intro_btn {
   color: #149dee;
-  background: black;
+  background: rgba(0, 0, 0, 0.1);
   display: block;
   margin-top: 5rem;
   margin-left: -9rem;

@@ -27,8 +27,8 @@
 			loop();
 		}, 250);
 	}());
-
-
+	
+	
 	// DISABLE INTRO
 	//--------------------------------------------
 	var controller = new ScrollMagic.Controller();
@@ -50,7 +50,6 @@
 	// PAUSE/PLAY INTRO
 	//--------------------------------------------
 	function introPause() {
-		scrollIndicatorTween.pause();
 		sphere1Spin.pause();
 		sphere1Scale.pause();
 		sphere2Spin.pause();
@@ -68,7 +67,6 @@
 	}
 
 	function introPlay() {
-		scrollIndicatorTween.play();
 		sphere1Spin.play();
 		sphere1Scale.play();
 		sphere2Spin.play();
@@ -85,14 +83,6 @@
 		rayTrace.play();
 	}
 
-
-	// SCROLL INDICATOR ARROW
-	//--------------------------------------------
-	var scrollIndicatorTween = TweenMax.to('#scroll-indicator', .7, {
-		marginTop: 150,
-		ease: Power1.easeInOut
-	});
-	scrollIndicatorTween.yoyo(true).repeat(-1).play();
 
 
 	// SPHERES

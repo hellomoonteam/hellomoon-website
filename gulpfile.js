@@ -21,6 +21,7 @@ var js_lib_files = [
     './js/_lib/gsap/minified/TweenMax.min.js',
     './js/_lib/gsap/minified/TimelineMax.min.js',
     './js/_lib/gsap/minified/plugins/DrawSVGPlugin.min.js',
+    './js/_lib/gsap/minified/plugins/ScrollToPlugin.min.js',
     './js/_lib/scrollmagic/minified/ScrollMagic.min.js',
     './js/_lib/scrollmagic/minified/plugins/animation.gsap.min.js',
     './js/_lib/scrollmagic/minified/plugins/debug.addIndicators.min.js'

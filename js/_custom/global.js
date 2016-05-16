@@ -1,9 +1,9 @@
 $(document).ready(function() {
-//global.js
 	// Bindings
 	$('body').on('click','[data-action="modalOpen"]', modalOpen);
 	$('body').on('click','[data-action="modalClose"]', modalClose);
-
+	$('body').on('click','[data-action="scrollSome"]', scrollSome);
+	
 	init();
 });
 
@@ -298,4 +298,23 @@ function setSectionHeights(){
 	if (viewportWidth < 770 && viewportHeight > 450) {
 		$('.section.is-height-100').css('height', viewportHeight);
 	}
+}
+
+// SCROLL SOME
+// Used to communicate page can be scrolled
+//----------------------------------------------------
+function scrollSome(e) {
+	e.preventDefault();
+	
+	var scrollPosition = $('body').scrollTop(),
+		windowHeight = window.innerHeight,
+		newScrollPosition = scrollPosition + windowHeight;		
+	
+	//jQuery Animation Method
+	//$('body').animate({ scrollTop: newScrollPosition });
+	
+	// GSAP Animation Method
+	TweenMax.to(window, .8, {
+		scrollTo: {y:newScrollPosition}, ease: Power2.easeInOut
+	});
 }
