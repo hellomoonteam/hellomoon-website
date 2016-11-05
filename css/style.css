@@ -524,7 +524,7 @@ p:last-child {
 }
 p.is-lead {
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-family: "biome-light", Helvetica, Arial, sans-serif;
 }
 p.is-small {
