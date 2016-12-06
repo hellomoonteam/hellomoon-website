@@ -153,7 +153,7 @@
 	var timelineExplore = new TimelineLite();
 		timelineExplore
 			.from('#grid-shift', .7, {scale: .4, opacity: 0, ease: Power1.easeOut})
-			.from('#explore h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
+			.from('#explore h2', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
 			.from('#explore p', .7, {x: 40, opacity: 0, ease: Power1.easeOut}, '-=.5');
 	var sceneExplore = new ScrollMagic.Scene({
 		triggerElement: '#explore h1',
@@ -166,7 +166,7 @@
 	var timelineEvolve = new TimelineLite();
 		timelineEvolve
 			.from('#grid-evolve', .7, {scale: .4, opacity: 0, ease: Power1.easeOut})
-			.from('#evolve h1', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
+			.from('#evolve h2', .7, {y: 70, opacity: 0, ease: Power1.easeOut}, '-=.7')
 			.from('#evolve p', .7, {x: -40, opacity: 0, ease: Power1.easeOut}, '-=.5');
 	var sceneEvolve = new ScrollMagic.Scene({
 		triggerElement: '#evolve h1',
