@@ -315,9 +315,9 @@ function scrollSome(e) {
 	e.preventDefault();
 	
 	var scrollPosition = $('body').scrollTop(),
-		windowHeight = window.innerHeight,
-		newScrollPosition = scrollPosition + windowHeight;		
-	
+		sectionHeight = $('main section:first-child').height(),
+		newScrollPosition = scrollPosition + sectionHeight;
+
 	//jQuery Animation Method
 	//$('body').animate({ scrollTop: newScrollPosition });
 	
