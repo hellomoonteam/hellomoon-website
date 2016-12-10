@@ -4164,7 +4164,7 @@ FUTURE FEATURES
   width: 48rem;
 }
 .intro_cta {
-  margin-top: 3rem;
+  margin-top: -1rem;
   width: 72rem;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -4176,7 +4176,7 @@ FUTURE FEATURES
   color: #149dee;
   background: rgba(0, 0, 0, 0.1);
   display: block;
-  margin-top: 5rem;
+  margin-top: 3rem;
   margin-left: -9rem;
   border: 2px solid #149dee;
   border-radius: 2rem;
@@ -4629,6 +4629,7 @@ img.is-shadow {
   height: 4rem;
   line-height: 4.2rem;
   font-size: 1.7rem;
+  cursor: pointer;
 }
 .button:after {
   content: '.';
@@ -4640,6 +4641,25 @@ img.is-shadow {
 }
 .button.is-offset-left {
   margin-left: 5rem;
+}
+.button.is-grid-start {
+  display: block;
+  margin: 5rem auto 0 auto;
+  width: 20rem;
+  color: #149dee;
+  background: rgba(0, 0, 0, 0.1);
+  border: 2px solid #149dee;
+  border-radius: 2rem;
+  line-height: 4rem;
+  transition: background .5s, color .6s, -webkit-transform .5s;
+  transition: background .5s, color .6s, transform .5s;
+}
+.button.is-grid-start:hover {
+  color: white;
+  background: #149dee;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .button_icon {
   position: absolute;

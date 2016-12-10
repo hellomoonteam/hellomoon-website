@@ -326,6 +326,21 @@ function scrollSome(e) {
 		scrollTo: {y:newScrollPosition}, ease: Power2.easeInOut
 	});
 }
+
+// START/RESET GRID ANIMATION
+//----------------------------------------------------
+$('[data-action="exploreAnimateToggle"]').on('click', function(){
+	var textOn = 'Watch Us Adapt',
+		textOff = 'Reset Shape';
+	
+	if ( $(this).text() == textOn ){
+		playShift();
+		$(this).text(textOff);
+	} else {
+		resetShift();
+		$(this).text(textOn);
+	}
+});
 (function($){
 
 	// SETTINGS
@@ -857,6 +872,7 @@ $.fn.dotGrid = function(options) {
         	shape = [],
         	nextColor = null,
         	playGrid = settings.play,
+        	playLock = settings.playLock,
         	mode = settings.mode;
 
         // MONITOR SCROLLING
@@ -881,12 +897,28 @@ $.fn.dotGrid = function(options) {
 				}
 			})
 
-        init();
+		// GLOBAL METHODS
+		if (mode == 'shift') {
+
+			window.playShift = function() {
+				playLock = false;
+			}
+
+			window.resetShift = function() {
+				playLock = true;
+				shape = [];
+				gridElement.empty();
+				init();
+			}
+		}
 
 
+		// GET THE PARTY STARTED
+		init();
 
-        function init() {
-        	// make an array of objects out of shapeSetup array
+
+		function init() {
+			// make an array of objects out of shapeSetup array
 			for (var i = 0; i < shapeSetup.length; i++) {
 				shape.push({
 					x: shapeSetup[i][0],
@@ -895,9 +927,9 @@ $.fn.dotGrid = function(options) {
 					name: 'square'+i
 				});
 			}
-
 			createGrid();
 			drawShape();
+
         }
 
 		function createGrid() {
@@ -948,10 +980,10 @@ $.fn.dotGrid = function(options) {
 
 				// Animate the grid if we aren't scrolling	
 				} else {
-					if (playGrid && mode == 'shift'){
+					if (playGrid && !playLock && mode == 'shift'){
 						shiftShape();
 					}
-					if (playGrid && mode == 'evolve'){
+					if (playGrid && !playLock && mode == 'evolve'){
 						evolveShape();
 					}
 				}

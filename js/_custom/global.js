@@ -326,3 +326,18 @@ function scrollSome(e) {
 		scrollTo: {y:newScrollPosition}, ease: Power2.easeInOut
 	});
 }
+
+// START/RESET GRID ANIMATION
+//----------------------------------------------------
+$('[data-action="exploreAnimateToggle"]').on('click', function(){
+	var textOn = 'Watch Us Adapt',
+		textOff = 'Reset Shape';
+	
+	if ( $(this).text() == textOn ){
+		playShift();
+		$(this).text(textOff);
+	} else {
+		resetShift();
+		$(this).text(textOn);
+	}
+});
