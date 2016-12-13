@@ -4636,11 +4636,24 @@ img.is-shadow {
   line-height: 4.2rem;
   font-size: 1.7rem;
   cursor: pointer;
+  transition: background .5s, color .6s, -webkit-transform .5s;
+  transition: background .5s, color .6s, transform .5s;
 }
 .button:after {
   content: '.';
   font-size: 0;
   opacity: 0;
+}
+.button:visited {
+  color: white;
+  background: #149dee;
+}
+.button:hover {
+  color: white;
+  background: #149dee;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 .button:first-child {
   margin: 0;
@@ -4657,15 +4670,6 @@ img.is-shadow {
   border: 2px solid #149dee;
   border-radius: 2rem;
   line-height: 4rem;
-  transition: background .5s, color .6s, -webkit-transform .5s;
-  transition: background .5s, color .6s, transform .5s;
-}
-.button.is-grid-start:hover {
-  color: white;
-  background: #149dee;
-  -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-          transform: scale(1.1);
 }
 .button_icon {
   position: absolute;
@@ -5026,7 +5030,7 @@ PROJECTS
   position: relative;
   float: left;
   padding: 1rem;
-  width: 25%;
+  width: 20%;
   height: 50%;
   vertical-align: top;
   min-height: 1px;

@@ -15,11 +15,21 @@
 	line-height: 4.2rem;
 	font-size: @font-size-small;
 	cursor: pointer;
+	transition: background .5s, color .6s, transform .5s;
 
 	&:after { // keep buttons without text formatted correctly as display inline-block
 		content: '.';
 		font-size: 0;
 		opacity: 0;
+	}
+	&:visited {
+		color: white;
+		background: @primary;
+	}
+	&:hover {
+		color: white;
+		background: @primary;
+		transform: scale(1.1);
 	}
 	&:first-child {
 		margin: 0;
@@ -36,13 +46,7 @@
 		border: 2px solid @primary;
 		border-radius: 2rem;
 		line-height: 4rem;
-		transition: background .5s, color .6s, transform .5s;
 		
-		&:hover {
-			color: white;
-			background: @primary;
-			transform: scale(1.1);
-		}
 	}
 }
 
