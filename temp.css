@@ -4,3 +4,7 @@ table td {
 table tr:nth-child(even) {
     background: transparent !important;
  }
+ 
+ table tr:nth-child(even) td {
+    background: rgba(0,0,0,.5);
+  }
