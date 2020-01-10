@@ -1,4 +1,4 @@
 .page {
     border: 10px solid red;
-    transform: scale(1.3), translate(100px, 75px);
+    transform: scale(1.3) translate(100px, 75px);
 }
