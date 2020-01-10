@@ -6,4 +6,5 @@ table tr:nth-child(even) {
  }
 table tr:nth-child(even) td {
     background: gray;
+    border-right: 1px solid red;
  }
