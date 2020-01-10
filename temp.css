@@ -9,6 +9,6 @@ table i.top-pick:before {
     right: -2px;
     bottom: -2px;
     left: -2px;
-    border: 1px solid red;
+    border: 1px solid purple;
     border-radius: 50%;
 }
