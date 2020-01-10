@@ -1,14 +1,14 @@
 .table-key i.top-pick {
     border: 1px solid #d2373d;
 }
-table i.top-pick:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    bottom: -2px;
-    left: -2px;
-    border: 1px solid purple;
-    border-radius: 50%;
-}
+/*table i.top-pick:before {*/
+/*    content: '';*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    top: -2px;*/
+/*    right: -2px;*/
+/*    bottom: -2px;*/
+/*    left: -2px;*/
+/*    border: 1px solid purple;*/
+/*    border-radius: 50%;*/
+/*}*/
