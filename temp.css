@@ -2,3 +2,6 @@
     border: 1px solid red;
     transform: scale(1.333) translate(99px, 77px);
 }
+.table-key i.top-pick {
+    border: 1px solid #00a6ec;
+}
