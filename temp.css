@@ -2,9 +2,5 @@ table td {
     border-right: 1px solid red;
  }
 table tr:nth-child(even) {
-    background: transparent;
- }
-table tr:nth-child(even) td {
-    background: gray;
-    border-right: 1px solid red;
+    background: transparent !important;
  }
