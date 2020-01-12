@@ -1,7 +1,7 @@
 table td {
-    border-right: 1px solid red;
+    border-right: 1px solid green;
  }
-table tr:nth-child(even) {
+table tr {
     background: transparent !important;
  }
  
