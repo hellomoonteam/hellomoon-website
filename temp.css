@@ -5,3 +5,7 @@
 .seasons .table-key {
     width: 300px;
 }
+
+.table-key i.peak-season {
+    width: 2px;
+}
