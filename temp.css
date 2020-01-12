@@ -6,6 +6,6 @@
     width: 300px;
 }
 
-.table-key i.peak-season {
-    width: 2px;
+.seasons .table-key i {
+    display: inline-block !important;
 }
