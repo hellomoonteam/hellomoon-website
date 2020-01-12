@@ -1,5 +1,5 @@
 table td {
-    border-right: 1px solid green;
+    border-right: 1px solid rgba(0,0,0,.2);
  }
 table tr {
     background: transparent !important;
@@ -7,4 +7,5 @@ table tr {
  
  table tr:nth-child(even) td {
     background: rgba(0,0,0,.1);
+        border-right: 1px solid rgba(0,0,0,.1);
   }
