@@ -1,4 +1,4 @@
 .year .month-wrap {
-    display: inline-block;
-    width: 100px;
+    display: block;
+    width: 25%;
 }
