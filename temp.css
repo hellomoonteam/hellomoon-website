@@ -8,5 +8,5 @@
 .year .calendar table tr td,
 .year .calendar table tr td:after,
 .year .calendar table tr td:before {
-    border: none !important;
+    border-style: none !important;
 }
