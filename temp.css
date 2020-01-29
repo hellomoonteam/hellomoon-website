@@ -3,5 +3,10 @@
 /* Remove calendar zebra striping */
 .year .calendar table tr td {
     background: transparent;
-    border: none;
+}
+
+.year .calendar table tr td,
+.year .calendar table tr td:after,
+.year .calendar table tr td:before {
+    border: none !important;
 }
