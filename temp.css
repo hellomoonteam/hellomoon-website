@@ -5,12 +5,7 @@
     background: transparent;
 }
 
-.year .calendar table tr td,
 .year .calendar table tr td:after,
 .year .calendar table tr td:before {
-    border: none !important;
-}
-
-.year .calendar table tr td span {
-    background: transparent !important;
+    display: none !important;
 }
