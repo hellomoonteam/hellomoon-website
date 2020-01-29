@@ -11,6 +11,6 @@
     border: none !important;
 }
 
-.year .calendar table tr {
-    border: none !important;
+.year .calendar table tr td span {
+    background: transparent !important;
 }
