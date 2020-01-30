@@ -22,4 +22,5 @@
 .grid .grid-col {
     display: inline-block;
     border: 1px solid red;
+    width: 49%;
 }
