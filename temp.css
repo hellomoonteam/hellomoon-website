@@ -9,3 +9,7 @@
 .year .calendar table tr td:after {
     bottom: -8px !important;
 }
+
+.calendar table td.has-events.has-milestone .day:before {
+    background: red;
+}
