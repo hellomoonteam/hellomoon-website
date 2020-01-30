@@ -15,8 +15,6 @@
 }
 
 .has-milestone .day {
-    background: red !important;
-    border: 1px solid purple;
-    height: 18px;
-    width: 18px;
+    height: 20px;
+    width: 20px;
 }
