@@ -18,3 +18,7 @@
     height: 18px;
     width: 18px;
 }
+
+.grid .grid-col {
+    display: inline-block;
+}
