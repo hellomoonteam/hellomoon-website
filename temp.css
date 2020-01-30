@@ -6,12 +6,9 @@
 }
 
 .year .calendar table tr td:after {
-    display: block;
-    content: '+';
-    position: absolute;
-    background-color: purple !important;
+    background-color: purple;
     top: -1px !important;
     left: -1px !important;
     right: -1px !important;
-    bottom: -1px !important;
+    bottom: -6px !important;
 }
