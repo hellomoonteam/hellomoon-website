@@ -5,7 +5,11 @@
     background: transparent;
 }
 
+
+/* The below fixes have something to do with absolute not setting the element to 100% of it's parent */ 
+
 /* Fix jagged edge on calendar days fix */
+
 .year .calendar table tr td:after {
     bottom: -8px !important;
 }
@@ -13,4 +17,5 @@
 .has-milestone .day {
     background: red !important;
     border: 1px solid purple;
+    height: 18px;
 }
