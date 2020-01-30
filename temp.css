@@ -8,12 +8,12 @@
 
 /* The below fixes have something to do with absolute not setting the element to 100% of it's parent */ 
 
-/* Fix jagged edge on calendar days fix */
-
+/* Jagged edge on calendar days */
 .year .calendar table tr td:after {
     height: 22px;
 }
 
+/* Missing milestones */
 .has-milestone .day {
     height: 18px;
     width: 18px;
