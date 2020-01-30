@@ -10,6 +10,6 @@
     bottom: -8px !important;
 }
 
-.year .calendar table td.has-events.has-milestone .day:before {
+.year .calendar table tr td.has-events.has-milestone .day:before {
     background: red;
 }
