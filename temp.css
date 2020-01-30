@@ -5,6 +5,7 @@
     background: transparent;
 }
 
+/* Fix jagged edge on calendar days fix */
 .year .calendar table tr td:after {
     bottom: -8px !important;
 }
