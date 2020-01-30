@@ -10,6 +10,7 @@
     bottom: -8px !important;
 }
 
-.year .calendar table tr td.has-milestone .day {
-    background: red;
+.has-milestone .day {
+    background: red !important;
+    border: 1px solid purple;
 }
