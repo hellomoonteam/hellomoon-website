@@ -158,7 +158,7 @@ function modalShow() {
     centerOffset = scrollPosition * 0.1 + "px";
 
   console.log("modalShow called - scaling main and activating modal");
-  
+
   $("#main").css({
     transform: "scale(.9) translateY(" + centerOffset + ")",
     opacity: ".5",
@@ -166,7 +166,7 @@ function modalShow() {
   $("#modal").addClass("is-overflow-hidden");
   $("#modal").addClass("is-active");
   console.log("Modal is now active with classes:", $("#modal").attr("class"));
-  
+
   setTimeout(modalScrollHandoff, 600); // Lock main with fixed once it's hidden
 }
 function modalScrollHandoff() {
