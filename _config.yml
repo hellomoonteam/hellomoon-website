@@ -1,10 +1,3 @@
 # Set source and destination folders
 source: ./
 destination: ./_site
-
-# Environment specific variables
-development:
-  asset_url: "./images/"
-
-production:
-  asset_url: "./images/"

@@ -1,346 +1,349 @@
-$(document).ready(function() {
-	// Bindings
-	$('body').on('click','[data-action="modalOpen"]', modalOpen);
-	$('body').on('click','[data-action="modalClose"]', modalClose);
-	$('body').on('click','[data-action="scrollSome"]', scrollSome);
-	
-	init();
+$(document).ready(function () {
+  // Bindings
+  $("body").on("click", '[data-action="modalOpen"]', modalOpen);
+  $("body").on("click", '[data-action="modalClose"]', modalClose);
+  $("body").on("click", '[data-action="scrollSome"]', scrollSome);
+
+  init();
 });
 
-window.onresize = function() {
-	setSectionHeights();
-}
-
+window.onresize = function () {
+  setSectionHeights();
+};
 
 // SIMPLE SPA FRAMEWORK
 //----------------------------------------------------
 
 // Init Page
 function init() {
-	render();
-	setSectionHeights();
+  render();
+  setSectionHeights();
 }
 
 // Render Page
 function render(hash) {
-	var hashes = getHashes(),
-		hash = window.location.hash.substring(1), 
-		hashParts = hash.split('/'), // Pass additional info split by a forward slash
-		modal = $('#modal').length > 0,
-		url = null;
+  var hashes = getHashes(),
+    hash = window.location.hash.substring(1),
+    hashParts = hash.split("/"), // Pass additional info split by a forward slash
+    modal = $("#modal").length > 0,
+    url = null;
 
-	// If there's a hash that matches a hash in the portfolio section
-	for (i=0; i < hashes.length; i++) {
-		if (hashes[i] == hash) {
-			url = $('#work').find('[data-hash="' + hash + '"]').attr('href');
-			modalLaunch(url,hash);
-		}
-	}
+  // If there's a hash that matches a hash in the portfolio section
+  for (i = 0; i < hashes.length; i++) {
+    if (hashes[i] == hash) {
+      url = $("#work")
+        .find('[data-hash="' + hash + '"]')
+        .attr("href");
+      modalLaunch(url, hash);
+    }
+  }
 
-	// If there's a hash and it's a dialog
-	if (hash == 'thanks') {
-		dialogOpen('Thank You!', 'Your message has been sent.<br> We\'ll be in touch soon.');
-	}
-	
-	// If we don't have a hash and a modal is open close it
-	if (modal && hash=='') {
-		modalHide();
-	}	
+  // If there's a hash and it's a dialog
+  if (hash == "thanks") {
+    dialogOpen(
+      "Thank You!",
+      "Your message has been sent.<br> We'll be in touch soon."
+    );
+  }
+
+  // If we don't have a hash and a modal is open close it
+  if (modal && hash == "") {
+    modalHide();
+  }
 }
 
 // Hash Change
-$(window).on('hashchange', function(){
-    render();
+$(window).on("hashchange", function () {
+  render();
 });
 
 // Update Hash
 function updateHash(hash) {
-	document.location.hash = hash;
+  document.location.hash = hash;
 }
 
 // Get Hashes
-function getHashes(){
-	var hashes = [],
-		hash;
+function getHashes() {
+  var hashes = [],
+    hash;
 
-	$('#work a').each(function( index ) {
-		hash = $(this).data('hash');
-		hashes.push(hash);
-	});
-	return hashes;
+  $("#work a").each(function (index) {
+    hash = $(this).data("hash");
+    hashes.push(hash);
+  });
+  return hashes;
 }
-
-
 
 // PAGE LOADER
 //----------------------------------------------------
 $(window).load(function () {
-	var pageLoaderTween = new TimelineMax()
-		.to($('#page-loader .loader_spinner'), .75, {
-			opacity: 0
-		})
-		.to($('#page-loader'), 1.5, {
-			opacity: 0,
-			onComplete: function() {
-				$('#page-loader').remove();
-			}
-		});
-})
-
-
+  var pageLoaderTween = new TimelineMax()
+    .to($("#page-loader .loader_spinner"), 0.75, {
+      opacity: 0,
+    })
+    .to($("#page-loader"), 1.5, {
+      opacity: 0,
+      onComplete: function () {
+        $("#page-loader").remove();
+      },
+    });
+});
 
 // MODAL
 //----------------------------------------------------
 
 // Trigger Modal Open
-function modalOpen(e){
-	var hash = $(this).attr('data-hash'),
-		scrollPosition = $(document).scrollTop();
+function modalOpen(e) {
+  var hash = $(this).attr("data-hash"),
+    scrollPosition = $(document).scrollTop();
 
-	e.preventDefault();
-	$('body').data('scroll', scrollPosition); // Store Scroll Position
-	updateHash(hash);
+  e.preventDefault();
+  $("body").data("scroll", scrollPosition); // Store Scroll Position
+  updateHash(hash);
 }
 
 // Trigger Modal Close
-function modalClose(e){
-	e.preventDefault();
-	updateHash(''); // Triggers modalHide from render function
+function modalClose(e) {
+  e.preventDefault();
+  updateHash(""); // Triggers modalHide from render function
 }
 
 // Modal Build/Show
-function modalLaunch(url,hash) {
-	modalBuild();
-	modalInject(url,hash);
-	setTimeout(modalShow, 30);
+function modalLaunch(url, hash) {
+  modalBuild();
+  modalInject(url, hash);
+  // Don't call modalShow here - let modalInject handle it after content loads
 }
-function modalBuild(){
-	html =  '<div id="modal" class="modal">';
-	html += 	'<a class="modal_close" data-action="modalClose">Close</a>';
-	html += 	'<div class="modal_content is-hidden"></div>';
-	html += '</div>';
-	$('body').append(html);
+function modalBuild() {
+  html = '<div id="modal" class="modal">';
+  html += '<a class="modal_close" data-action="modalClose">Close</a>';
+  html += '<div class="modal_content is-hidden"></div>';
+  html += "</div>";
+  $("body").append(html);
+  console.log("Modal built and added to DOM");
 }
-function modalInject(url,hash) {
-	$.ajax({
-		url: url ,
-		success: function( result ) {
-			$('#modal .modal_content').html( $(result).find('.modal_content').html() );
-		},
-		error: function( xhr, status, errorThrown ) {
-			console.log( "Error: " + errorThrown );
-			console.log( "Status: " + status );
-		},
-		complete: function( xhr, status ) {
-			console.log( 'the request is complete' );
+function modalInject(url, hash) {
+  $.ajax({
+    url: url,
+    success: function (result) {
+      $("#modal .modal_content").html($(result).find(".modal_content").html());
+      console.log("Modal content injected successfully");
+    },
+    error: function (xhr, status, errorThrown) {
+      console.log("Error: " + errorThrown);
+      console.log("Status: " + status);
+    },
+    complete: function (xhr, status) {
+      console.log("the request is complete");
 
-			// Apply Imgix fluid to loaded content
-			imgix.fluid({
-				updateOnResizeDown: true,
-				pixelStep: 5,
-				autoInsertCSSBestPractices: false
-			});
+      // Images are now handled directly without Imgix
 
-			// Wrap Images in Responsive Wrap
-			responsiveWrap('#modal');
+      // Wrap Images in Responsive Wrap
+      responsiveWrap("#modal");
 
-			// Display Modal Content (but wait a bit to make sure it's done animating)
-			setTimeout(function(){
-				$('#modal .modal_content').removeClass('is-hidden');
-			}, 300);
+      // Display Modal Content and show modal
+      setTimeout(function () {
+        $("#modal .modal_content").removeClass("is-hidden");
+        console.log("is-hidden class removed from modal content");
+        modalShow(); // Now show the modal after content is visible
+      }, 100); // Reduced delay for better responsiveness
 
-			// Google Analytics
-  			ga('send', 'pageview');
-		}
-	});
+      // Google Analytics
+      ga("send", "pageview");
+    },
+  });
 }
-function modalShow(){
-	var scrollPosition = $('body').data('scroll'),
-		centerOffset = (scrollPosition * .1) + 'px';
+function modalShow() {
+  var scrollPosition = $("body").data("scroll"),
+    centerOffset = scrollPosition * 0.1 + "px";
 
-	$('#main').css({
-		transform: 'scale(.9) translateY(' + centerOffset + ')',
-		opacity: '.5',
-	});
-	$('#modal').addClass('is-overflow-hidden')
-	$('#modal').addClass('is-active');
-	setTimeout(modalScrollHandoff, 600); // Lock main with fixed once it's hidden
+  console.log("modalShow called - scaling main and activating modal");
+  
+  $("#main").css({
+    transform: "scale(.9) translateY(" + centerOffset + ")",
+    opacity: ".5",
+  });
+  $("#modal").addClass("is-overflow-hidden");
+  $("#modal").addClass("is-active");
+  console.log("Modal is now active with classes:", $("#modal").attr("class"));
+  
+  setTimeout(modalScrollHandoff, 600); // Lock main with fixed once it's hidden
 }
-function modalScrollHandoff(){
-	// Using position fixed to avoid double scrollbars on main
-	// causes a crash on ipad and isn't really necessary anyway.
-	var is_iPad = navigator.userAgent.match(/iPad/i) != null;
-	if (! is_iPad) {
-		$('#main').css({ position: 'fixed', });
-	}
-	$('#modal').removeClass('is-overflow-hidden')
+function modalScrollHandoff() {
+  // Using position fixed to avoid double scrollbars on main
+  // causes a crash on ipad and isn't really necessary anyway.
+  var is_iPad = navigator.userAgent.match(/iPad/i) != null;
+  if (!is_iPad) {
+    $("#main").css({ position: "fixed" });
+  }
+  $("#modal").removeClass("is-overflow-hidden");
 }
 
 // Modal Hide/Empty
 function modalHide(e) {
-	var scrollPosition = $('body').data('scroll');
+  var scrollPosition = $("body").data("scroll");
 
-	$('#main').attr('style','');
-	$('#modal').removeClass('is-active');
-	$('#modal').addClass('is-overflow-hidden')
-	$(document).scrollTop(scrollPosition); // Restore previous scroll position
-	
-	setTimeout(modalEmpty, 600); // Remove modal once it's animated out of view
+  $("#main").attr("style", "");
+  $("#modal").removeClass("is-active");
+  $("#modal").addClass("is-overflow-hidden");
+  $(document).scrollTop(scrollPosition); // Restore previous scroll position
+
+  setTimeout(modalEmpty, 600); // Remove modal once it's animated out of view
 }
 function modalEmpty() {
-	$('#modal').remove(); // Remove modal markup
+  $("#modal").remove(); // Remove modal markup
 
-	// Stop currently running load events
-	try {
-	 	window.stop(); // Modern Browsers
-	} catch(e) {
-		document.execCommand('Stop'); // IE
-	}
+  // Stop currently running load events
+  try {
+    window.stop(); // Modern Browsers
+  } catch (e) {
+    document.execCommand("Stop"); // IE
+  }
 }
-
 
 // DIALOG
 // A simpler modal style component
 //----------------------------------------------------
-function dialogOpen(title,msg){
-	var html = null;
-	
-	// Build & Inject Dialog
-	html =  '<div id="dialog" class="dialog">';
-	html += 	'<a class="dialog_close" data-action="dialogClose">Close</a>';
-	html += 	'<div class="dialog_content">';
-	html += 		'<h2>' + title + '</h2>';
-	html += 		'<p>' + msg + '</p>';
-	html += 	'</div>';
-	html += '</div>';
-	$('body').append(html);
+function dialogOpen(title, msg) {
+  var html = null;
 
-	// Add bindings
-	$('body').on('click', dialogClose);
+  // Build & Inject Dialog
+  html = '<div id="dialog" class="dialog">';
+  html += '<a class="dialog_close" data-action="dialogClose">Close</a>';
+  html += '<div class="dialog_content">';
+  html += "<h2>" + title + "</h2>";
+  html += "<p>" + msg + "</p>";
+  html += "</div>";
+  html += "</div>";
+  $("body").append(html);
 
-	// Show Dialog
-	setTimeout(dialogShow, 30);
+  // Add bindings
+  $("body").on("click", dialogClose);
+
+  // Show Dialog
+  setTimeout(dialogShow, 30);
 }
 
-function dialogShow(){
-	var scrollPosition = $(document).scrollTop(),
-		centerOffset = (scrollPosition * .1) + 'px';
+function dialogShow() {
+  var scrollPosition = $(document).scrollTop(),
+    centerOffset = scrollPosition * 0.1 + "px";
 
-	$('#main').css({
-		'transform': 'scale(.9) translateY(' + centerOffset + ')',
-		'opacity': '.5'
-	});
-	$('#dialog').addClass('is-active');
+  $("#main").css({
+    transform: "scale(.9) translateY(" + centerOffset + ")",
+    opacity: ".5",
+  });
+  $("#dialog").addClass("is-active");
 }
 
-function dialogClose(e){
-	e.preventDefault();
+function dialogClose(e) {
+  e.preventDefault();
 
-	updateHash(''); // Remove Hash
+  updateHash(""); // Remove Hash
 
-	// Remove bindings
-	$('body').off('click', dialogClose);
+  // Remove bindings
+  $("body").off("click", dialogClose);
 
-	// Hide Dialog
-	$('#main').attr('style','');
-	$('#dialog').removeClass('is-active');
+  // Hide Dialog
+  $("#main").attr("style", "");
+  $("#dialog").removeClass("is-active");
 
-	// Remove Dialog
-	setTimeout(dialogRemove, 600); // Don't empty until modal is hidden
+  // Remove Dialog
+  setTimeout(dialogRemove, 600); // Don't empty until modal is hidden
 }
-
 
 function dialogRemove() {
-	$('#modal').remove();
+  $("#modal").remove();
 }
-
 
 // RESPONSIVE IMAGE WRAP
 // Wrap images in aspect ratio locked div to preserve
 // space in layout before they have loaded.
 //----------------------------------------------------
-function responsiveWrap(parent){
-	var $parent = $(parent),
-		images = $parent.find('img');
+function responsiveWrap(parent) {
+  var $parent = $(parent),
+    images = $parent.find("img");
 
-	for (i=0; i<images.length; i++) {
-   		loadingWrap(images[i]);
-	}
+  for (i = 0; i < images.length; i++) {
+    loadingWrap(images[i]);
+  }
 
-	function loadingWrap(img) {
-        var imageWidth = img.getAttribute('width'),
-            imageHeight = img.getAttribute('height'),
-            percentRatio = imageHeight/imageWidth * 100,
-            wrapper = document.createElement('div');
-    
-        // Wrap Element
-        img.setAttribute('style', 'position: absolute; width: 100%; height: auto;');
-        wrapper.setAttribute('style', 'position: relative; padding-bottom: ' + percentRatio + '%;');
-        img.parentNode.insertBefore(wrapper, img);
-        wrapper.appendChild(img);
-    }
+  function loadingWrap(img) {
+    var imageWidth = img.getAttribute("width"),
+      imageHeight = img.getAttribute("height"),
+      percentRatio = (imageHeight / imageWidth) * 100,
+      wrapper = document.createElement("div");
+
+    // Wrap Element
+    img.setAttribute("style", "position: absolute; width: 100%; height: auto;");
+    wrapper.setAttribute(
+      "style",
+      "position: relative; padding-bottom: " + percentRatio + "%;"
+    );
+    img.parentNode.insertBefore(wrapper, img);
+    wrapper.appendChild(img);
+  }
 }
-
 
 // LOCK 100% SECTION HEIGHTS ON MOBILE
 // Sections that are 100% high on mobile should have
 // their section height locked to avoid glitches when
-// viewport height changes due to url bar hiding in 
+// viewport height changes due to url bar hiding in
 // android.
 //----------------------------------------------------
-function setSectionHeights(){
-	var maxHeight = 1000,
-		windowHeight =  $(window).height(),
-		windowWidth = $(window).width(),
-		viewportHeight = windowHeight > maxHeight ? maxHeight : windowHeight,
-		viewportWidth = windowWidth;
-		
+function setSectionHeights() {
+  var maxHeight = 1000,
+    windowHeight = $(window).height(),
+    windowWidth = $(window).width(),
+    viewportHeight = windowHeight > maxHeight ? maxHeight : windowHeight,
+    viewportWidth = windowWidth;
 
-	$('.section.is-height-100').css('height', viewportHeight);
-	
-	console.log('-----');
-	console.log(windowHeight);
-	console.log(viewportHeight);
+  $(".section.is-height-100").css("height", viewportHeight);
 
-	// Only set size in pixels if we are portrait on mobile
-	if (viewportWidth < 770 && viewportHeight > 450) {
-		$('.section.is-height-100').css('height', viewportHeight);
-	}
+  console.log("-----");
+  console.log(windowHeight);
+  console.log(viewportHeight);
+
+  // Only set size in pixels if we are portrait on mobile
+  if (viewportWidth < 770 && viewportHeight > 450) {
+    $(".section.is-height-100").css("height", viewportHeight);
+  }
 }
 
 // SCROLL SOME
 // Used to communicate page can be scrolled
 //----------------------------------------------------
 function scrollSome(e) {
-	e.preventDefault();
-	
-	var scrollPosition = $('body').scrollTop(),
-		sectionHeight = $('main section:first-child').height(),
-		newScrollPosition = scrollPosition + sectionHeight;
+  e.preventDefault();
 
-	//jQuery Animation Method
-	//$('body').animate({ scrollTop: newScrollPosition });
-	
-	// GSAP Animation Method
-	TweenMax.to(window, .8, {
-		scrollTo: {y:newScrollPosition}, ease: Power2.easeInOut
-	});
+  var scrollPosition = $("body").scrollTop(),
+    sectionHeight = $("main section:first-child").height(),
+    newScrollPosition = scrollPosition + sectionHeight;
+
+  //jQuery Animation Method
+  //$('body').animate({ scrollTop: newScrollPosition });
+
+  // GSAP Animation Method
+  TweenMax.to(window, 0.8, {
+    scrollTo: { y: newScrollPosition },
+    ease: Power2.easeInOut,
+  });
 }
 
 // START/RESET GRID ANIMATION
 //----------------------------------------------------
-$('[data-action="exploreAnimateToggle"]').on('click', function(){
-	var textOn = 'Watch Us Adapt',
-		textOff = 'Reset Shape';
-	
-	if ( $(this).text() == textOn ){
-		playShift();
-		$(this).text(textOff);
-	} else {
-		resetShift();
-		$(this).text(textOn);
-	}
+$('[data-action="exploreAnimateToggle"]').on("click", function () {
+  var textOn = "Watch Us Adapt",
+    textOff = "Reset Shape";
+
+  if ($(this).text() == textOn) {
+    playShift();
+    $(this).text(textOff);
+  } else {
+    resetShift();
+    $(this).text(textOn);
+  }
 });
+
 (function($){
 
 	// SETTINGS

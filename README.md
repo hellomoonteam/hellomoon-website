@@ -20,6 +20,8 @@ A modern, responsive website built with Jekyll and Gulp.
    ```bash
    npm run dev
    ```
+   - Local: http://localhost:4000
+   - Live reload enabled
 
 3. Build for production:
    ```bash
@@ -63,7 +65,7 @@ The build system processes:
 ├── js/_lib/           # Third-party libraries
 ├── _svg_sprites/      # SVG source files
 ├── portfolio/         # Portfolio pages
-├── images/            # Image assets
+├── images/            # Image assets (direct references)
 └── _site/            # Build output (generated)
 ```
 
@@ -72,10 +74,21 @@ The build system processes:
 - `netlify.toml` - Netlify deployment settings
 - `_config.yml` - Jekyll configuration
 - `gulpfile.js` - Build system configuration
+- `Gemfile` - Ruby dependencies (includes webrick for Jekyll 4.2)
 
 ## 📝 Notes
 
 - The site uses Jekyll 4.2 for static generation
 - Gulp 4 handles asset processing and optimization
-- BrowserSync provides live reload during development
+- **Development server**: Jekyll with live reload (port 4000)
 - SVG sprites are automatically generated from source files
+- **Images are referenced directly** - no external dependencies
+- **No Imgix dependency** - all images load from local `/images/` folder
+
+## ✅ Status
+
+- **Build system**: ✅ Working (Gulp 4 + Jekyll 4.2)
+- **Development server**: ✅ Working (Jekyll on port 4000 with live reload)
+- **Portfolio links**: ✅ Working (tested: /portfolio/levolor.html)
+- **Image handling**: ✅ Direct references (no external services)
+- **Netlify ready**: ✅ Configured and tested

@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "build": "gulp build",
-    "dev": "gulp",
-    "start": "gulp"
+    "dev": "bundle exec jekyll serve --livereload --port 4000",
+    "start": "bundle exec jekyll serve --livereload --port 4000",
+    "serve": "bundle exec jekyll serve --livereload --port 4000"
   },
   "devDependencies": {
     "browser-sync": "^2.29.3",
@@ -22,7 +23,7 @@
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
     "install": "^0.13.0",
-    "npm": "^10.8.2"
+    "npm": "^9.8.1"
   },
   "dependencies": {}
 }
